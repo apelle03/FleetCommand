@@ -9,7 +9,7 @@ namespace Fleet_Command {
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (FC game = new FC())
             {
                 game.Run();
             }
