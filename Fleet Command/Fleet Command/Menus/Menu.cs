@@ -15,7 +15,7 @@ namespace Fleet_Command.Menus {
 
         public Menu(FC game)
             : base(game) {
-                drawableGameComponents.Add(new MenuComponent(game));
+                components.Add(new MenuComponent(game));
                 area = new Rectangle(10, 10, 500, 500);
                 color = Color.WhiteSmoke;
         }
