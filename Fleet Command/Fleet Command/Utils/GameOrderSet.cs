@@ -55,6 +55,10 @@ namespace Fleet_Command.Utils {
             draw.ExceptWith(other);
         }
 
+        public SortedSet<T>.Enumerator GetEnumerator() {
+            return update.GetEnumerator();
+        }
+
         public SortedSet<T>.Enumerator GetUpdateEnumerator() {
             return update.GetEnumerator();
         }
