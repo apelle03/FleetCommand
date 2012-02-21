@@ -114,6 +114,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="FC.cs" />
+    <Compile Include="Utils\ByDrawOrder.cs" />
+    <Compile Include="Utils\ByUpdateOrder.cs" />
+    <Compile Include="Utils\GameOrderSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
