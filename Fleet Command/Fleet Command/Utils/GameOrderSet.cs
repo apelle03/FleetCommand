@@ -8,13 +8,13 @@ namespace Fleet_Command.Utils {
         private SortedSet<T> update, draw;
 
         public GameOrderSet() {
-            update = new SortedSet<T>(new ByUpdateOrder());
-            draw = new SortedSet<T>(new ByDrawOrder());
+            update = new SortedSet<T>(new ByUpdateOrder<T>());
+            draw = new SortedSet<T>(new ByDrawOrder<T>());
         }
 
         public GameOrderSet(IEnumerable<T> other)
             : this() {
-                this.UnionWith(other);
+                UnionWith(other);
         }
 
         public int Count {

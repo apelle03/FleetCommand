@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="Game\DCG.cs" />
     <Compile Include="Game\DGCDelegator.cs" />
+    <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MenuComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -19,9 +19,15 @@ namespace Fleet_Command.Menus {
                 color = Color.Black;
         }
 
+        public override void Initialize() {
+            base.Initialize();
+            Console.WriteLine("init menu component");
+        }
+
         public override void LoadContent() {
             texture = new Texture2D(GraphicsDevice, 1, 1);
             texture.SetData(new Color[] { Color.White });
+            Console.WriteLine("load menu component");
 
             base.LoadContent();
         }

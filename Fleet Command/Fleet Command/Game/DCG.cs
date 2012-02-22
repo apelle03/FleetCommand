@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xna.Framework;
 
+using Fleet_Command.Utils;
+
 namespace Fleet_Command {
     class DGC : DrawableGameComponent {
 

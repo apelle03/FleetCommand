@@ -9,6 +9,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Fleet_Command.Menus;
+
 namespace Fleet_Command {
     public class FC : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
@@ -17,14 +19,14 @@ namespace Fleet_Command {
         public FC() {
             graphics = new GraphicsDeviceManager(this);
 
-            graphics.PreferredBackBufferWidth = 1680;
-            graphics.PreferredBackBufferHeight = 1050;
-            graphics.IsFullScreen = true;
+            //graphics.PreferredBackBufferWidth = 1680;
+            //graphics.PreferredBackBufferHeight = 1050;
+            //graphics.IsFullScreen = true;
 
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
 
-            Components.Add(new Menus.Menu(this));
+            Components.Add(new MainMenu(this));
         }
 
         protected override void Initialize() {
@@ -37,14 +39,20 @@ namespace Fleet_Command {
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
-            foreach (DGC dgc in Components) {
-                dgc.LoadContent();
+            foreach (IGameComponent gc in Components) {
+                if (gc is DGC) {
+                    DGC dgc = (DGC)gc;
+                    dgc.LoadContent();
+                }
             }
         }
 
         protected override void UnloadContent() {
-            foreach (DGC dgc in Components) {
-                dgc.UnloadContent();
+            foreach (IGameComponent gc in Components) {
+                if (gc is DGC) {
+                    DGC dgc = (DGC)gc;
+                    dgc.UnloadContent();
+                }
             }
         }
 

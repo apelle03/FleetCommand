@@ -10,6 +10,7 @@ namespace Fleet_Command {
     class DGCDelegator<T> : DGC where T : DGC {
 
         protected GameOrderSet<T> components;
+        public GameOrderSet<T> Components { get { return components; } }
 
         public DGCDelegator(FC game)
             : base(game) {
@@ -17,17 +18,17 @@ namespace Fleet_Command {
         }
 
         public override void Initialize() {
+            base.Initialize();
             foreach (DGC dgc in components) {
                 dgc.Initialize();
             }
-            base.Initialize();
         }
 
         public override void LoadContent() {
+            base.LoadContent();
             foreach (DGC dgc in components) {
                 dgc.LoadContent();
             }
-            base.LoadContent();
         }
 
         public override void UnloadContent() {
@@ -39,22 +40,31 @@ namespace Fleet_Command {
 
         public override void Update(GameTime gameTime) {
             if (Enabled) {
+                BeforeUpdate(gameTime);
                 foreach (DGC dgc in components) {
                     if (dgc.Enabled) {
                         dgc.Update(gameTime);
                     }
                 }
+                AfterUpdate(gameTime);
             }
         }
 
         public override void Draw(GameTime gameTime) {
             if (Visible) {
+                BeforeDraw(gameTime);
                 foreach (DGC dgc in components) {
                     if (dgc.Visible) {
                         dgc.Draw(gameTime);
                     }
                 }
+                AfterDraw(gameTime);
             }
         }
+
+        public virtual void BeforeUpdate(GameTime gameTime) { }
+        public virtual void AfterUpdate(GameTime gameTime) { }
+        public virtual void BeforeDraw(GameTime gameTime) { }
+        public virtual void AfterDraw(GameTime gameTime) { }
     }
 }

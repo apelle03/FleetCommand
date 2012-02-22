@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 
 namespace Fleet_Command.Utils {
-    class ByUpdateOrder : IComparer<DGC> {
-        public int Compare(DGC dgc1, DGC dgc2) {
-            return dgc1.UpdateOrder - dgc2.UpdateOrder;
+    class ByUpdateOrder<T> : IComparer<T> where T : DGC {
+        public int Compare(T t1, T t2) {
+            return t1.UpdateOrder - t2.UpdateOrder;
         }
     }
 }
