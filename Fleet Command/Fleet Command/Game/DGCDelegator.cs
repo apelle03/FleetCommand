@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Fleet_Command.Utils;
 
 namespace Fleet_Command {
-    class DGCDelegator<T> : DGC where T : DGC {
+    public class DGCDelegator<T> : DGC where T : DGC {
 
         protected GameOrderSet<T> components;
         public GameOrderSet<T> Components { get { return components; } }

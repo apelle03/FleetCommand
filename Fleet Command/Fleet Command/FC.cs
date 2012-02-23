@@ -10,11 +10,15 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 using Fleet_Command.Menus;
+using Fleet_Command.Input;
 
 namespace Fleet_Command {
     public class FC : Microsoft.Xna.Framework.Game {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+        protected InputManager inputManager;
+        public InputManager InputManager { get { return inputManager; } }
 
         public FC() {
             graphics = new GraphicsDeviceManager(this);
@@ -26,6 +30,7 @@ namespace Fleet_Command {
             Content.RootDirectory = "Content";
             this.IsMouseVisible = true;
 
+            inputManager = new InputManager(this);
             Components.Add(new MainMenu(this));
         }
 
@@ -57,7 +62,7 @@ namespace Fleet_Command {
         }
 
         protected override void Update(GameTime gameTime) {
-            // TODO: Add your update logic here
+            inputManager.Update(gameTime);
 
             base.Update(gameTime);
         }

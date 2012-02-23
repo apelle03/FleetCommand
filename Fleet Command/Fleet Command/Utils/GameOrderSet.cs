@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 
 namespace Fleet_Command.Utils {
-    class GameOrderSet<T> where T : DGC {
+    public class GameOrderSet<T> where T : DGC {
         private SortedSet<T> update, draw;
 
         public GameOrderSet() {

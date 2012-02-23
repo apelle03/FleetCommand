@@ -109,6 +109,8 @@
   <ItemGroup>
     <Compile Include="Game\DCG.cs" />
     <Compile Include="Game\DGCDelegator.cs" />
+    <Compile Include="Input\InputItem.cs" />
+    <Compile Include="Input\InputManager.cs" />
     <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MenuComponent.cs" />

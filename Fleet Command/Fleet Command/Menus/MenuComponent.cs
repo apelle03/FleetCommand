@@ -7,35 +7,37 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Fleet_Command.Menus {
-    class MenuComponent : DGC {
+    public class MenuComponent : DGC {
 
-        private Rectangle area;
         private Texture2D texture;
         private Color color;
 
         public MenuComponent(FC game)
             : base(game) {
-                area = new Rectangle(20, 20, 100, 200);
+                boundingBox = new Rectangle(20, 20, 100, 200);
                 color = Color.Black;
         }
 
         public override void Initialize() {
             base.Initialize();
-            Console.WriteLine("init menu component");
+            FC.InputManager.Register(Input.Actions.Click);
         }
 
         public override void LoadContent() {
+            base.LoadContent();
             texture = new Texture2D(GraphicsDevice, 1, 1);
             texture.SetData(new Color[] { Color.White });
-            Console.WriteLine("load menu component");
+        }
 
-            base.LoadContent();
+        public override void Update(GameTime gameTime) {
+            base.Update(gameTime);
+            Console.WriteLine(FC.InputManager.CheckAction(Input.Actions.Click, this));
         }
 
         public override void Draw(GameTime gameTime) {
-            SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
-            spriteBatch.Draw(texture, area, color);
             base.Draw(gameTime);
+            SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
+            spriteBatch.Draw(texture, boundingBox, color);
         }
     }
 }

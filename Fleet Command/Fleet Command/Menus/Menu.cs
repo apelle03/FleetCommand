@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Fleet_Command.Menus {
-    class Menu : DGCDelegator<MenuComponent> {
+    public class Menu : DGCDelegator<MenuComponent> {
 
         private Rectangle area;
         private Texture2D texture;
@@ -20,17 +20,19 @@ namespace Fleet_Command.Menus {
         }
 
         public override void LoadContent() {
-
+            base.LoadContent();
             texture = new Texture2D(GraphicsDevice, 1, 1);
             texture.SetData(new Color[] { Color.White });
-
-            base.LoadContent();
         }
 
         public override void Draw(GameTime gameTime) {
+            base.Draw(gameTime);
+        }
+
+        public override void BeforeDraw(GameTime gameTime) {
+            base.BeforeDraw(gameTime);
             SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
             spriteBatch.Draw(texture, area, color);
-            base.Draw(gameTime);
         }
     }
 }
