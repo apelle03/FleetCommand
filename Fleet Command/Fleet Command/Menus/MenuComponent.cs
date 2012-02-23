@@ -6,38 +6,33 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Fleet_Command.Game;
+
 namespace Fleet_Command.Menus {
-    public class MenuComponent : DGC {
-
-        private Texture2D texture;
-        private Color color;
-
+    public class MenuComponent : RelativeSizeComponent<MenuComponent> {
         public MenuComponent(FC game)
-            : base(game) {
-                boundingBox = new Rectangle(20, 20, 100, 200);
-                color = Color.Black;
+            : this(game, Vector2.Zero, Vector2.Zero, null, Color.White) {
+        }
+
+        public MenuComponent(FC game, Vector2 relPos, Vector2 relSize)
+            : this(game, relPos, relSize, null, Color.White) {
+        }
+
+        public MenuComponent(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd)
+            : this(game, relPos, relSize, bckgrnd, Color.White) {
+        }
+
+        public MenuComponent(FC game, Vector2 relPos, Vector2 relSize, Color color)
+            : this(game, relPos, relSize, null, color) {
+        }
+
+        public MenuComponent(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd, Color color)
+            : base(game, relPos, relSize, bckgrnd, color) {
         }
 
         public override void Initialize() {
             base.Initialize();
             FC.InputManager.Register(Input.Actions.Click);
-        }
-
-        public override void LoadContent() {
-            base.LoadContent();
-            texture = new Texture2D(GraphicsDevice, 1, 1);
-            texture.SetData(new Color[] { Color.White });
-        }
-
-        public override void Update(GameTime gameTime) {
-            base.Update(gameTime);
-            Console.WriteLine(FC.InputManager.CheckAction(Input.Actions.Click, this));
-        }
-
-        public override void Draw(GameTime gameTime) {
-            base.Draw(gameTime);
-            SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
-            spriteBatch.Draw(texture, boundingBox, color);
         }
     }
 }

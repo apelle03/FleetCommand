@@ -14,8 +14,8 @@ using Fleet_Command.Input;
 
 namespace Fleet_Command {
     public class FC : Microsoft.Xna.Framework.Game {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        protected GraphicsDeviceManager graphics;
+        protected SpriteBatch spriteBatch;
 
         protected InputManager inputManager;
         public InputManager InputManager { get { return inputManager; } }
@@ -31,7 +31,7 @@ namespace Fleet_Command {
             this.IsMouseVisible = true;
 
             inputManager = new InputManager(this);
-            Components.Add(new MainMenu(this));
+            Components.Add(new MainMenu(this, new Vector2(0.05f, 0.05f), new Vector2(0.9f, 0.9f), Color.Black));
         }
 
         protected override void Initialize() {

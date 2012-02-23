@@ -6,33 +6,28 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Fleet_Command.Game;
+
 namespace Fleet_Command.Menus {
-    public class Menu : DGCDelegator<MenuComponent> {
-
-        private Rectangle area;
-        private Texture2D texture;
-        private Color color;
-
+    public class Menu<T> : RelativeSizeComponent<T> where T : DGC {
         public Menu(FC game)
-            : base(game) {
-                area = new Rectangle(10, 10, 500, 500);
-                color = Color.WhiteSmoke;
+            : this(game, Vector2.Zero, Vector2.Zero, null, Color.White) {
         }
 
-        public override void LoadContent() {
-            base.LoadContent();
-            texture = new Texture2D(GraphicsDevice, 1, 1);
-            texture.SetData(new Color[] { Color.White });
+        public Menu(FC game, Vector2 relPos, Vector2 relSize)
+            : this(game, relPos, relSize, null, Color.White) {
         }
 
-        public override void Draw(GameTime gameTime) {
-            base.Draw(gameTime);
+        public Menu(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd)
+            : this(game, relPos, relSize, bckgrnd, Color.White) {
         }
 
-        public override void BeforeDraw(GameTime gameTime) {
-            base.BeforeDraw(gameTime);
-            SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
-            spriteBatch.Draw(texture, area, color);
+        public Menu(FC game, Vector2 relPos, Vector2 relSize, Color color)
+            : this(game, relPos, relSize, null, color) {
+        }
+
+        public Menu(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd, Color color)
+            : base(game, relPos, relSize, bckgrnd, color) {
         }
     }
 }
