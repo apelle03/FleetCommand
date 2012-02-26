@@ -26,17 +26,9 @@ namespace Fleet_Command.Menus {
 
         public MainMenu(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd, Color color)
             : base(game, relPos, relSize, bckgrnd, color) {
-            Components.Add(new MenuComponent(game, new Vector2(.1f, .1f), new Vector2(.3f, .2f), Color.White));
-        }
-
-        public override void Initialize() {
-            base.Initialize();
-            FC.InputManager.Register(Input.Actions.Click);
-        }
-
-        public override void Update(GameTime gameTime) {
-            base.Update(gameTime);
-            Console.WriteLine(FC.InputManager.CheckAction(Input.Actions.Click, this));
+            Components.Add(new MenuComponent(game, new Vector2(.1f, .1f), new Vector2(.3f, .1f), "Start Game"));
+            Components.Add(new MenuComponent(game, new Vector2(.1f, .25f), new Vector2(.3f, .1f), "Options"));
+            Components.Add(new MenuComponent(game, new Vector2(.1f, .4f), new Vector2(.3f, .1f), "Quit"));
         }
     }
 }

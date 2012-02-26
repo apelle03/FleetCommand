@@ -41,9 +41,10 @@ namespace Fleet_Command {
         public override void Update(GameTime gameTime) {
             if (Enabled) {
                 BeforeUpdate(gameTime);
-                foreach (DGC dgc in components) {
-                    if (dgc.Enabled) {
-                        dgc.Update(gameTime);
+                SortedSet<T>.Enumerator iter = components.GetUpdateEnumerator();
+                while (iter.MoveNext()) {
+                    if (iter.Current.Enabled) {
+                        iter.Current.Update(gameTime);
                     }
                 }
                 AfterUpdate(gameTime);
@@ -53,9 +54,10 @@ namespace Fleet_Command {
         public override void Draw(GameTime gameTime) {
             if (Visible) {
                 BeforeDraw(gameTime);
-                foreach (DGC dgc in components) {
-                    if (dgc.Visible) {
-                        dgc.Draw(gameTime);
+                SortedSet<T>.Enumerator iter = components.GetDrawEnumerator();
+                while (iter.MoveNext()) {
+                    if (iter.Current.Visible) {
+                        iter.Current.Draw(gameTime);
                     }
                 }
                 AfterDraw(gameTime);

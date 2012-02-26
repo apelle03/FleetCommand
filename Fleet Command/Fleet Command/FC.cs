@@ -19,16 +19,20 @@ namespace Fleet_Command {
 
         protected InputManager inputManager;
         public InputManager InputManager { get { return inputManager; } }
+        protected string settingsDir;
+        public string SettingsDir { get { return settingsDir; } }
 
         public FC() {
+            settingsDir = ".\\";
+
             graphics = new GraphicsDeviceManager(this);
 
             //graphics.PreferredBackBufferWidth = 1680;
             //graphics.PreferredBackBufferHeight = 1050;
             //graphics.IsFullScreen = true;
+            this.IsMouseVisible = true;
 
             Content.RootDirectory = "Content";
-            this.IsMouseVisible = true;
 
             inputManager = new InputManager(this);
             Components.Add(new MainMenu(this, new Vector2(0.05f, 0.05f), new Vector2(0.9f, 0.9f), Color.Black));

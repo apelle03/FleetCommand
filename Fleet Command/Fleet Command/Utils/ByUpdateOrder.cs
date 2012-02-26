@@ -6,7 +6,12 @@ using System.Text;
 namespace Fleet_Command.Utils {
     class ByUpdateOrder<T> : IComparer<T> where T : DGC {
         public int Compare(T t1, T t2) {
-            return t1.UpdateOrder - t2.UpdateOrder;
+            int orderDiff = t1.UpdateOrder - t2.UpdateOrder;
+            if (orderDiff != 0) {
+                return orderDiff;
+            } else {
+                return 1;
+            }
         }
     }
 }
