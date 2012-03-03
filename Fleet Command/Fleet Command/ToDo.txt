@@ -1,0 +1,3 @@
+﻿Change InputManager to accurately handle cases where defaults have already been added
+	specifically with adding keys to the watch list
+

@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Runtime.Serialization;
+using System.IO;
+
+using Microsoft.Xna.Framework.Input;
 
 using Fleet_Command.Input;
 
 namespace Fleet_Command.Input {
-    [DataContract]
     public class BindingSettings {
-        [DataMember]
         protected bool custom;
         public bool Custom { get { return custom; } }
-        [DataMember]
         protected Dictionary<Actions, List<InputItem>> bindings;
 
         public BindingSettings() {
@@ -43,6 +42,43 @@ namespace Fleet_Command.Input {
                     custom = true;
                 }
             }
+        }
+
+        public void SaveToFile(string fileName) {
+            StreamWriter writer = new StreamWriter(fileName, false);
+            foreach (Actions action in bindings.Keys) {
+                string keys = "";
+                foreach (InputItem ii in bindings[action]) {
+                    keys += ii.ToString();
+                }
+                writer.WriteLine("{0}:{1}", action.ToString(), keys);
+            }
+            writer.Close();
+        }
+
+        public void LoadFromFile(string fileName) {
+            StreamReader reader = new StreamReader(fileName);
+            custom = false;
+            bindings = new Dictionary<Actions, List<InputItem>>();
+            while (reader.Peek() >= 0) {
+                string[] parts = reader.ReadLine().Split(':');
+                Actions action;
+                if (Enum.TryParse<Actions>(parts[0], true, out action)) {
+                    List<MouseButtons> mouse = new List<MouseButtons>();
+                    List<Keys> keys = new List<Keys>();
+                    foreach (string part in parts) {
+                        MouseButtons mb;
+                        Keys k;
+                        if (Enum.TryParse<MouseButtons>(part, out mb)) {
+                            mouse.Add(mb);
+                        } else if (Enum.TryParse<Keys>(part, out k)) {
+                            keys.Add(k);
+                        }
+                    }
+                    AddBinding(action, new InputItem(keys, mouse));
+                }
+            }
+            reader.Close();
         }
     }
 }

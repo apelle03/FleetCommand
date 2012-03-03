@@ -9,30 +9,31 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Fleet_Command.Game {
     public class RelativeSizeComponent<T> : DGCDelegator<T> where T : DGC {
         protected Vector2 relativePos, relativeSize;
+        protected string backgroundSource;
         protected Texture2D background;
         protected Color color;
 
         public RelativeSizeComponent(FC game)
-            : this(game, Vector2.Zero, Vector2.Zero, null, Color.White) {
+            : this(game, Vector2.Zero, Vector2.Zero, null, Color.Transparent) {
         }
 
         public RelativeSizeComponent(FC game, Vector2 relPos, Vector2 relSize)
-            : this(game, relPos, relSize, null, Color.White) {
+            : this(game, relPos, relSize, null, Color.Transparent) {
         }
 
-        public RelativeSizeComponent(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd)
-            : this(game, relPos, relSize, bckgrnd, Color.White) {
+        public RelativeSizeComponent(FC game, Vector2 relPos, Vector2 relSize, string bckgrnd)
+            : this(game, relPos, relSize, bckgrnd, Color.Transparent) {
         }
 
         public RelativeSizeComponent(FC game, Vector2 relPos, Vector2 relSize, Color color)
             : this(game, relPos, relSize, null, color) {
         }
 
-        public RelativeSizeComponent(FC game, Vector2 relPos, Vector2 relSize, Texture2D bckgrnd, Color color)
+        public RelativeSizeComponent(FC game, Vector2 relPos, Vector2 relSize, string bckgrnd, Color color)
             : base(game) {
             relativePos = relPos;
             relativeSize = relSize;
-            background = bckgrnd;
+            backgroundSource = bckgrnd;
             this.color = color;
         }
 
@@ -43,9 +44,11 @@ namespace Fleet_Command.Game {
 
             boundingBox = new Rectangle((int)(width * relativePos.X), (int)(height * relativePos.Y), (int)(width * relativeSize.X), (int)(height * relativeSize.Y));
 
-            if (background == null) {
+            if (backgroundSource == null) {
                 background = new Texture2D(GraphicsDevice, 1, 1);
                 background.SetData(new Color[] { Color.White });
+            } else {
+                background = FC.Content.Load<Texture2D>(backgroundSource);
             }
         }
 

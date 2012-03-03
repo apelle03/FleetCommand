@@ -1,1 +1,8 @@
 Content\battlestar.xnb
+Content\fill.xnb
+Content\outline_corner.xnb
+Content\outline_side.xnb
+Content\outline_top.xnb
+Content\fill_corner.xnb
+Content\fill_side.xnb
+Content\fill_top.xnb

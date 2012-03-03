@@ -115,6 +115,7 @@
     <Compile Include="Input\BindingSettings.cs" />
     <Compile Include="Input\InputItem.cs" />
     <Compile Include="Input\InputManager.cs" />
+    <Compile Include="Menus\Button.cs" />
     <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MenuComponent.cs" />
@@ -128,6 +129,7 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
+    <Content Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fleet CommandContent\Fleet CommandContent.contentproj">

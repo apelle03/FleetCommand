@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,43 +19,30 @@ namespace Fleet_Command.Input {
         public InputManager(FC game)
             : base(game) {
                 bindings = new BindingSettings();
-                if (File.Exists(FC.SettingsDir + "custom.xml")) {
-                    FileStream file = new FileStream(FC.SettingsDir + "custom.xml", FileMode.Open);
-                    XmlDictionaryReader xmlReader = XmlDictionaryReader.CreateTextReader(file, new XmlDictionaryReaderQuotas());
-                    DataContractSerializer reader = new DataContractSerializer(typeof(BindingSettings));
-                    bindings = (BindingSettings)reader.ReadObject(xmlReader);
-                    xmlReader.Close();
-                    file.Close();
-                } else if (File.Exists(FC.SettingsDir + "default.xml")) {
-                    FileStream file = new FileStream(FC.SettingsDir + "default.xml", FileMode.Open);
-                    XmlDictionaryReader xmlReader = XmlDictionaryReader.CreateTextReader(file, new XmlDictionaryReaderQuotas());
-                    DataContractSerializer reader = new DataContractSerializer(typeof(BindingSettings));
-                    bindings = (BindingSettings)reader.ReadObject(xmlReader);
-                    xmlReader.Close();
-                    file.Close();
+                if (File.Exists(FC.SettingsDir + "custom.ini")) {
+                    bindings.LoadFromFile(FC.SettingsDir + "custom.ini");
+                } else if (File.Exists(FC.SettingsDir + "default.ini")) {
+                    bindings.LoadFromFile(FC.SettingsDir + "default.ini");
                 }
                 keyboardState = new Dictionary<Keys, KeyState>();
         }
 
         public void Save() {
             if (bindings.Custom) {
-                FileStream file = new FileStream(FC.SettingsDir + "custom.xml", FileMode.Create);
-                DataContractSerializer writer = new DataContractSerializer(typeof(BindingSettings));
-                writer.WriteObject(file, bindings);
-                file.Close();
+                bindings.SaveToFile(FC.SettingsDir + "custom.ini");
             }
         }
 
         public void Register(Actions action) {
             if (bindings.GetBindings(action) == null) {
-                // write code here to not overwrite default settings when new stuff is bound
-                BitArray mouse = new BitArray(Enum.GetValues(typeof(MouseButtons)).Length);
-                mouse.Set((int)MouseButtons.Right, true);
-                mouse.Set((int)MouseButtons.XY, true);
+                List<MouseButtons> mouse = new List<MouseButtons>();
+                mouse.Add(MouseButtons.LeftButton);
+                mouse.Add(MouseButtons.XY);
                 InputItem ii = new InputItem(new List<Keys>(), mouse);
 
                 bindings.AddBinding(action, ii);
 
+                // need to add keys no mater what
                 foreach (Keys key in ii.KeyboardRequirements) {
                     keyboardState.Add(key, KeyState.Up);
                 }
@@ -72,30 +58,34 @@ namespace Fleet_Command.Input {
                         if (keyboardState[key] == KeyState.Up)
                             value = 0;
                     }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.Left) && mouseState.LeftButton == ButtonState.Released) {
-                        value = 0;
-                    }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.Middle) && mouseState.MiddleButton == ButtonState.Released) {
-                        value = 0;
-                    }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.Right) && mouseState.RightButton == ButtonState.Released) {
-                        value = 0;
-                    }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.X1) && mouseState.XButton1 == ButtonState.Released) {
-                        value = 0;
-                    }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.X2) && mouseState.XButton2 == ButtonState.Released) {
-                        value = 0;
-                    }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.XY)) {
-                        Rectangle boundingBox = actor.BoundingBox;
-                        if (mouseState.X < boundingBox.X || mouseState.X > boundingBox.X + boundingBox.Width ||
-                            mouseState.Y < boundingBox.Y || mouseState.Y > boundingBox.Y + boundingBox.Height) {
-                                value = 0;
+                    foreach (MouseButtons mb in combo.MouseRequirements) {
+                        switch (mb) {
+                            case MouseButtons.LeftButton:
+                                if (mouseState.LeftButton == ButtonState.Released) value = 0;
+                                break;
+                            case MouseButtons.MiddleButton:
+                                if (mouseState.MiddleButton == ButtonState.Released) value = 0;
+                                break;
+                            case MouseButtons.RightButton:
+                                if (mouseState.RightButton == ButtonState.Released) value = 0;
+                                break;
+                            case MouseButtons.X1:
+                                if (mouseState.XButton1 == ButtonState.Released) value = 0;
+                                break;
+                            case MouseButtons.X2:
+                                if (mouseState.XButton2 == ButtonState.Released) value = 0;
+                                break;                                
+                            case MouseButtons.XY:
+                                Rectangle boundingBox = actor.BoundingBox;
+                                if (mouseState.X < boundingBox.X || mouseState.X > boundingBox.X + boundingBox.Width ||
+                                mouseState.Y < boundingBox.Y || mouseState.Y > boundingBox.Y + boundingBox.Height) {
+                                    value = 0;
+                                }
+                                break;
+                            case MouseButtons.Wheel:
+                                value = mouseState.ScrollWheelValue;
+                                break;
                         }
-                    }
-                    if (combo.MouseRequirements.Get((int)MouseButtons.Wheel)) {
-                        value = mouseState.ScrollWheelValue;
                     }
                     if (value != 0) {
                         return value;

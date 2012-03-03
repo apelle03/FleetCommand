@@ -26,7 +26,8 @@ namespace Fleet_Command {
             settingsDir = ".\\";
 
             graphics = new GraphicsDeviceManager(this);
-
+            
+            //graphics.PreferMultiSampling = true;
             //graphics.PreferredBackBufferWidth = 1680;
             //graphics.PreferredBackBufferHeight = 1050;
             //graphics.IsFullScreen = true;
@@ -35,7 +36,7 @@ namespace Fleet_Command {
             Content.RootDirectory = "Content";
 
             inputManager = new InputManager(this);
-            Components.Add(new MainMenu(this, new Vector2(0.05f, 0.05f), new Vector2(0.9f, 0.9f), Color.Black));
+            Components.Add(new MainMenu(this, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), Color.Black));
         }
 
         protected override void Initialize() {
