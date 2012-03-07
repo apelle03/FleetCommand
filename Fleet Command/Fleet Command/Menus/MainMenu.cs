@@ -26,9 +26,19 @@ namespace Fleet_Command.Menus {
 
         public MainMenu(FC game, Vector2 relPos, Vector2 relSize, string bckgrnd, Color color)
             : base(game, relPos, relSize, bckgrnd, color) {
-            Components.Add(new Button(game, new Vector2(.25f, .5f), new Vector2(.5f, .1f), "Start Game"));
-            Components.Add(new Button(game, new Vector2(.25f, .65f), new Vector2(.5f, .1f), "Options"));
-            Components.Add(new Button(game, new Vector2(.25f, .8f), new Vector2(.5f, .1f), "Quit"));
+            Components.Add(new Button(game, new Vector2(.25f, .5f), new Vector2(.5f, .1f), "Start Game", StartGame));
+            Components.Add(new Button(game, new Vector2(.25f, .65f), new Vector2(.5f, .1f), "Options", Options));
+            Components.Add(new Button(game, new Vector2(.25f, .8f), new Vector2(.5f, .1f), "Quit", Quit));
+        }
+
+        private void StartGame() {
+            FC.StartGame();
+        }
+        private void Options() {
+            FC.Options();
+        }
+        private void Quit() {
+            FC.Quit();
         }
     }
 }

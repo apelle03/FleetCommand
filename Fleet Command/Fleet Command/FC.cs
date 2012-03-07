@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
+using Fleet_Command.Game;
 using Fleet_Command.Menus;
 using Fleet_Command.Input;
 
@@ -16,27 +17,32 @@ namespace Fleet_Command {
     public class FC : Microsoft.Xna.Framework.Game {
         protected GraphicsDeviceManager graphics;
         protected SpriteBatch spriteBatch;
+        public SpriteBatch SpriteBatch { get { return spriteBatch; } }
 
         protected InputManager inputManager;
         public InputManager InputManager { get { return inputManager; } }
         protected string settingsDir;
         public string SettingsDir { get { return settingsDir; } }
 
+        protected MainMenu mainMenu;
+        protected Level level;
+
         public FC() {
             settingsDir = ".\\";
 
             graphics = new GraphicsDeviceManager(this);
             
-            //graphics.PreferMultiSampling = true;
-            //graphics.PreferredBackBufferWidth = 1680;
-            //graphics.PreferredBackBufferHeight = 1050;
-            //graphics.IsFullScreen = true;
+            graphics.PreferMultiSampling = true;
+            graphics.PreferredBackBufferWidth = 1680;
+            graphics.PreferredBackBufferHeight = 1050;
+            graphics.IsFullScreen = true;
             this.IsMouseVisible = true;
 
             Content.RootDirectory = "Content";
 
             inputManager = new InputManager(this);
-            Components.Add(new MainMenu(this, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), Color.Black));
+            mainMenu = new MainMenu(this, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), Color.Black);
+            Components.Add(mainMenu);
         }
 
         protected override void Initialize() {
@@ -78,6 +84,22 @@ namespace Fleet_Command {
             spriteBatch.Begin();
             base.Draw(gameTime);
             spriteBatch.End();
+        }
+
+        public void StartGame() {
+            mainMenu.Enabled = false;
+            mainMenu.Visible = false;
+            level = new Level(this);
+            level.Initialize();
+            level.LoadContent();
+            Components.Add(level);
+        }
+
+        public void Options() {
+        }
+
+        public void Quit() {
+            Exit();
         }
     }
 }

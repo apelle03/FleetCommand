@@ -6,9 +6,10 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Fleet_Command.Menus {
-    public delegate void ClickAction();
-    class Button : MenuComponent {
+using Fleet_Command.Menus;
+
+namespace Fleet_Command.Game {
+    class Control : RelativeSizeComponent<Control> {
         protected Texture2D outlineCorner, outlineSide, outlineTop;
         protected Texture2D fill, fillCorner, fillSide, fillTop;
 
@@ -21,8 +22,8 @@ namespace Fleet_Command.Menus {
         protected ClickAction clickAction;
         protected bool pressed;
 
-        public Button(FC game, Vector2 relPos, Vector2 relSize, string text, ClickAction action)
-            : base(game, relPos, relSize, text) {
+        public Control(FC game, ClickAction action)
+            : base(game) {
                 hovering = false;
                 clickAction = action;
                 pressed = false;

@@ -54,7 +54,7 @@ namespace Fleet_Command.Game {
 
         public override void BeforeDraw(GameTime gameTime) {
             base.BeforeDraw(gameTime);
-            SpriteBatch spriteBatch = (SpriteBatch)Game.Services.GetService(typeof(SpriteBatch));
+            SpriteBatch spriteBatch = FC.SpriteBatch;
             spriteBatch.Draw(background, boundingBox, color);
         }
     }

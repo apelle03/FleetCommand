@@ -46,6 +46,7 @@ namespace Fleet_Command.Input {
 
         public void SaveToFile(string fileName) {
             StreamWriter writer = new StreamWriter(fileName, false);
+            writer.WriteLine(custom);
             foreach (Actions action in bindings.Keys) {
                 string keys = "";
                 foreach (InputItem ii in bindings[action]) {
@@ -60,6 +61,7 @@ namespace Fleet_Command.Input {
             StreamReader reader = new StreamReader(fileName);
             custom = false;
             bindings = new Dictionary<Actions, List<InputItem>>();
+            bool c = Boolean.Parse(reader.ReadLine());
             while (reader.Peek() >= 0) {
                 string[] parts = reader.ReadLine().Split(':');
                 Actions action;
@@ -78,6 +80,7 @@ namespace Fleet_Command.Input {
                     AddBinding(action, new InputItem(keys, mouse));
                 }
             }
+            custom = c;
             reader.Close();
         }
     }

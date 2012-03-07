@@ -43,7 +43,7 @@ namespace Fleet_Command.Menus {
 
         public override void BeforeDraw(GameTime gameTime) {
             base.BeforeDraw(gameTime);
-            SpriteBatch spriteBatch = (SpriteBatch)FC.Services.GetService(typeof(SpriteBatch));
+            SpriteBatch spriteBatch = FC.SpriteBatch;
             spriteBatch.DrawString(font, text, textLocation, textColor);
             spriteBatch.DrawString(font, text, textLocation + Vector2.One, Color.BurlyWood);
         }

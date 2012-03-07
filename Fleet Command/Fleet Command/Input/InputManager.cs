@@ -12,98 +12,120 @@ using Microsoft.Xna.Framework.Input;
 namespace Fleet_Command.Input {
     public class InputManager : DGC {
 
-        protected BindingSettings bindings;
-        protected Dictionary<Keys, KeyState> keyboardState;
+        protected Dictionary<Actions, List<InputItem>> bindings;
+        protected bool custom;
+
+        protected KeyboardState keyboardState;
         protected MouseState mouseState;
 
         public InputManager(FC game)
             : base(game) {
-                bindings = new BindingSettings();
+                custom = false;
+                bindings = new Dictionary<Actions, List<InputItem>>();
                 if (File.Exists(FC.SettingsDir + "custom.ini")) {
-                    bindings.LoadFromFile(FC.SettingsDir + "custom.ini");
+                    LoadFromFile(FC.SettingsDir + "custom.ini");
                 } else if (File.Exists(FC.SettingsDir + "default.ini")) {
-                    bindings.LoadFromFile(FC.SettingsDir + "default.ini");
+                    LoadFromFile(FC.SettingsDir + "default.ini");
                 }
-                keyboardState = new Dictionary<Keys, KeyState>();
+        }
+
+        public void LoadFromFile(string fileName) {
+            StreamReader reader = new StreamReader(fileName);
+            custom = false;
+            bindings = new Dictionary<Actions, List<InputItem>>();
+            bool c = Boolean.Parse(reader.ReadLine());
+            while (reader.Peek() >= 0) {
+                string[] parts = reader.ReadLine().Split(':');
+                Actions action;
+                if (Enum.TryParse<Actions>(parts[0], true, out action)) {
+                    List<MouseButtons> mouse = new List<MouseButtons>();
+                    List<Keys> keys = new List<Keys>();
+                    foreach (string part in parts) {
+                        MouseButtons mb;
+                        Keys k;
+                        if (Enum.TryParse<MouseButtons>(part, out mb)) {
+                            mouse.Add(mb);
+                        } else if (Enum.TryParse<Keys>(part, out k)) {
+                            keys.Add(k);
+                        }
+                    }
+                    AddBinding(action, new InputItem(keys, mouse));
+                }
+            }
+            custom = c;
+            reader.Close();
+        }
+
+        public void SaveToFile(string fileName) {
+            StreamWriter writer = new StreamWriter(fileName, false);
+            writer.WriteLine(custom);
+            foreach (Actions action in bindings.Keys) {
+                string keys = "";
+                foreach (InputItem ii in bindings[action]) {
+                    keys += ii.ToString();
+                }
+                writer.WriteLine("{0}:{1}", action.ToString(), keys);
+            }
+            writer.Close();
+        }
+
+        protected List<InputItem> GetBindings(Actions action) {
+            if (bindings.ContainsKey(action)) {
+                return bindings[action];
+            } else {
+                return null;
+            }
+        }
+
+        protected void AddBinding(Actions action, InputItem ii) {
+            if (!bindings.ContainsKey(action)) {
+                bindings.Add(action, new List<InputItem>());
+            }
+            bindings[action].Add(ii);
+            custom = true;
+        }
+
+        protected void RemoveBinding(Actions action, InputItem ii) {
+            if (bindings.ContainsKey(action)) {
+                if (bindings[action].Contains(ii)) {
+                    bindings[action].Remove(ii);
+                    custom = true;
+                }
+            }
         }
 
         public void Save() {
-            if (bindings.Custom) {
-                bindings.SaveToFile(FC.SettingsDir + "custom.ini");
+            if (custom) {
+                SaveToFile(FC.SettingsDir + "custom.ini");
             }
         }
 
         public void Register(Actions action) {
-            if (bindings.GetBindings(action) == null) {
+            if (GetBindings(action) == null) {
                 List<MouseButtons> mouse = new List<MouseButtons>();
                 mouse.Add(MouseButtons.LeftButton);
                 mouse.Add(MouseButtons.XY);
                 InputItem ii = new InputItem(new List<Keys>(), mouse);
 
-                bindings.AddBinding(action, ii);
-
-                // need to add keys no mater what
-                foreach (Keys key in ii.KeyboardRequirements) {
-                    keyboardState.Add(key, KeyState.Up);
-                }
+                AddBinding(action, ii);
             }
         }
 
-        public int CheckAction(Actions action, DGC actor) {
+        public ComboInfo CheckAction(Actions action, DGC actor) {
             List<InputItem> combos;
-            if ((combos = bindings.GetBindings(action)) != null) {
+            if ((combos = GetBindings(action)) != null) {
                 foreach (InputItem combo in combos) {
-                    int value = 1;
-                    foreach (Keys key in combo.KeyboardRequirements) {
-                        if (keyboardState[key] == KeyState.Up)
-                            value = 0;
-                    }
-                    foreach (MouseButtons mb in combo.MouseRequirements) {
-                        switch (mb) {
-                            case MouseButtons.LeftButton:
-                                if (mouseState.LeftButton == ButtonState.Released) value = 0;
-                                break;
-                            case MouseButtons.MiddleButton:
-                                if (mouseState.MiddleButton == ButtonState.Released) value = 0;
-                                break;
-                            case MouseButtons.RightButton:
-                                if (mouseState.RightButton == ButtonState.Released) value = 0;
-                                break;
-                            case MouseButtons.X1:
-                                if (mouseState.XButton1 == ButtonState.Released) value = 0;
-                                break;
-                            case MouseButtons.X2:
-                                if (mouseState.XButton2 == ButtonState.Released) value = 0;
-                                break;                                
-                            case MouseButtons.XY:
-                                Rectangle boundingBox = actor.BoundingBox;
-                                if (mouseState.X < boundingBox.X || mouseState.X > boundingBox.X + boundingBox.Width ||
-                                mouseState.Y < boundingBox.Y || mouseState.Y > boundingBox.Y + boundingBox.Height) {
-                                    value = 0;
-                                }
-                                break;
-                            case MouseButtons.Wheel:
-                                value = mouseState.ScrollWheelValue;
-                                break;
-                        }
-                    }
-                    if (value != 0) {
-                        return value;
+                    if (combo.CheckAction(actor, keyboardState, mouseState).Active) {
+                        return combo.CheckAction(actor, keyboardState, mouseState);
                     }
                 }
             }
-            return 0;
+            return new ComboInfo(false, 0, 0, 0);
         }
 
         public override void Update(GameTime gameTime) {
-            KeyboardState keyState = Keyboard.GetState();
+            keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
-            foreach (Keys key in keyboardState.Keys) {
-                if (keyState.IsKeyUp(key))
-                    keyboardState[key] = KeyState.Up;
-                else
-                    keyboardState[key] = KeyState.Down;
-            }
             base.Update(gameTime);
         }
     }

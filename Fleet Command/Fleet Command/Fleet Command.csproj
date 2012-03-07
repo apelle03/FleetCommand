@@ -108,11 +108,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Game\Control.cs" />
     <Compile Include="Game\DGC.cs" />
     <Compile Include="Game\DGCDelegator.cs" />
+    <Compile Include="Game\Level.cs" />
+    <Compile Include="Game\LevelComponent.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />
     <Compile Include="Input\Actions.cs" />
     <Compile Include="Input\BindingSettings.cs" />
+    <Compile Include="Input\ComboInfo.cs" />
     <Compile Include="Input\InputItem.cs" />
     <Compile Include="Input\InputManager.cs" />
     <Compile Include="Menus\Button.cs" />

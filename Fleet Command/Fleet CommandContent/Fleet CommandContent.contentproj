@@ -49,46 +49,68 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fill.png">
+    <Compile Include="Buttons\fill.png">
       <Name>fill</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="outline_corner.png">
+    <Compile Include="Buttons\outline_corner.png">
       <Name>outline_corner</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="outline_side.png">
+    <Compile Include="Buttons\outline_side.png">
       <Name>outline_side</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="outline_top.png">
+    <Compile Include="Buttons\outline_top.png">
       <Name>outline_top</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fill_corner.png">
+    <Compile Include="Buttons\fill_corner.png">
       <Name>fill_corner</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="fill_side.png">
+    <Compile Include="Buttons\fill_side.png">
       <Name>fill_side</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="fill_top.png">
+    <Compile Include="Buttons\fill_top.png">
       <Name>fill_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Background\star_10.png">
+      <Name>star_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Background\star_15.png">
+      <Name>star_15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Background\star_2.png">
+      <Name>star_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Background\star_5.png">
+      <Name>star_5</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
