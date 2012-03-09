@@ -1,3 +1,3 @@
 ﻿namespace Fleet_Command.Input {
-    public enum Actions { Hover, Click };
+    public enum Actions { Hover, Click, PauseMenu };
 }

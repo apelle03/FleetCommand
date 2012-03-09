@@ -103,9 +103,9 @@ namespace Fleet_Command.Input {
         public void Register(Actions action) {
             if (GetBindings(action) == null) {
                 List<MouseButtons> mouse = new List<MouseButtons>();
-                mouse.Add(MouseButtons.LeftButton);
-                mouse.Add(MouseButtons.XY);
-                InputItem ii = new InputItem(new List<Keys>(), mouse);
+                List<Keys> keys = new List<Keys>();
+                keys.Add(Keys.Escape);
+                InputItem ii = new InputItem(keys, mouse);
 
                 AddBinding(action, ii);
             }

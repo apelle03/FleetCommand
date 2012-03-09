@@ -25,6 +25,7 @@ namespace Fleet_Command {
         public string SettingsDir { get { return settingsDir; } }
 
         protected MainMenu mainMenu;
+        protected PauseMenu pauseMenu;
         protected Level level;
 
         public FC() {
@@ -32,17 +33,23 @@ namespace Fleet_Command {
 
             graphics = new GraphicsDeviceManager(this);
             
-            graphics.PreferMultiSampling = true;
-            graphics.PreferredBackBufferWidth = 1680;
-            graphics.PreferredBackBufferHeight = 1050;
-            graphics.IsFullScreen = true;
+            //graphics.PreferMultiSampling = true;
+            //graphics.PreferredBackBufferWidth = 1680;
+            //graphics.PreferredBackBufferHeight = 1050;
+            //graphics.IsFullScreen = true;
             this.IsMouseVisible = true;
 
             Content.RootDirectory = "Content";
 
             inputManager = new InputManager(this);
-            mainMenu = new MainMenu(this, new Vector2(0.0f, 0.0f), new Vector2(1.0f, 1.0f), Color.Black);
+            mainMenu = new MainMenu(this, Vector2.Zero, Vector2.One, Color.Black);
+            mainMenu.DrawOrder = 10;
+            pauseMenu = new PauseMenu(this, new Vector2(.35f, .25f), new Vector2(.3f, .5f), Color.Black);
+            pauseMenu.Enabled = false;
+            pauseMenu.Visible = false;
+            pauseMenu.DrawOrder = 1;
             Components.Add(mainMenu);
+            Components.Add(pauseMenu);
         }
 
         protected override void Initialize() {
@@ -86,10 +93,12 @@ namespace Fleet_Command {
             spriteBatch.End();
         }
 
+        // Main Menu functionality
         public void StartGame() {
             mainMenu.Enabled = false;
             mainMenu.Visible = false;
             level = new Level(this);
+            level.DrawOrder = 10;
             level.Initialize();
             level.LoadContent();
             Components.Add(level);
@@ -100,6 +109,29 @@ namespace Fleet_Command {
 
         public void Quit() {
             Exit();
+        }
+
+        // Pause Menu funcitonality
+        public void Resume() {
+            pauseMenu.Visible = false;
+            pauseMenu.Enabled = false;
+            level.Enabled = true;
+        }
+        
+        public void MainMenu() {
+            Components.Remove(level);
+            level = null;
+            pauseMenu.Visible = false;
+            pauseMenu.Enabled = false;
+            mainMenu.Enabled = true;
+            mainMenu.Visible = true;
+        }
+
+        // Level functionality
+        public void Pause() {
+            level.Enabled = false;
+            pauseMenu.Enabled = true;
+            pauseMenu.Visible = true;
         }
     }
 }

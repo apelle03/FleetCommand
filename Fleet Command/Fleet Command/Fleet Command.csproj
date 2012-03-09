@@ -108,7 +108,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\Border.cs" />
+    <Compile Include="Decorators\Decorator.cs" />
+    <Compile Include="Decorators\Fill.cs" />
     <Compile Include="Game\Control.cs" />
+    <Compile Include="Game\Controls.cs" />
     <Compile Include="Game\DGC.cs" />
     <Compile Include="Game\DGCDelegator.cs" />
     <Compile Include="Game\Level.cs" />
@@ -123,6 +127,7 @@
     <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MenuComponent.cs" />
+    <Compile Include="Menus\PauseMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="FC.cs" />

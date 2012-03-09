@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 namespace Fleet_Command.Game {
-    public class Level : RelativeSizeComponent<LevelComponent> {
+    public class Level : RelativeSizeComponent<DGC> {
 
         public Level(FC game)
             : base(game, Vector2.Zero, Vector2.One, Color.Black) {
@@ -33,8 +33,22 @@ namespace Fleet_Command.Game {
                             break;
                     }
                 }
+                Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .75f), new Vector2(relativeSize.X, relativeSize.Y * .25f));
+                //controls.Components.Add(new Control(game, new Vector2(relativePos.X + relativeSize.X * .5f, relativePos.Y + relativeSize.Y * .875f), new Vector2(relativeSize.X * .5f, relativeSize.Y * .125f), null));
+                Components.Add(controls);
         }
 
+        public override void Initialize() {
+            base.Initialize();
+            FC.InputManager.Register(Input.Actions.PauseMenu);
+            FC.InputManager.Save();
+        }
 
+        public override void Update(GameTime gameTime) {
+            base.Update(gameTime);
+            if (FC.InputManager.CheckAction(Input.Actions.PauseMenu, this).Active) {
+                FC.Pause();
+            }
+        }
     }
 }

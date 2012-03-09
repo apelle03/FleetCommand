@@ -11,69 +11,6 @@
       <Time>2012-02-25T21:03:59.1588876-05:00</Time>
     </Item>
     <Item>
-      <Source>Buttons\fill.png</Source>
-      <Name>Buttons\fill</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\fill.xnb</Output>
-      <Time>2012-02-26T21:39:14.1789842-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\outline_corner.png</Source>
-      <Name>Buttons\outline_corner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\outline_corner.xnb</Output>
-      <Time>2012-02-26T20:56:17.2855943-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\outline_side.png</Source>
-      <Name>Buttons\outline_side</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\outline_side.xnb</Output>
-      <Time>2012-02-26T20:57:08.8865457-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\outline_top.png</Source>
-      <Name>Buttons\outline_top</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\outline_top.xnb</Output>
-      <Time>2012-02-26T20:56:57.2228786-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\fill_corner.png</Source>
-      <Name>Buttons\fill_corner</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\fill_corner.xnb</Output>
-      <Time>2012-02-26T21:38:48.2735025-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\fill_side.png</Source>
-      <Name>Buttons\fill_side</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\fill_side.xnb</Output>
-      <Time>2012-02-27T17:41:48.0499208-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Buttons\fill_top.png</Source>
-      <Name>Buttons\fill_top</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Buttons\fill_top.xnb</Output>
-      <Time>2012-02-27T17:42:03.9508303-05:00</Time>
-    </Item>
-    <Item>
       <Source>Background\star_10.png</Source>
       <Name>Background\star_10</Name>
       <Importer>TextureImporter</Importer>
@@ -108,6 +45,69 @@
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_5.xnb</Output>
       <Time>2012-03-04T23:12:32.8980372-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Basic\fill.png</Source>
+      <Name>Decorations\Fills\Basic\fill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Basic\fill.xnb</Output>
+      <Time>2012-02-26T21:39:14.1789842-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Basic\outline_corner.png</Source>
+      <Name>Decorations\Borders\Basic\outline_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Basic\outline_corner.xnb</Output>
+      <Time>2012-02-26T20:56:17.2855943-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Basic\outline_side.png</Source>
+      <Name>Decorations\Borders\Basic\outline_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Basic\outline_side.xnb</Output>
+      <Time>2012-02-26T20:57:08.8865457-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Basic\outline_top.png</Source>
+      <Name>Decorations\Borders\Basic\outline_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Basic\outline_top.xnb</Output>
+      <Time>2012-02-26T20:56:57.2228786-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Basic\fill_corner.png</Source>
+      <Name>Decorations\Fills\Basic\fill_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Basic\fill_corner.xnb</Output>
+      <Time>2012-02-26T21:38:48.2735025-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Basic\fill_side.png</Source>
+      <Name>Decorations\Fills\Basic\fill_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Basic\fill_side.xnb</Output>
+      <Time>2012-02-27T17:41:48.0499208-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Basic\fill_top.png</Source>
+      <Name>Decorations\Fills\Basic\fill_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Basic\fill_top.xnb</Output>
+      <Time>2012-02-27T17:42:03.9508303-05:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

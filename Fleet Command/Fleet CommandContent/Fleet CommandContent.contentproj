@@ -49,45 +49,45 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons\fill.png">
+    <Compile Include="Decorations\Fills\Basic\fill.png">
       <Name>fill</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons\outline_corner.png">
+    <Compile Include="Decorations\Borders\Basic\outline_corner.png">
       <Name>outline_corner</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Buttons\outline_side.png">
+    <Compile Include="Decorations\Borders\Basic\outline_side.png">
       <Name>outline_side</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons\outline_top.png">
+    <Compile Include="Decorations\Borders\Basic\outline_top.png">
       <Name>outline_top</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons\fill_corner.png">
+    <Compile Include="Decorations\Fills\Basic\fill_corner.png">
       <Name>fill_corner</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buttons\fill_side.png">
+    <Compile Include="Decorations\Fills\Basic\fill_side.png">
       <Name>fill_side</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Buttons\fill_top.png">
+    <Compile Include="Decorations\Fills\Basic\fill_top.png">
       <Name>fill_top</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
