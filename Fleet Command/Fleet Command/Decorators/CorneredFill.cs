@@ -7,17 +7,22 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Fleet_Command.Decorators {
-    public class Fill : Decorator {
+    public class CorneredFill : Decorator {
         protected Texture2D fill, fillCorner, fillSide, fillTop;
         protected Rectangle topLeft, topRight, bottomLeft, bottomRight;
         protected Rectangle topMiddle, bottomMiddle, leftMiddle, rightMiddle, middle;
-        protected Color transparent;
+        protected Color color;
 
         protected string fillName;
 
-        public Fill(DGC item, string fillName) {
+        public CorneredFill(DGC item, string fillName)
+            : this(item, fillName, Color.White) {
+        }
+
+        public CorneredFill(DGC item, string fillName, Color color) {
             this.item = item;
             this.fillName = fillName;
+            this.color = color;
         }
 
         public override void LoadContent() {
@@ -39,23 +44,21 @@ namespace Fleet_Command.Decorators {
             leftMiddle = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Top + size, size, item.BoundingBox.Height - 2 * size);
             rightMiddle = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Top + size, size, item.BoundingBox.Height - 2 * size);
             middle = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Top + size, item.BoundingBox.Width - 2 * size, item.BoundingBox.Height - 2 * size);
-
-            transparent = Color.White * .75f;
         }
 
         public override void Draw() {
             SpriteBatch spriteBatch = item.FC.SpriteBatch;
 
-            spriteBatch.Draw(fillCorner, topLeft, fillCorner.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.None, 0);
-            spriteBatch.Draw(fillCorner, bottomLeft, fillCorner.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
-            spriteBatch.Draw(fillCorner, bottomRight, fillCorner.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally, 0);
-            spriteBatch.Draw(fillCorner, topRight, fillCorner.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+            spriteBatch.Draw(fillCorner, topLeft, fillCorner.Bounds, color, 0, Vector2.Zero, SpriteEffects.None, 0);
+            spriteBatch.Draw(fillCorner, bottomLeft, fillCorner.Bounds, color, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
+            spriteBatch.Draw(fillCorner, bottomRight, fillCorner.Bounds, color, 0, Vector2.Zero, SpriteEffects.FlipVertically | SpriteEffects.FlipHorizontally, 0);
+            spriteBatch.Draw(fillCorner, topRight, fillCorner.Bounds, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
 
-            spriteBatch.Draw(fillTop, topMiddle, fillTop.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.None, 0);
-            spriteBatch.Draw(fillTop, bottomMiddle, fillTop.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
-            spriteBatch.Draw(fillSide, leftMiddle, fillSide.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.None, 0);
-            spriteBatch.Draw(fillSide, rightMiddle, fillSide.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
-            spriteBatch.Draw(fill, middle, fill.Bounds, transparent, 0, Vector2.Zero, SpriteEffects.None, 0);
+            spriteBatch.Draw(fillTop, topMiddle, fillTop.Bounds, color, 0, Vector2.Zero, SpriteEffects.None, 0);
+            spriteBatch.Draw(fillTop, bottomMiddle, fillTop.Bounds, color, 0, Vector2.Zero, SpriteEffects.FlipVertically, 0);
+            spriteBatch.Draw(fillSide, leftMiddle, fillSide.Bounds, color, 0, Vector2.Zero, SpriteEffects.None, 0);
+            spriteBatch.Draw(fillSide, rightMiddle, fillSide.Bounds, color, 0, Vector2.Zero, SpriteEffects.FlipHorizontally, 0);
+            spriteBatch.Draw(fill, middle, fill.Bounds, color, 0, Vector2.Zero, SpriteEffects.None, 0);
         }
     }
 }

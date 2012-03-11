@@ -109,6 +109,42 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Basic\fill_top.xnb</Output>
       <Time>2012-02-27T17:42:03.9508303-05:00</Time>
     </Item>
+    <Item>
+      <Source>Decorations\Fills\White\fill.png</Source>
+      <Name>Decorations\Fills\White\fill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill.xnb</Output>
+      <Time>2012-03-11T15:13:10.1012393-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\White\fill_corner.png</Source>
+      <Name>Decorations\Fills\White\fill_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_corner.xnb</Output>
+      <Time>2012-03-11T15:13:21.9839189-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\White\fill_side.png</Source>
+      <Name>Decorations\Fills\White\fill_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_side.xnb</Output>
+      <Time>2012-03-11T15:13:32.3895141-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\White\fill_top.png</Source>
+      <Name>Decorations\Fills\White\fill_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_top.xnb</Output>
+      <Time>2012-03-11T15:13:44.2481923-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

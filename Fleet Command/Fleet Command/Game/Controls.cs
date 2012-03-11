@@ -9,7 +9,7 @@ using Fleet_Command.Decorators;
 
 namespace Fleet_Command.Game {
     class Controls : RelativeSizeComponent<Control> {
-        protected Border border;
+        protected CorneredBorder border;
 
         public Controls(FC game)
             : this(game, Vector2.Zero, Vector2.Zero) {
@@ -17,7 +17,7 @@ namespace Fleet_Command.Game {
         
         public Controls(FC game, Vector2 relPos, Vector2 relSize)
             : base(game, relPos, relSize) {
-                border = new Border(this, "Basic");
+                border = new CorneredBorder(this, "Basic");
         }
 
         public override void LoadContent() {

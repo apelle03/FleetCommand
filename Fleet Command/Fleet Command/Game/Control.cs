@@ -11,8 +11,8 @@ using Fleet_Command.Decorators;
 
 namespace Fleet_Command.Game {
     class Control : RelativeSizeComponent<Control> {
-        protected Border border;
-        protected Fill fill;
+        protected CorneredBorder border;
+        protected CorneredFill fill;
 
         protected ClickAction clickAction;
         protected bool pressed;
@@ -22,8 +22,8 @@ namespace Fleet_Command.Game {
             : base(game, relPos, relSize) {
                 clickAction = action;
                 pressed = false;
-                border = new Border(this, "Basic");
-                fill = new Fill(this, "Basic");
+                border = new CorneredBorder(this, "Basic");
+                fill = new CorneredFill(this, "Basic");
         }
 
         public override void Initialize() {

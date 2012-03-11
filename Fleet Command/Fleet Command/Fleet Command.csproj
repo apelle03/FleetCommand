@@ -108,9 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Decorators\Border.cs" />
+    <Compile Include="Decorators\CorneredBorder.cs" />
     <Compile Include="Decorators\Decorator.cs" />
-    <Compile Include="Decorators\Fill.cs" />
+    <Compile Include="Decorators\CorneredFill.cs" />
     <Compile Include="Game\Control.cs" />
     <Compile Include="Game\Controls.cs" />
     <Compile Include="Game\DGC.cs" />

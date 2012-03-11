@@ -12,8 +12,8 @@ namespace Fleet_Command.Menus {
     public delegate void ClickAction();
     class Button : MenuComponent {
 
-        protected Border border;
-        protected Fill fill;
+        protected CorneredBorder border;
+        protected CorneredFill fill;
 
 
         protected bool hovering;
@@ -25,8 +25,8 @@ namespace Fleet_Command.Menus {
                 hovering = false;
                 clickAction = action;
                 pressed = false;
-                border = new Border(this, "Basic");
-                fill = new Fill(this, "Basic");
+                border = new CorneredBorder(this, "Basic");
+                fill = new CorneredFill(this, "Basic", Color.White * .75f);
         }
 
         public override void Initialize() {

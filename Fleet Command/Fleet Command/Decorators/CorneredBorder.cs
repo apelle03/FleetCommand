@@ -7,13 +7,13 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Fleet_Command.Decorators {
-    public class Border : Decorator {
+    public class CorneredBorder : Decorator {
         protected Texture2D outlineCorner, outlineSide, outlineTop;
         protected Rectangle topLeft, topRight, bottomLeft, bottomRight, left, right, top, bottom;
 
         protected string borderName;
 
-        public Border(DGC item, string borderName) {
+        public CorneredBorder(DGC item, string borderName) {
             this.item = item;
             this.borderName = borderName;
         }

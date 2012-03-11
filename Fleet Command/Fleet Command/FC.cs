@@ -33,10 +33,10 @@ namespace Fleet_Command {
 
             graphics = new GraphicsDeviceManager(this);
             
-            //graphics.PreferMultiSampling = true;
-            //graphics.PreferredBackBufferWidth = 1680;
-            //graphics.PreferredBackBufferHeight = 1050;
-            //graphics.IsFullScreen = true;
+            graphics.PreferMultiSampling = true;
+            graphics.PreferredBackBufferWidth = 1680;
+            graphics.PreferredBackBufferHeight = 1050;
+            graphics.IsFullScreen = true;
             this.IsMouseVisible = true;
 
             Content.RootDirectory = "Content";
@@ -44,10 +44,10 @@ namespace Fleet_Command {
             inputManager = new InputManager(this);
             mainMenu = new MainMenu(this, Vector2.Zero, Vector2.One, Color.Black);
             mainMenu.DrawOrder = 10;
-            pauseMenu = new PauseMenu(this, new Vector2(.35f, .25f), new Vector2(.3f, .5f), Color.Black);
+            pauseMenu = new PauseMenu(this, new Vector2(.35f, .25f), new Vector2(.3f, .5f), Color.Black * .75f);
             pauseMenu.Enabled = false;
             pauseMenu.Visible = false;
-            pauseMenu.DrawOrder = 1;
+            pauseMenu.DrawOrder = 10;
             Components.Add(mainMenu);
             Components.Add(pauseMenu);
         }
@@ -98,7 +98,7 @@ namespace Fleet_Command {
             mainMenu.Enabled = false;
             mainMenu.Visible = false;
             level = new Level(this);
-            level.DrawOrder = 10;
+            level.DrawOrder = 1;
             level.Initialize();
             level.LoadContent();
             Components.Add(level);
