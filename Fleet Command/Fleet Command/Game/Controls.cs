@@ -16,7 +16,11 @@ namespace Fleet_Command.Game {
         }
         
         public Controls(FC game, Vector2 relPos, Vector2 relSize)
-            : base(game, relPos, relSize) {
+            : this(game, relPos, relSize, Color.Transparent) {
+        }
+
+        public Controls(FC game, Vector2 relPos, Vector2 relSize, Color color)
+            : base(game, relPos, relSize, color) {
                 border = new CorneredBorder(this, "Basic");
         }
 

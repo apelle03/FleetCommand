@@ -145,6 +145,15 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_top.xnb</Output>
       <Time>2012-03-11T15:13:44.2481923-04:00</Time>
     </Item>
+    <Item>
+      <Source>Units\ship.bmp</Source>
+      <Name>Units\ship</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Units\ship.xnb</Output>
+      <Time>2012-03-11T15:49:54.0116145-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

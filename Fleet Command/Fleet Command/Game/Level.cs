@@ -33,8 +33,10 @@ namespace Fleet_Command.Game {
                             break;
                     }
                 }
-                Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f));
+                Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
+                PlayArea playArea = new PlayArea(game, new Vector2(relativePos.X, relativePos.Y), new Vector2(relativeSize.X, relativeSize.Y * .8f));
                 Components.Add(controls);
+                Components.Add(playArea);
         }
 
         public override void Initialize() {

@@ -117,7 +117,9 @@
     <Compile Include="Game\DGCDelegator.cs" />
     <Compile Include="Game\Level.cs" />
     <Compile Include="Game\LevelComponent.cs" />
+    <Compile Include="Game\PlayArea.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />
+    <Compile Include="Game\Unit.cs" />
     <Compile Include="Input\Actions.cs" />
     <Compile Include="Input\BindingSettings.cs" />
     <Compile Include="Input\ComboInfo.cs" />

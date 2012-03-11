@@ -20,3 +20,4 @@ C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Comm
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_corner.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_side.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\White\fill_top.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Units\ship.xnb
