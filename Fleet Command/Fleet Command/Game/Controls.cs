@@ -21,7 +21,7 @@ namespace Fleet_Command.Game {
 
         public Controls(FC game, Vector2 relPos, Vector2 relSize, Color color)
             : base(game, relPos, relSize, color) {
-                border = new CorneredBorder(this, "Basic");
+                border = new CorneredBorder(this, "Galactica");
         }
 
         public override void LoadContent() {

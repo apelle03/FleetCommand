@@ -43,8 +43,8 @@ namespace Fleet_Command.Menus {
             Components.Add(new Button(game,
                 new Vector2(relPos.X + relSize.X * .1f, relPos.Y + relSize.Y * .73f),
                 new Vector2(relSize.X * .8f, relSize.Y * .15f), "Quit", Quit));
-            border = new CorneredBorder(this, "Basic");
-            fill = new CorneredFill(this, "White", color);
+            border = new CorneredBorder(this, "Galactica");
+            fill = new CorneredFill(this, "Galactica_White", color);
         }
 
         public override void LoadContent() {

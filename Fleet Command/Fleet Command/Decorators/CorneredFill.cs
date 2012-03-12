@@ -46,6 +46,22 @@ namespace Fleet_Command.Decorators {
             middle = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Top + size, item.BoundingBox.Width - 2 * size, item.BoundingBox.Height - 2 * size);
         }
 
+        public override void Update() {
+            float scale = Math.Min((float)item.BoundingBox.Width / (2 * fillCorner.Width), (float)item.BoundingBox.Height / (2 * fillCorner.Height));
+            if (scale > 1) scale = 1;
+            int size = (int)(fillCorner.Bounds.Width * scale);
+            topLeft = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Top, size, size);
+            topRight = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Y, size, size);
+            bottomLeft = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Bottom - size, size, size);
+            bottomRight = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Bottom - size, size, size);
+
+            topMiddle = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Top, item.BoundingBox.Width - 2 * size, size);
+            bottomMiddle = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Bottom - size, item.BoundingBox.Width - 2 * size, size);
+            leftMiddle = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Top + size, size, item.BoundingBox.Height - 2 * size);
+            rightMiddle = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Top + size, size, item.BoundingBox.Height - 2 * size);
+            middle = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Top + size, item.BoundingBox.Width - 2 * size, item.BoundingBox.Height - 2 * size);
+        }
+
         public override void Draw() {
             SpriteBatch spriteBatch = item.FC.SpriteBatch;
 

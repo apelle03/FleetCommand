@@ -37,6 +37,7 @@ namespace Fleet_Command {
             graphics.PreferredBackBufferWidth = 1680;
             graphics.PreferredBackBufferHeight = 1050;
             graphics.IsFullScreen = true;
+            
             this.IsMouseVisible = true;
 
             Content.RootDirectory = "Content";

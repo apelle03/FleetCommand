@@ -22,8 +22,8 @@ namespace Fleet_Command.Game {
             : base(game, relPos, relSize) {
                 clickAction = action;
                 pressed = false;
-                border = new CorneredBorder(this, "Basic");
-                fill = new CorneredFill(this, "Basic");
+                border = new CorneredBorder(this, "Galactica");
+                fill = new CorneredFill(this, "Galactica");
         }
 
         public override void Initialize() {

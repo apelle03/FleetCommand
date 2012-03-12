@@ -108,9 +108,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Decorators\Border.cs" />
+    <Compile Include="Decorators\CircleBorder.cs" />
     <Compile Include="Decorators\CorneredBorder.cs" />
     <Compile Include="Decorators\Decorator.cs" />
     <Compile Include="Decorators\CorneredFill.cs" />
+    <Compile Include="Decorators\Fill.cs" />
     <Compile Include="Game\Control.cs" />
     <Compile Include="Game\Controls.cs" />
     <Compile Include="Game\DGC.cs" />
@@ -119,6 +122,7 @@
     <Compile Include="Game\LevelComponent.cs" />
     <Compile Include="Game\PlayArea.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />
+    <Compile Include="Game\SelectionBox.cs" />
     <Compile Include="Game\Unit.cs" />
     <Compile Include="Input\Actions.cs" />
     <Compile Include="Input\BindingSettings.cs" />

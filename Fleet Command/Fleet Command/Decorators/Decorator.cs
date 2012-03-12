@@ -8,6 +8,7 @@ namespace Fleet_Command.Decorators {
         protected DGC item;
 
         public abstract void LoadContent();
+        public abstract void Update();
         public abstract void Draw();
     }
 }

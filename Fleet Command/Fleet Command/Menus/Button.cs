@@ -25,8 +25,8 @@ namespace Fleet_Command.Menus {
                 hovering = false;
                 clickAction = action;
                 pressed = false;
-                border = new CorneredBorder(this, "Basic");
-                fill = new CorneredFill(this, "Basic", Color.White * .75f);
+                border = new CorneredBorder(this, "Galactica");
+                fill = new CorneredFill(this, "Galactica", Color.White * .75f);
         }
 
         public override void Initialize() {

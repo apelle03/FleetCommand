@@ -37,6 +37,21 @@ namespace Fleet_Command.Decorators {
             bottom = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Bottom - size, item.BoundingBox.Width - 2 * size, size);
         }
 
+        public override void Update() {
+            float scale = Math.Min((float)item.BoundingBox.Width / (2 * outlineCorner.Width), (float)item.BoundingBox.Height / (2 * outlineCorner.Height));
+            if (scale > 1) scale = 1;
+            int size = (int)(outlineCorner.Bounds.Width * scale);
+            topLeft = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Top, size, size);
+            topRight = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Y, size, size);
+            bottomLeft = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Bottom - size, size, size);
+            bottomRight = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Bottom - size, size, size);
+
+            left = new Rectangle(item.BoundingBox.Left, item.BoundingBox.Top + size, size, item.BoundingBox.Height - 2 * size);
+            right = new Rectangle(item.BoundingBox.Right - size, item.BoundingBox.Top + size, size, item.BoundingBox.Height - 2 * size);
+            top = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Top, item.BoundingBox.Width - 2 * size, size);
+            bottom = new Rectangle(item.BoundingBox.Left + size, item.BoundingBox.Bottom - size, item.BoundingBox.Width - 2 * size, size);
+        }
+
         public override void Draw() {
             SpriteBatch spriteBatch = item.FC.SpriteBatch;
 
