@@ -16,15 +16,22 @@ namespace Fleet_Command.Decorators {
         public CircleBorder(DGC item, string borderName) {
             this.item = item;
             this.borderName = borderName;
+            this.location = new Rectangle();
         }
 
         public override void LoadContent() {
             outline = item.FC.Content.Load<Texture2D>("Decorations/Borders/" + borderName + "/outline");
-            location = item.BoundingBox;
+            int fromCenter = Math.Min(item.BoundingBox.Width, item.BoundingBox.Height) / 2;
+            location.X = item.BoundingBox.Center.X - fromCenter;
+            location.Y = item.BoundingBox.Center.Y - fromCenter;
+            location.Width = fromCenter * 2;
+            location.Height = fromCenter * 2;
         }
 
         public override void Update() {
-            location = item.BoundingBox;
+            int fromCenter = Math.Min(item.BoundingBox.Width, item.BoundingBox.Height) / 2;
+            location.X = item.BoundingBox.Center.X - fromCenter;
+            location.Y = item.BoundingBox.Center.Y - fromCenter;
         }
 
         public override void Draw() {
