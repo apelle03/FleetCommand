@@ -12,7 +12,7 @@ namespace Fleet_Command.Game.Levels {
 
         public Vector2 Center { get; set; }
         private Vector2 size;
-        public Vector2 Size { get { return new Vector2(size.X * Zoom, size.Y * Zoom); } private set { size = value; } }
+        public Vector2 Size { get { return new Vector2(size.X / Zoom, size.Y / Zoom); } private set { size = value; } }
         public float Zoom { get; set; }
 
         private Vector2 scrollRate;
@@ -24,7 +24,7 @@ namespace Fleet_Command.Game.Levels {
 
         public Viewport(Vector2 center, Vector2 size, float zoom) {
             Center = center;
-            Size = new Vector2(size.X / zoom, size.Y / zoom);
+            Size = size;
             Zoom = zoom;
             scrollRate = Vector2.One;
             ScrollRate = SCROLL_RATE;
@@ -44,6 +44,11 @@ namespace Fleet_Command.Game.Levels {
             viewArea.Y = (int)(Center.Y - Size.Y / 2);
             viewArea.Width = (int)(Size.X);
             viewArea .Height = (int)(Size.Y);
+        }
+
+        public Matrix Transformation() {
+            return Matrix.CreateTranslation(new Vector3(-Center.X, -Center.Y, 0)) *
+                Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
         }
     }
 }

@@ -45,6 +45,7 @@ namespace Fleet_Command.Game.Levels {
         public override void Initialize() {
             base.Initialize();
             FC.InputManager.Register(Input.Actions.Click);
+            FC.InputManager.Register(Input.Actions.Left);
             FC.InputManager.Save();
         }
 
@@ -58,7 +59,7 @@ namespace Fleet_Command.Game.Levels {
 
             selectionBox.LoadContent();
 
-            viewport = new Viewport(Vector2.Zero, new Vector2(width, height), 1);
+            viewport = new Viewport(new Vector2(200, 800), new Vector2(width, height), 0.5f);
         }
 
         public override void Update(GameTime gameTime) {
@@ -78,9 +79,13 @@ namespace Fleet_Command.Game.Levels {
             } else if (!click.Active && selectionBox.Active) {
                 selectionBox.Active = false;
                 selectionBox.Update(gameTime);
+                Rectangle selectionArea = new Rectangle((int)((float)(selectionBox.BoundingBox.X) / BoundingBox.Width * viewport.Size.X + viewport.ViewArea.X),
+                                                        (int)((float)(selectionBox.BoundingBox.Y) / BoundingBox.Height * viewport.Size.Y + viewport.ViewArea.Y),
+                                                        (int)((float)(selectionBox.BoundingBox.Width) / BoundingBox.Width * viewport.Size.X),
+                                                        (int)((float)(selectionBox.BoundingBox.Height) / BoundingBox.Height * viewport.Size.Y));
                 foreach (Unit u in Components) {
                     u.Selected = false;
-                    if (u.BoundingBox.Intersects(selectionBox.BoundingBox)) {
+                    if (u.BoundingBox.Intersects(selectionArea)) {
                         u.Selected = true;
                         selection.Add(u);
                         Console.WriteLine(u);
@@ -92,20 +97,15 @@ namespace Fleet_Command.Game.Levels {
         }
 
         public override void Draw(GameTime gameTime) {
-            //SpriteBatch spriteBatch = FC.SpriteBatch;
-            //spriteBatch.End();
+            SpriteBatch spriteBatch = FC.SpriteBatch;
+            spriteBatch.End();
 
-            //RenderTarget2D buffer = new RenderTarget2D(spriteBatch.GraphicsDevice, 100 /*map.width*/, 100 /*map.height*/);
-
-            //spriteBatch.GraphicsDevice.SetRenderTarget(buffer);
-            //spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null,
+                    viewport.Transformation() * Matrix.CreateTranslation(new Vector3(BoundingBox.Width / 2, BoundingBox.Height / 2, 0)));
             base.Draw(gameTime);
-            //spriteBatch.End();
+            spriteBatch.End();
 
-            //spriteBatch.GraphicsDevice.SetRenderTarget(null);
-            //spriteBatch.Begin();
-            //spriteBatch.Draw(buffer, BoundingBox, Color.White); // use offset of map to calculate region to draw
-
+            spriteBatch.Begin();
             if (selectionBox.Active) {
                 selectionBox.Draw(gameTime);
             }

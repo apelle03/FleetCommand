@@ -61,6 +61,8 @@ namespace Fleet_Command {
         }
 
         protected override void LoadContent() {
+            GraphicsDevice.PresentationParameters.RenderTargetUsage = RenderTargetUsage.PreserveContents;
+
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Services.AddService(typeof(SpriteBatch), spriteBatch);
 
