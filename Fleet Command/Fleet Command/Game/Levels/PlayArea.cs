@@ -46,6 +46,10 @@ namespace Fleet_Command.Game.Levels {
             base.Initialize();
             FC.InputManager.Register(Input.Actions.Click);
             FC.InputManager.Register(Input.Actions.Left);
+            FC.InputManager.Register(Input.Actions.Right);
+            FC.InputManager.Register(Input.Actions.Up);
+            FC.InputManager.Register(Input.Actions.Down);
+            FC.InputManager.Register(Input.Actions.Scroll);
             FC.InputManager.Save();
         }
 
@@ -59,10 +63,22 @@ namespace Fleet_Command.Game.Levels {
 
             selectionBox.LoadContent();
 
-            viewport = new Viewport(new Vector2(200, 800), new Vector2(width, height), 0.5f);
+            viewport = new Viewport(new Vector2(500, 500), new Vector2(width, height), 0.5f);
         }
 
         public override void Update(GameTime gameTime) {
+            Vector2 amount = Vector2.Zero;
+            if (FC.InputManager.CheckAction(Actions.Left, this).Active) { amount.X += -1; }
+            if (FC.InputManager.CheckAction(Actions.Right, this).Active) { amount.X += 1; }
+            if (FC.InputManager.CheckAction(Actions.Up, this).Active) { amount.Y += -1; }
+            if (FC.InputManager.CheckAction(Actions.Down, this).Active) { amount.Y += 1; }
+            viewport.Scroll(amount);
+
+            ComboInfo scroll = FC.InputManager.CheckAction(Actions.Scroll, this);
+            if (scroll.Active) {
+                viewport.ChangeZoom(scroll.WheelDelta);
+            }
+
             ComboInfo click = FC.InputManager.CheckAction(Actions.Click, this);
             if (click.Active && !selectionBox.Active) {
                 if (selectableArea.Contains((int)click.X, (int)click.Y)) {

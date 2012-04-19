@@ -6,13 +6,14 @@ using System.Text;
 namespace Fleet_Command.Input {
     public struct ComboInfo {
         public bool Active;
-        public float X, Y, Wheel;
+        public float X, Y, Wheel, WheelDelta;
 
         public ComboInfo(bool active, float x, float y, float wheel) {
             Active = active;
             X = x;
             Y = y;
             Wheel = wheel;
+            WheelDelta = 0;
         }
     }
 }

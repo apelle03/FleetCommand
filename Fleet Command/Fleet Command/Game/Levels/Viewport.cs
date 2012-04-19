@@ -7,8 +7,8 @@ using Microsoft.Xna.Framework;
 
 namespace Fleet_Command.Game.Levels {
     public class Viewport {
-        private static float SCROLL_RATE = 1;
-        private static float ZOOM_RATE = .1f;
+        private static float SCROLL_RATE = 50;
+        private static float ZOOM_RATE = .0001f;
 
         public Vector2 Center { get; set; }
         private Vector2 size;
@@ -40,6 +40,7 @@ namespace Fleet_Command.Game.Levels {
 
         public void ChangeZoom(float amount) {
             Zoom += amount * ZoomRate;
+            Zoom = Math.Max(Zoom, .0001f);
             viewArea.X = (int)(Center.X - Size.X / 2);
             viewArea.Y = (int)(Center.Y - Size.Y / 2);
             viewArea.Width = (int)(Size.X);

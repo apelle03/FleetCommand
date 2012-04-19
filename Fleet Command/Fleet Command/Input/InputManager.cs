@@ -40,7 +40,7 @@ namespace Fleet_Command.Input {
                 if (Enum.TryParse<Actions>(parts[0], true, out action)) {
                     List<MouseButtons> mouse = new List<MouseButtons>();
                     List<Keys> keys = new List<Keys>();
-                    foreach (string part in parts) {
+                    foreach (string part in parts.Skip<string>(1)) {
                         MouseButtons mb;
                         Keys k;
                         if (Enum.TryParse<MouseButtons>(part, out mb)) {
@@ -115,8 +115,9 @@ namespace Fleet_Command.Input {
             List<InputItem> combos;
             if ((combos = GetBindings(action)) != null) {
                 foreach (InputItem combo in combos) {
-                    if (combo.CheckAction(actor, keyboardState, mouseState).Active) {
-                        return combo.CheckAction(actor, keyboardState, mouseState);
+                    ComboInfo ci = combo.CheckAction(actor, keyboardState, mouseState);
+                    if (ci.Active) {
+                        return ci;
                     }
                 }
             }
@@ -126,6 +127,11 @@ namespace Fleet_Command.Input {
         public override void Update(GameTime gameTime) {
             keyboardState = Keyboard.GetState();
             mouseState = Mouse.GetState();
+            foreach (List<InputItem> iis in bindings.Values) {
+                foreach (InputItem ii in iis) {
+                    ii.Update(keyboardState, mouseState);
+                }
+            }
             base.Update(gameTime);
         }
     }

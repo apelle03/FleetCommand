@@ -51,16 +51,20 @@ namespace Fleet_Command.Input {
                         }
                         break;
                     case MouseButtons.Wheel:
-                        if (mouseState.ScrollWheelValue - comboInfo.Wheel == 0) {
+                        if (mouseState.ScrollWheelValue /*- comboInfo.Wheel*/ == 0) {
                             comboInfo.Active = false;
                         }
                         break;
                 }
             }
+            return comboInfo;
+        }
+
+        public void Update(KeyboardState keyboardState, MouseState mouseState) {
             comboInfo.X = mouseState.X;
             comboInfo.Y = mouseState.Y;
-            comboInfo.Wheel = mouseState.ScrollWheelValue - comboInfo.Wheel;
-            return comboInfo;
+            comboInfo.WheelDelta = mouseState.ScrollWheelValue - comboInfo.Wheel;
+            comboInfo.Wheel = mouseState.ScrollWheelValue;
         }
 
         public override string ToString() {
