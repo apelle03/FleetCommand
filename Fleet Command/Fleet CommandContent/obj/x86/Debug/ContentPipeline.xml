@@ -53,7 +53,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Units\Basestar.xnb</Output>
-      <Time>2012-03-11T17:46:38.0982825-04:00</Time>
+      <Time>2012-04-29T12:38:59.7513627-04:00</Time>
     </Item>
     <Item>
       <Source>Units\Galactica.png</Source>
@@ -62,7 +62,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Units\Galactica.xnb</Output>
-      <Time>2012-03-11T17:27:24.615307-04:00</Time>
+      <Time>2012-04-29T12:39:03.5733694-04:00</Time>
     </Item>
     <Item>
       <Source>Decorations\Borders\Selection\outline_top.png</Source>
