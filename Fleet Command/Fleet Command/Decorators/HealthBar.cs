@@ -6,7 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-using Fleet_Command.Game.Levels;
+using Fleet_Command.Game.Objects;
 
 namespace Fleet_Command.Decorators {
     public class HealthBar : Decorator {

@@ -199,6 +199,15 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Unit\outline.xnb</Output>
       <Time>2012-03-11T22:58:58.7813649-04:00</Time>
     </Item>
+    <Item>
+      <Source>Projectiles\missile.png</Source>
+      <Name>Projectiles\missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\missile.xnb</Output>
+      <Time>2012-04-29T23:45:58.9622746-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

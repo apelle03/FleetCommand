@@ -122,11 +122,13 @@
     <Compile Include="Game\Levels\Level.cs" />
     <Compile Include="Game\Levels\LevelComponent.cs" />
     <Compile Include="Game\Levels\PlayArea.cs" />
+    <Compile Include="Game\Objects\Projectile.cs" />
     <Compile Include="Game\Levels\Viewport.cs" />
+    <Compile Include="Game\Objects\Ship.cs" />
     <Compile Include="Game\Players\Player.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />
     <Compile Include="Game\Levels\SelectionBox.cs" />
-    <Compile Include="Game\Levels\Unit.cs" />
+    <Compile Include="Game\Objects\Unit.cs" />
     <Compile Include="Input\Actions.cs" />
     <Compile Include="Input\BindingSettings.cs" />
     <Compile Include="Input\ComboInfo.cs" />

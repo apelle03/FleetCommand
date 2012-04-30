@@ -20,3 +20,4 @@ Content\Decorations\Fills\Galactica_White\fill_corner.xnb
 Content\Decorations\Fills\Galactica_White\fill_side.xnb
 Content\Decorations\Fills\Galactica_White\fill_top.xnb
 Content\Decorations\Borders\Unit\outline.xnb
+Content\Projectiles\missile.xnb

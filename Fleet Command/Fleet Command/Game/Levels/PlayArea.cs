@@ -7,10 +7,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Fleet_Command.Input;
+using Fleet_Command.Game.Objects;
 
 namespace Fleet_Command.Game.Levels {
     public class PlayArea : RelativeSizeComponent<Unit> {
+        private static bool IsDead(Unit u) {
+            return u.Health == 0;
+        }
+
         protected Level level;
+        protected List<Unit> toAdd;
 
         protected Vector2 selectablePos, selectableSize;
         protected Rectangle selectableArea;
@@ -38,14 +44,15 @@ namespace Fleet_Command.Game.Levels {
         public PlayArea(FC game, Level level, Vector2 relPos, Vector2 relSize, Vector2 selectPos, Vector2 selectSize, Color color)
             : base(game, relPos, relSize, color) {
                 this.level = level;
+                toAdd = new List<Unit>();
 
                 selectablePos = selectPos;
                 selectableSize = selectSize;
                 selectionBox = new SelectionBox(game);
                 selection = new List<Unit>();
-                Components.Add(new Unit(game, Vector2.One * 500, -MathHelper.PiOver2, level.Players[1]));
-                Components.Add(new Unit(game, Vector2.One * 200, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new Unit(game, Vector2.One * 1000, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new Ship(game, this, Vector2.One * 500, -MathHelper.PiOver2, level.Players[1]));
+                Components.Add(new Ship(game, this, Vector2.One * 200, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new Ship(game, this, Vector2.One * 1000, -MathHelper.PiOver2, level.Controller));
         }
 
         public override void Initialize() {
@@ -104,11 +111,13 @@ namespace Fleet_Command.Game.Levels {
                                                         (int)(ScreenToWorldX(selectionBox.BoundingBox.Right) - ScreenToWorldX(selectionBox.BoundingBox.Left)),
                                                         (int)(ScreenToWorldX(selectionBox.BoundingBox.Bottom) - ScreenToWorldX(selectionBox.BoundingBox.Top)));
                 foreach (Unit u in Components) {
-                    u.Selected = false;
-                    if (u.BoundingBox.Intersects(selectionArea) && u.Controller == level.Controller) {
-                        u.Selected = true;
-                        selection.Add(u);
-                        Console.WriteLine(u);
+                    if (u is Ship) {
+                        ((Ship)u).Selected = false;
+                        if (u.BoundingBox.Intersects(selectionArea) && u.Controller == level.Controller) {
+                            ((Ship)u).Selected = true;
+                            selection.Add(u);
+                            Console.WriteLine(u);
+                        }
                     }
                 }
             }
@@ -148,6 +157,35 @@ namespace Fleet_Command.Game.Levels {
 
             // Remove dead units
             components.RemoveWhere(IsDead);
+
+            // Add new units
+            foreach (Unit u in toAdd) {
+                u.LoadContent();
+            }
+            components.UnionWith(toAdd);
+            toAdd.Clear();
+
+            // Check for victory and loss
+            bool loss = true, win = true;
+            foreach (Unit u in components) {
+                if (u.Controller == level.Controller) {
+                    loss = false;
+                }
+                if (u.Controller != level.Controller) {
+                    win = false;
+                }
+                if (!loss && !win) {
+                    break;
+                }
+            }
+            if (loss) {
+                // Show loss screen here
+                FC.MainMenu();
+            }
+            if (win) {
+                // Show win screen here
+                FC.MainMenu();
+            }
         }
 
         public override void Draw(GameTime gameTime) {
@@ -165,8 +203,8 @@ namespace Fleet_Command.Game.Levels {
             }
         }
 
-        private static bool IsDead(Unit u) {
-            return u.Health == 0;
+        public void Add(Unit u) {
+            toAdd.Add(u);
         }
     }
 }

@@ -6,17 +6,24 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Fleet_Command.Game.Levels;
 using Fleet_Command.Game.Players;
 using Fleet_Command.Decorators;
 
-namespace Fleet_Command.Game.Levels {
+namespace Fleet_Command.Game.Objects {
     public class Unit : DGC {
-        protected static string spriteSource = "Basestar";
+        protected static string sprite_source = "Units/Galactica";
+        protected virtual string SpriteSource { get { return sprite_source; } }
         protected static float max_speed = 5;
+        protected virtual float MaxSpeed { get { return max_speed; } }
         protected static float max_rotational_speed = (float)Math.PI/256;
+        protected virtual float MaxRotationalSpeed { get { return max_rotational_speed; } }
         protected static float range = 2500;
+        protected virtual float Range { get { return range; } }
         protected static float max_health = 100;
-        public float MaxHealth { get { return max_health; } }
+        public virtual float MaxHealth { get { return max_health; } }
+
+        protected PlayArea playArea;
 
         protected Player controller;
         public Player Controller { get { return controller; } }
@@ -32,44 +39,33 @@ namespace Fleet_Command.Game.Levels {
 
         protected Vector2 dest;
         protected Unit target;
-        protected float speed, rotational_speed;
         protected bool hasOrder;
 
         protected Texture2D sprite;
 
-        protected CircleBorder selectionBorder;
-        public bool Selected { get; set; }
-
-        public HealthBar healthBar;
-
-        public Unit(FC game, Vector2 pos, float angle, Player controller)
+        public Unit(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game) {
+                this.playArea = playArea;
+                
                 this.controller = controller;
                 
                 this.pos = pos;
                 this.angle = angle;
 
-                health = max_health;
+                health = MaxHealth;
 
                 target = null;
-                speed = 0;
-                rotational_speed = 0;
                 hasOrder = false;
-
-                selectionBorder = new CircleBorder(this, "Unit");
-                healthBar = new HealthBar(this);
         }
 
         public override void LoadContent() {
             base.LoadContent();
-            sprite = FC.Content.Load<Texture2D>("Units/" + spriteSource);
+            sprite = FC.Content.Load<Texture2D>(SpriteSource);
             boundingBox.X = (int)pos.X - sprite.Bounds.Center.X;
             boundingBox.Y = (int)pos.Y - sprite.Bounds.Center.Y;
             boundingBox.Width = sprite.Bounds.Width;
             boundingBox.Height = sprite.Bounds.Height;
             center = new Vector2(sprite.Bounds.Center.X, sprite.Bounds.Center.Y);
-            selectionBorder.LoadContent();
-            healthBar.LoadContent();
         }
 
         public void MoveTo(Vector2 dest) {
@@ -83,9 +79,7 @@ namespace Fleet_Command.Game.Levels {
             hasOrder = true;
         }
 
-        public override void Update(GameTime gameTime) {
-            base.Update(gameTime);
-
+        public virtual void MoveToTarget() {
             if (hasOrder && target != null) {
                 Vector2 temp = pos - target.pos;
                 temp.Normalize();
@@ -95,38 +89,35 @@ namespace Fleet_Command.Game.Levels {
                 Vector2 delta = dest - pos;
                 if (delta.LengthSquared() == 0) {
                     hasOrder = false;
-                    //speed = 0;
                 } else {
                     angle = (angle + MathHelper.TwoPi) % MathHelper.TwoPi;
                     double diff = (Math.Atan2(dest.Y - pos.Y, dest.X - pos.X) - angle + 2 * MathHelper.TwoPi) % MathHelper.TwoPi;
                     if (diff > MathHelper.Pi) {
-                        angle -= (float)Math.Min(max_rotational_speed, MathHelper.TwoPi - diff);
+                        angle -= (float)Math.Min(MaxRotationalSpeed, MathHelper.TwoPi - diff);
                     } else {
-                        angle += (float)Math.Min(max_rotational_speed, diff);
+                        angle += (float)Math.Min(MaxRotationalSpeed, diff);
                     }
                     delta.Normalize();
-                    //speed = Math.Min(max_speed, speed + max_speed / 100);
-                    pos += Vector2.Multiply(delta, Math.Min(max_speed, (dest - pos).Length()));
+                    pos += Vector2.Multiply(delta, Math.Min(MaxSpeed, (dest - pos).Length()));
                 }
             }
+        }
+
+        public override void Update(GameTime gameTime) {
+            base.Update(gameTime);
+
+            MoveToTarget();
 
             boundingBox.X = (int)pos.X - sprite.Bounds.Center.X;
             boundingBox.Y = (int)pos.Y - sprite.Bounds.Center.Y;
             boundingBox.Width = sprite.Bounds.Width;
             boundingBox.Height = sprite.Bounds.Height;
-            selectionBorder.Update();
-            healthBar.Update();
         }
 
         public override void Draw(GameTime gameTime) {
             base.Draw(gameTime);
-            if (Selected) {
-                selectionBorder.Draw();
-            }
             SpriteBatch spriteBatch = FC.SpriteBatch;
             spriteBatch.Draw(sprite, pos, null, Color.White, angle, center, 1, SpriteEffects.None, 1);
-            
-            healthBar.Draw();
         }
     }
 }
