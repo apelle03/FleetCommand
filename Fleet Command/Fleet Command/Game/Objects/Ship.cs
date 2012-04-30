@@ -39,8 +39,11 @@ namespace Fleet_Command.Game.Objects {
             base.Update(gameTime);
 
             coolDown = (int)MathHelper.Clamp(--coolDown, 0, fire_rate);
-            if (target != null && Vector2.Distance(target.Pos, pos) < range && coolDown == 0) {
+            if (attacking && target != null && Vector2.Distance(target.Pos, pos) < range && coolDown == 0) {
                 Fire();
+                if (target.Health == 0) {
+                    attacking = false;
+                }
             }
 
             selectionBorder.Update();

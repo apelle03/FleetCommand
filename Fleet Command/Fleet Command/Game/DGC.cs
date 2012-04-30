@@ -8,6 +8,10 @@ using Fleet_Command.Utils;
 
 namespace Fleet_Command {
     public class DGC : DrawableGameComponent {
+        protected static long next_id = 0;
+
+        protected long id;
+        public long ID { get { return id; } }
 
         protected FC fc;
         public FC FC { get { return fc; } }
@@ -17,8 +21,9 @@ namespace Fleet_Command {
 
         public DGC(FC game)
             : base(game) {
-            fc = game;
-            boundingBox = Rectangle.Empty;
+                id = next_id++;
+                fc = game;
+                boundingBox = Rectangle.Empty;
         }
 
         public virtual new void LoadContent() {

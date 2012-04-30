@@ -19,7 +19,9 @@ namespace Fleet_Command.Game.Objects {
         protected static float max_rotational_speed = (float)Math.PI/256;
         protected virtual float MaxRotationalSpeed { get { return max_rotational_speed; } }
         protected static float range = 2500;
-        protected virtual float Range { get { return range; } }
+        public virtual float Range { get { return range; } }
+        protected static float damage = 0;
+        protected virtual float Damage { get { return damage; } }
         protected static float max_health = 100;
         public virtual float MaxHealth { get { return max_health; } }
 
@@ -38,8 +40,21 @@ namespace Fleet_Command.Game.Objects {
         public float Health { get { return health; } }
 
         protected Vector2 dest;
+        protected virtual Vector2 Dest {
+            get {
+                if (moving) {
+                    return dest;
+                } else if (attacking && target != null) {
+                    Vector2 temp = pos - target.pos;
+                    temp.Normalize();
+                    return Vector2.Multiply(temp, range * .9f) + target.pos;
+                } else {
+                    return Vector2.Zero;
+                }
+            }
+        }
         protected Unit target;
-        protected bool hasOrder;
+        protected bool moving, attacking;
 
         protected Texture2D sprite;
 
@@ -55,7 +70,8 @@ namespace Fleet_Command.Game.Objects {
                 health = MaxHealth;
 
                 target = null;
-                hasOrder = false;
+                moving = false;
+                attacking = false;
         }
 
         public override void LoadContent() {
@@ -70,25 +86,20 @@ namespace Fleet_Command.Game.Objects {
 
         public void MoveTo(Vector2 dest) {
             this.dest = dest;
-            target = null;
-            hasOrder = true;
+            moving = true;
         }
 
         public void Attack(Unit target) {
             this.target = target;
-            hasOrder = true;
+            attacking = true;
         }
 
         public virtual void MoveToTarget() {
-            if (hasOrder && target != null) {
-                Vector2 temp = pos - target.pos;
-                temp.Normalize();
-                dest = Vector2.Multiply(temp, range) + target.pos;
-            }
-            if (hasOrder) {
-                Vector2 delta = dest - pos;
+            if (moving || attacking) {
+                dest = Dest;
+                Vector2 delta = Dest - pos;
                 if (delta.LengthSquared() == 0) {
-                    hasOrder = false;
+                    moving = false;
                 } else {
                     angle = (angle + MathHelper.TwoPi) % MathHelper.TwoPi;
                     double diff = (Math.Atan2(dest.Y - pos.Y, dest.X - pos.X) - angle + 2 * MathHelper.TwoPi) % MathHelper.TwoPi;
@@ -118,6 +129,10 @@ namespace Fleet_Command.Game.Objects {
             base.Draw(gameTime);
             SpriteBatch spriteBatch = FC.SpriteBatch;
             spriteBatch.Draw(sprite, pos, null, Color.White, angle, center, 1, SpriteEffects.None, 1);
+        }
+
+        public virtual void InflictDamage(float amount) {
+            health = MathHelper.Clamp(health - amount, 0, MaxHealth);
         }
     }
 }

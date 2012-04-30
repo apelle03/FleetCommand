@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>battlestar.spritefont</Source>
+      <Name>battlestar</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\battlestar.xnb</Output>
+      <Time>2012-02-25T21:03:59.1588876-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica\fill.png</Source>
+      <Name>Decorations\Fills\Galactica\fill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica\fill.xnb</Output>
+      <Time>2012-02-26T21:39:14.1789842-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Galactica\outline_corner.png</Source>
+      <Name>Decorations\Borders\Galactica\outline_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Galactica\outline_corner.xnb</Output>
+      <Time>2012-02-26T20:56:17.2855943-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Galactica\outline_side.png</Source>
+      <Name>Decorations\Borders\Galactica\outline_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Galactica\outline_side.xnb</Output>
+      <Time>2012-02-26T20:57:08.8865457-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Galactica\outline_top.png</Source>
+      <Name>Decorations\Borders\Galactica\outline_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Galactica\outline_top.xnb</Output>
+      <Time>2012-02-26T20:56:57.2228786-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica\fill_corner.png</Source>
+      <Name>Decorations\Fills\Galactica\fill_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica\fill_corner.xnb</Output>
+      <Time>2012-02-26T21:38:48.2735025-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica\fill_side.png</Source>
+      <Name>Decorations\Fills\Galactica\fill_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica\fill_side.xnb</Output>
+      <Time>2012-02-27T17:41:48.0499208-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica\fill_top.png</Source>
+      <Name>Decorations\Fills\Galactica\fill_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica\fill_top.xnb</Output>
+      <Time>2012-02-27T17:42:03.9508303-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_10.png</Source>
+      <Name>Background\star_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Background\star_10.xnb</Output>
+      <Time>2012-03-04T23:12:32.8980372-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_15.png</Source>
+      <Name>Background\star_15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Background\star_15.xnb</Output>
+      <Time>2012-03-04T23:12:32.8990373-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_2.png</Source>
+      <Name>Background\star_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Background\star_2.xnb</Output>
+      <Time>2012-03-04T23:12:32.8970372-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_5.png</Source>
+      <Name>Background\star_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Background\star_5.xnb</Output>
+      <Time>2012-03-04T23:12:32.8980372-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica_White\fill.png</Source>
+      <Name>Decorations\Fills\Galactica_White\fill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill.xnb</Output>
+      <Time>2012-03-11T15:13:10.1012393-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica_White\fill_corner.png</Source>
+      <Name>Decorations\Fills\Galactica_White\fill_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill_corner.xnb</Output>
+      <Time>2012-03-11T15:13:21.9839189-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica_White\fill_side.png</Source>
+      <Name>Decorations\Fills\Galactica_White\fill_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill_side.xnb</Output>
+      <Time>2012-03-11T15:13:32.3895141-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Galactica_White\fill_top.png</Source>
+      <Name>Decorations\Fills\Galactica_White\fill_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill_top.xnb</Output>
+      <Time>2012-03-11T15:13:44.2481923-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Units\Basestar.png</Source>
+      <Name>Units\Basestar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Units\Basestar.xnb</Output>
+      <Time>2012-04-29T12:38:59.7513627-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Units\Galactica.png</Source>
+      <Name>Units\Galactica</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Units\Galactica.xnb</Output>
+      <Time>2012-04-29T12:39:03.5733694-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Selection\outline_top.png</Source>
+      <Name>Decorations\Borders\Selection\outline_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Selection\outline_top.xnb</Output>
+      <Time>2012-03-11T20:46:07.3977433-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Selection\fill.png</Source>
+      <Name>Decorations\Fills\Selection\fill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Selection\fill.xnb</Output>
+      <Time>2012-03-11T20:46:54.2764246-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Selection\outline_side.png</Source>
+      <Name>Decorations\Borders\Selection\outline_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Selection\outline_side.xnb</Output>
+      <Time>2012-03-11T20:46:07.3977433-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Unit\outline.png</Source>
+      <Name>Decorations\Borders\Unit\outline</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Unit\outline.xnb</Output>
+      <Time>2012-03-11T22:58:58.7813649-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Projectiles\missile.png</Source>
+      <Name>Projectiles\missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Projectiles\missile.xnb</Output>
+      <Time>2012-04-29T23:45:58.9622746-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Release</BuildConfiguration>
+      <CompressContent>true</CompressContent>
+      <RootDirectory>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet CommandContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet CommandContent\obj\x86\Release\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2011-09-21T13:02:01.9972651-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>

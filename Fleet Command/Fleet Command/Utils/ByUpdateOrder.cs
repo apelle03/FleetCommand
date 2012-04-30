@@ -10,11 +10,7 @@ namespace Fleet_Command.Utils {
             if (orderDiff != 0) {
                 return orderDiff;
             } else {
-                if (t1.Equals(t2)) {
-                    return 0;
-                } else {
-                    return 1;
-                }
+                return Math.Sign(t1.ID - t2.ID);
             }
         }
     }

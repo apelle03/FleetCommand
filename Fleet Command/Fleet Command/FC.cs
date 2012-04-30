@@ -36,9 +36,9 @@ namespace Fleet_Command {
             graphics = new GraphicsDeviceManager(this);
             
             graphics.PreferMultiSampling = true;
-            graphics.PreferredBackBufferWidth = 1680;
-            graphics.PreferredBackBufferHeight = 1050;
-            //graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1280;// 1680;
+            graphics.PreferredBackBufferHeight = 800;// 1050;
+            graphics.IsFullScreen = true;
             
             this.IsMouseVisible = true;
 

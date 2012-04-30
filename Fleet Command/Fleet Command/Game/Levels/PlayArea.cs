@@ -12,11 +12,12 @@ using Fleet_Command.Game.Objects;
 namespace Fleet_Command.Game.Levels {
     public class PlayArea : RelativeSizeComponent<Unit> {
         private static bool IsDead(Unit u) {
-            return u.Health == 0;
+            //return true;
+            return u.Health <= 0f;
         }
 
         protected Level level;
-        protected List<Unit> toAdd;
+        protected List<Unit> toAdd, toRemove;
 
         protected Vector2 selectablePos, selectableSize;
         protected Rectangle selectableArea;
@@ -45,14 +46,15 @@ namespace Fleet_Command.Game.Levels {
             : base(game, relPos, relSize, color) {
                 this.level = level;
                 toAdd = new List<Unit>();
+                toRemove = new List<Unit>();
 
                 selectablePos = selectPos;
                 selectableSize = selectSize;
                 selectionBox = new SelectionBox(game);
                 selection = new List<Unit>();
-                Components.Add(new Ship(game, this, Vector2.One * 500, -MathHelper.PiOver2, level.Players[1]));
-                Components.Add(new Ship(game, this, Vector2.One * 200, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new Ship(game, this, Vector2.One * 1000, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new Galactica(game, this, Vector2.One * 0, -MathHelper.PiOver2, level.Players[1]));
+                Components.Add(new Basestar(game, this, Vector2.One * -2000, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new Basestar(game, this, Vector2.One * 2000, -MathHelper.PiOver2, level.Controller));
         }
 
         public override void Initialize() {
@@ -77,7 +79,7 @@ namespace Fleet_Command.Game.Levels {
 
             selectionBox.LoadContent();
 
-            viewport = new Viewport(new Vector2(500, 500), new Vector2(width, height), 0.5f);
+            viewport = new Viewport(new Vector2(500, 500), new Vector2(width, height), 0.2f);
         }
 
         public double ScreenToWorldX(double x) {
@@ -110,6 +112,7 @@ namespace Fleet_Command.Game.Levels {
                                                         (int)ScreenToWorldY(selectionBox.BoundingBox.Y),
                                                         (int)(ScreenToWorldX(selectionBox.BoundingBox.Right) - ScreenToWorldX(selectionBox.BoundingBox.Left)),
                                                         (int)(ScreenToWorldX(selectionBox.BoundingBox.Bottom) - ScreenToWorldX(selectionBox.BoundingBox.Top)));
+                selection.Clear();
                 foreach (Unit u in Components) {
                     if (u is Ship) {
                         ((Ship)u).Selected = false;
