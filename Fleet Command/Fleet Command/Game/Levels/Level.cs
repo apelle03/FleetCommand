@@ -5,11 +5,22 @@ using System.Text;
 
 using Microsoft.Xna.Framework;
 
+using Fleet_Command.Game.Players;
+
 namespace Fleet_Command.Game.Levels {
     public class Level : RelativeSizeComponent<DGC> {
 
-        public Level(FC game)
+        protected List<Player> players;
+        public List<Player> Players { get { return players; } }
+
+        protected Player controller;
+        public Player Controller { get { return controller; } }
+
+        public Level(FC game, List<Player> players, Player controller)
             : base(game, Vector2.Zero, Vector2.One, Color.Black) {
+                this.players = players;
+                this.controller = controller;
+                
                 int width = FC.GraphicsDevice.PresentationParameters.BackBufferWidth;
                 int height = FC.GraphicsDevice.PresentationParameters.BackBufferHeight;
                 Random rand = new Random();
@@ -34,7 +45,7 @@ namespace Fleet_Command.Game.Levels {
                     }
                 }
                 Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
-                PlayArea playArea = new PlayArea(game, relativePos, relativeSize, relativePos, new Vector2(relativeSize.X, relativeSize.Y * .8f));
+                PlayArea playArea = new PlayArea(game, this, relativePos, relativeSize, relativePos, new Vector2(relativeSize.X, relativeSize.Y * .8f));
                 Components.Add(playArea);    
                 Components.Add(controls);
         }

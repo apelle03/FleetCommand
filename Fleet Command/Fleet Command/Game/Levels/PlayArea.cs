@@ -10,6 +10,8 @@ using Fleet_Command.Input;
 
 namespace Fleet_Command.Game.Levels {
     public class PlayArea : RelativeSizeComponent<Unit> {
+        protected Level level;
+
         protected Vector2 selectablePos, selectableSize;
         protected Rectangle selectableArea;
         protected SelectionBox selectionBox;
@@ -17,31 +19,33 @@ namespace Fleet_Command.Game.Levels {
 
         protected Viewport viewport;
 
-        public PlayArea(FC game)
-            : this(game, Vector2.Zero, Vector2.Zero) {
+        public PlayArea(FC game, Level level)
+            : this(game, level, Vector2.Zero, Vector2.Zero) {
         }
         
-        public PlayArea(FC game, Vector2 relPos, Vector2 relSize)
-            : this(game, relPos, relSize, Color.Transparent) {
+        public PlayArea(FC game, Level level, Vector2 relPos, Vector2 relSize)
+            : this(game, level, relPos, relSize, Color.Transparent) {
         }
 
-        public PlayArea(FC game, Vector2 relPos, Vector2 relSize, Color color)
-            : this(game, relPos, relSize, relPos, relSize, color) {
+        public PlayArea(FC game, Level level, Vector2 relPos, Vector2 relSize, Color color)
+            : this(game, level, relPos, relSize, relPos, relSize, color) {
         }
 
-        public PlayArea(FC game, Vector2 relPos, Vector2 relSize, Vector2 selectPos, Vector2 selectSize)
-            : this(game, relPos, relSize, selectPos, selectSize, Color.Transparent) {
+        public PlayArea(FC game, Level level, Vector2 relPos, Vector2 relSize, Vector2 selectPos, Vector2 selectSize)
+            : this(game, level, relPos, relSize, selectPos, selectSize, Color.Transparent) {
         }
 
-        public PlayArea(FC game, Vector2 relPos, Vector2 relSize, Vector2 selectPos, Vector2 selectSize, Color color)
+        public PlayArea(FC game, Level level, Vector2 relPos, Vector2 relSize, Vector2 selectPos, Vector2 selectSize, Color color)
             : base(game, relPos, relSize, color) {
+                this.level = level;
+
                 selectablePos = selectPos;
                 selectableSize = selectSize;
                 selectionBox = new SelectionBox(game);
                 selection = new List<Unit>();
-                Components.Add(new Unit(game, Vector2.One * 500, -MathHelper.PiOver2));
-                Components.Add(new Unit(game, Vector2.One * 200, -MathHelper.PiOver2));
-                Components.Add(new Unit(game, Vector2.One * 1000, -MathHelper.PiOver2));
+                Components.Add(new Unit(game, Vector2.One * 500, -MathHelper.PiOver2, level.Players[1]));
+                Components.Add(new Unit(game, Vector2.One * 200, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new Unit(game, Vector2.One * 1000, -MathHelper.PiOver2, level.Controller));
         }
 
         public override void Initialize() {
@@ -101,7 +105,7 @@ namespace Fleet_Command.Game.Levels {
                                                         (int)(ScreenToWorldX(selectionBox.BoundingBox.Bottom) - ScreenToWorldX(selectionBox.BoundingBox.Top)));
                 foreach (Unit u in Components) {
                     u.Selected = false;
-                    if (u.BoundingBox.Intersects(selectionArea)) {
+                    if (u.BoundingBox.Intersects(selectionArea) && u.Controller == level.Controller) {
                         u.Selected = true;
                         selection.Add(u);
                         Console.WriteLine(u);
@@ -110,9 +114,21 @@ namespace Fleet_Command.Game.Levels {
             }
             selectionBox.Update(gameTime);
 
+            Point rightClickLoc = new Point((int)ScreenToWorldX(rightClick.X), (int)ScreenToWorldY(rightClick.Y));
+            bool attack = false;
             if (rightClick.Active) {
-                foreach (Unit u in selection) {
-                    u.MoveTo(new Vector2((float)ScreenToWorldX(rightClick.X), (float)ScreenToWorldY(rightClick.Y)));
+                foreach (Unit u in Components) {
+                    if (u.Controller != level.Controller && u.BoundingBox.Contains(rightClickLoc)) {
+                        foreach (Unit s in selection) {
+                            s.Attack(u);
+                        }
+                        attack = true;
+                    }
+                }
+                if (!attack) {
+                    foreach (Unit u in selection) {
+                        u.MoveTo(new Vector2((float)ScreenToWorldX(rightClick.X), (float)ScreenToWorldY(rightClick.Y)));
+                    }
                 }
             }
 
@@ -129,6 +145,9 @@ namespace Fleet_Command.Game.Levels {
             }
 
             base.Update(gameTime);
+
+            // Remove dead units
+            components.RemoveWhere(IsDead);
         }
 
         public override void Draw(GameTime gameTime) {
@@ -144,6 +163,10 @@ namespace Fleet_Command.Game.Levels {
             if (selectionBox.Active) {
                 selectionBox.Draw(gameTime);
             }
+        }
+
+        private static bool IsDead(Unit u) {
+            return u.Health == 0;
         }
     }
 }

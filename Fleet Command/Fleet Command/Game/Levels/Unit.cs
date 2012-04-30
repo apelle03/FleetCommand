@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
+using Fleet_Command.Game.Players;
 using Fleet_Command.Decorators;
 
 namespace Fleet_Command.Game.Levels {
@@ -13,9 +14,21 @@ namespace Fleet_Command.Game.Levels {
         protected static string spriteSource = "Basestar";
         protected static float max_speed = 5;
         protected static float max_rotational_speed = (float)Math.PI/256;
+        protected static float range = 2500;
+        protected static float max_health = 100;
+        public float MaxHealth { get { return max_health; } }
+
+        protected Player controller;
+        public Player Controller { get { return controller; } }
+
         protected Vector2 pos;
+        public Vector2 Pos { get { return pos; } }
         protected Vector2 center;
+        public Vector2 Center { get { return center; } }
         protected float angle;
+
+        protected float health;
+        public float Health { get { return health; } }
 
         protected Vector2 dest;
         protected Unit target;
@@ -27,15 +40,24 @@ namespace Fleet_Command.Game.Levels {
         protected CircleBorder selectionBorder;
         public bool Selected { get; set; }
 
-        public Unit(FC game, Vector2 pos, float angle)
+        public HealthBar healthBar;
+
+        public Unit(FC game, Vector2 pos, float angle, Player controller)
             : base(game) {
+                this.controller = controller;
+                
                 this.pos = pos;
                 this.angle = angle;
-                selectionBorder = new CircleBorder(this, "Unit");
+
+                health = max_health;
+
                 target = null;
                 speed = 0;
                 rotational_speed = 0;
                 hasOrder = false;
+
+                selectionBorder = new CircleBorder(this, "Unit");
+                healthBar = new HealthBar(this);
         }
 
         public override void LoadContent() {
@@ -47,10 +69,12 @@ namespace Fleet_Command.Game.Levels {
             boundingBox.Height = sprite.Bounds.Height;
             center = new Vector2(sprite.Bounds.Center.X, sprite.Bounds.Center.Y);
             selectionBorder.LoadContent();
+            healthBar.LoadContent();
         }
 
         public void MoveTo(Vector2 dest) {
             this.dest = dest;
+            target = null;
             hasOrder = true;
         }
 
@@ -62,6 +86,11 @@ namespace Fleet_Command.Game.Levels {
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
 
+            if (hasOrder && target != null) {
+                Vector2 temp = pos - target.pos;
+                temp.Normalize();
+                dest = Vector2.Multiply(temp, range) + target.pos;
+            }
             if (hasOrder) {
                 Vector2 delta = dest - pos;
                 if (delta.LengthSquared() == 0) {
@@ -86,6 +115,7 @@ namespace Fleet_Command.Game.Levels {
             boundingBox.Width = sprite.Bounds.Width;
             boundingBox.Height = sprite.Bounds.Height;
             selectionBorder.Update();
+            healthBar.Update();
         }
 
         public override void Draw(GameTime gameTime) {
@@ -95,6 +125,8 @@ namespace Fleet_Command.Game.Levels {
             }
             SpriteBatch spriteBatch = FC.SpriteBatch;
             spriteBatch.Draw(sprite, pos, null, Color.White, angle, center, 1, SpriteEffects.None, 1);
+            
+            healthBar.Draw();
         }
     }
 }
