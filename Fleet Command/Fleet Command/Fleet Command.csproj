@@ -115,6 +115,8 @@
     <Compile Include="Decorators\CorneredFill.cs" />
     <Compile Include="Decorators\Fill.cs" />
     <Compile Include="Decorators\HealthBar.cs" />
+    <Compile Include="Game\GameInfo\ResourceInfo.cs" />
+    <Compile Include="Game\GameInfo\Resources.cs" />
     <Compile Include="Game\Levels\Control.cs" />
     <Compile Include="Game\Levels\Controls.cs" />
     <Compile Include="Game\DGC.cs" />
@@ -122,6 +124,8 @@
     <Compile Include="Game\Levels\Level.cs" />
     <Compile Include="Game\Levels\LevelComponent.cs" />
     <Compile Include="Game\Levels\PlayArea.cs" />
+    <Compile Include="Game\Levels\ResourceGauge.cs" />
+    <Compile Include="Game\Levels\ResourceMonitor.cs" />
     <Compile Include="Game\Objects\Basestar.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
@@ -152,7 +156,6 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-    <Content Include="ToDo.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fleet CommandContent\Fleet CommandContent.contentproj">
