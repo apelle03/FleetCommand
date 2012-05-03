@@ -91,6 +91,7 @@ namespace Fleet_Command.Game.Objects {
 
         public void Attack(Unit target) {
             this.target = target;
+            moving = false;
             attacking = true;
         }
 

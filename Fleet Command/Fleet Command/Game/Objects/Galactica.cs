@@ -10,19 +10,11 @@ using Fleet_Command.Game.Players;
 
 namespace Fleet_Command.Game.Objects {
     public class Galactica : Ship {
-        protected new static string sprite_source = "Units/Galactica";
+        protected new static string sprite_source = "Ships/Galactica";
         protected override string SpriteSource { get { return sprite_source; } }
 
         public Galactica(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
-        }
-
-        public override void Update(GameTime gameTime) {
-            if (!moving) {
-                Random gen = new Random();
-                MoveTo(new Vector2((float)(gen.NextDouble() * 10000 - 5000), (float)(gen.NextDouble() * 10000 - 5000)));
-            }
-            base.Update(gameTime);
         }
     }
 }

@@ -46,6 +46,8 @@ namespace Fleet_Command.Game.Levels {
                 }
                 Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
                 PlayArea playArea = new PlayArea(game, this, relativePos, relativeSize, relativePos, new Vector2(relativeSize.X, relativeSize.Y * .8f));
+                playArea.DrawOrder = 0;
+                controls.DrawOrder = 1;
                 Components.Add(playArea);    
                 Components.Add(controls);
         }

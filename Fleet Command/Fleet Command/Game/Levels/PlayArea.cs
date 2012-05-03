@@ -12,7 +12,6 @@ using Fleet_Command.Game.Objects;
 namespace Fleet_Command.Game.Levels {
     public class PlayArea : RelativeSizeComponent<Unit> {
         private static bool IsDead(Unit u) {
-            //return true;
             return u.Health <= 0f;
         }
 
@@ -52,9 +51,12 @@ namespace Fleet_Command.Game.Levels {
                 selectableSize = selectSize;
                 selectionBox = new SelectionBox(game);
                 selection = new List<Unit>();
-                Components.Add(new Galactica(game, this, Vector2.One * 0, -MathHelper.PiOver2, level.Players[1]));
-                Components.Add(new Basestar(game, this, Vector2.One * -2000, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new Basestar(game, this, Vector2.One * 2000, -MathHelper.PiOver2, level.Controller));
+                Random rand = new Random();
+
+                Components.Add(new Resource(game, this, new Vector2((float)(rand.NextDouble() * 10000), (float)(rand.NextDouble() * 10000)),
+                    (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
+                Components.Add(new Galactica(game, this, Vector2.One * 0, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new Basestar(game, this, Vector2.One * -2000, -MathHelper.PiOver2, level.Players[2]));
         }
 
         public override void Initialize() {
@@ -127,17 +129,22 @@ namespace Fleet_Command.Game.Levels {
             selectionBox.Update(gameTime);
 
             Point rightClickLoc = new Point((int)ScreenToWorldX(rightClick.X), (int)ScreenToWorldY(rightClick.Y));
-            bool attack = false;
+            bool move = true;
             if (rightClick.Active) {
                 foreach (Unit u in Components) {
-                    if (u.Controller != level.Controller && u.BoundingBox.Contains(rightClickLoc)) {
+                    if (u.Controller == level.Players[0] && u.BoundingBox.Contains(rightClickLoc)) {
+                        foreach (Unit s in selection) {
+                            // s.Gather(u);
+                        }
+                        move = false;
+                    } else if (u.Controller != level.Controller && u.BoundingBox.Contains(rightClickLoc)) {
                         foreach (Unit s in selection) {
                             s.Attack(u);
                         }
-                        attack = true;
+                        move = false;
                     }
                 }
-                if (!attack) {
+                if (move) {
                     foreach (Unit u in selection) {
                         u.MoveTo(new Vector2((float)ScreenToWorldX(rightClick.X), (float)ScreenToWorldY(rightClick.Y)));
                     }

@@ -126,6 +126,7 @@
     <Compile Include="Game\Objects\Galactica.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
     <Compile Include="Game\Levels\Viewport.cs" />
+    <Compile Include="Game\Objects\Resource.cs" />
     <Compile Include="Game\Objects\Ship.cs" />
     <Compile Include="Game\Players\Player.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />

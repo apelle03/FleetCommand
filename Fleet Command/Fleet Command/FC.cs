@@ -36,9 +36,9 @@ namespace Fleet_Command {
             graphics = new GraphicsDeviceManager(this);
             
             graphics.PreferMultiSampling = true;
-            graphics.PreferredBackBufferWidth = 1280;// 1680;
-            graphics.PreferredBackBufferHeight = 800;// 1050;
-            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1680;
+            graphics.PreferredBackBufferHeight = 1050;
+            //graphics.IsFullScreen = true;
             
             this.IsMouseVisible = true;
 
@@ -103,9 +103,10 @@ namespace Fleet_Command {
             mainMenu.Enabled = false;
             mainMenu.Visible = false;
             List<Player> players = new List<Player>();
-            players.Add(new Player(0, "Human", Color.Blue));
-            players.Add(new Player(1, "Cylon", Color.Red));
-            level = new Level(this, players, players[0]);
+            players.Add(new Player(0, "Neutral", Color.Gray));
+            players.Add(new Player(1, "Human", Color.Blue));
+            players.Add(new Player(2, "Cylon", Color.Red));
+            level = new Level(this, players, players[1]);
             level.DrawOrder = 1;
             level.Initialize();
             level.LoadContent();

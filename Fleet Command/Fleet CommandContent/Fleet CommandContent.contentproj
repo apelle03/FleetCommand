@@ -138,12 +138,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Units\Basestar.png">
+    <Compile Include="Ships\Basestar.png">
       <Name>Basestar</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
-    <Compile Include="Units\Galactica.png">
+    <Compile Include="Ships\Galactica.png">
       <Name>Galactica</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
@@ -180,6 +180,14 @@
   <ItemGroup>
     <Compile Include="Projectiles\missile.png">
       <Name>missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Resources\Earth.png">
+      <Name>Earth</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

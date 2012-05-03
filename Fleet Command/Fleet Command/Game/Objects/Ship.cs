@@ -11,7 +11,7 @@ using Fleet_Command.Decorators;
 
 namespace Fleet_Command.Game.Objects {
     public class Ship : Unit {
-        protected new static string sprite_source = "Units/Basestar";
+        protected new static string sprite_source = "Ships/Basestar";
         protected override string SpriteSource { get { return sprite_source; } }
         protected static int fire_rate = 20;
 

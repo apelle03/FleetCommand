@@ -3,8 +3,6 @@ Content\Background\star_10.xnb
 Content\Background\star_15.xnb
 Content\Background\star_2.xnb
 Content\Background\star_5.xnb
-Content\Units\Basestar.xnb
-Content\Units\Galactica.xnb
 Content\Decorations\Borders\Selection\outline_top.xnb
 Content\Decorations\Fills\Selection\fill.xnb
 Content\Decorations\Borders\Selection\outline_side.xnb
@@ -21,3 +19,6 @@ Content\Decorations\Fills\Galactica_White\fill_side.xnb
 Content\Decorations\Fills\Galactica_White\fill_top.xnb
 Content\Decorations\Borders\Unit\outline.xnb
 Content\Projectiles\missile.xnb
+Content\Ships\Basestar.xnb
+Content\Ships\Galactica.xnb
+Content\Resources\Earth.xnb

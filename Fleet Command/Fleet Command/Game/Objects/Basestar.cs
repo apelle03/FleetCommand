@@ -10,7 +10,7 @@ using Fleet_Command.Game.Players;
 
 namespace Fleet_Command.Game.Objects {
     public class Basestar : Ship{
-        protected new static string sprite_source = "Units/Basestar";
+        protected new static string sprite_source = "Ships/Basestar";
         protected override string SpriteSource { get { return sprite_source; } }
 
         public Basestar(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)

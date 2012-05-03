@@ -47,24 +47,6 @@
       <Time>2012-03-04T23:12:32.8980372-05:00</Time>
     </Item>
     <Item>
-      <Source>Units\Basestar.png</Source>
-      <Name>Units\Basestar</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Units\Basestar.xnb</Output>
-      <Time>2012-04-29T12:38:59.7513627-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Units\Galactica.png</Source>
-      <Name>Units\Galactica</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Units\Galactica.xnb</Output>
-      <Time>2012-04-29T12:39:03.5733694-04:00</Time>
-    </Item>
-    <Item>
       <Source>Decorations\Borders\Selection\outline_top.png</Source>
       <Name>Decorations\Borders\Selection\outline_top</Name>
       <Importer>TextureImporter</Importer>
@@ -207,6 +189,33 @@
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\missile.xnb</Output>
       <Time>2012-04-29T23:45:58.9622746-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Basestar.png</Source>
+      <Name>Ships\Basestar</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\Basestar.xnb</Output>
+      <Time>2012-04-29T12:38:59.7513627-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\Galactica.png</Source>
+      <Name>Ships\Galactica</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\Galactica.xnb</Output>
+      <Time>2012-04-29T12:39:03.5733694-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Earth.png</Source>
+      <Name>Resources\Earth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Earth.xnb</Output>
+      <Time>2012-05-03T14:31:26.5079108-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
