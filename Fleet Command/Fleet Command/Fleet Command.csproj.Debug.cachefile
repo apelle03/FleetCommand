@@ -22,3 +22,9 @@ Content\Projectiles\missile.xnb
 Content\Ships\Basestar.xnb
 Content\Ships\Galactica.xnb
 Content\Resources\Earth.xnb
+Content\Resources\Icons\Air.xnb
+Content\Resources\Icons\Common.xnb
+Content\Resources\Icons\Food.xnb
+Content\Resources\Icons\Fuel.xnb
+Content\Resources\Icons\Rare.xnb
+Content\Resources\Icons\Water.xnb

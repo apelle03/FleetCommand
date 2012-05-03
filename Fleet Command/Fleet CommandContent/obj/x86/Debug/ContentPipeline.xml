@@ -217,6 +217,60 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Earth.xnb</Output>
       <Time>2012-05-03T14:31:26.5079108-04:00</Time>
     </Item>
+    <Item>
+      <Source>Resources\Icons\Air.png</Source>
+      <Name>Resources\Icons\Air</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Air.xnb</Output>
+      <Time>2012-05-03T15:28:31.9754705-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Icons\Common.png</Source>
+      <Name>Resources\Icons\Common</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Common.xnb</Output>
+      <Time>2012-05-03T15:36:33.4091635-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Icons\Food.png</Source>
+      <Name>Resources\Icons\Food</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Food.xnb</Output>
+      <Time>2012-05-03T15:33:28.3676694-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Icons\Fuel.png</Source>
+      <Name>Resources\Icons\Fuel</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Fuel.xnb</Output>
+      <Time>2012-05-03T15:35:02.5378092-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Icons\Rare.png</Source>
+      <Name>Resources\Icons\Rare</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Rare.xnb</Output>
+      <Time>2012-05-03T15:39:42.7372018-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Icons\Water.png</Source>
+      <Name>Resources\Icons\Water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Water.xnb</Output>
+      <Time>2012-05-03T15:31:21.5825517-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
