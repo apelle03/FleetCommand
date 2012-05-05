@@ -114,10 +114,12 @@
     <Compile Include="Decorators\Decorator.cs" />
     <Compile Include="Decorators\CorneredFill.cs" />
     <Compile Include="Decorators\Fill.cs" />
+    <Compile Include="Decorators\FuelBar.cs" />
     <Compile Include="Decorators\HealthBar.cs" />
     <Compile Include="Game\Commands\ActiveCommand.cs" />
     <Compile Include="Game\Commands\ActiveAttack.cs" />
     <Compile Include="Game\Commands\Collect.cs" />
+    <Compile Include="Game\Commands\Dock.cs" />
     <Compile Include="Game\Commands\Move.cs" />
     <Compile Include="Game\Commands\PassiveCommand.cs" />
     <Compile Include="Game\GameInfo\ResourceInfo.cs" />
@@ -133,6 +135,8 @@
     <Compile Include="Game\Levels\ResourceMonitor.cs" />
     <Compile Include="Game\Commands\Command.cs" />
     <Compile Include="Game\Objects\Basestar.cs" />
+    <Compile Include="Game\Objects\CapitalShip.cs" />
+    <Compile Include="Game\Objects\CombatShip.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
     <Compile Include="Game\Levels\Viewport.cs" />

@@ -17,18 +17,8 @@ namespace Fleet_Command.Game.Commands {
         }
 
         public override void Perform() {
-            Vector2 delta = destination - controller.Pos;
-            if (delta.Length() != 0) {
-                delta.Normalize();
-                double diff = (Math.Atan2(destination.Y - controller.Pos.Y, destination.X - controller.Pos.X) - controller.Angle +
-                2 * MathHelper.TwoPi) % MathHelper.TwoPi;
-                if (diff > MathHelper.Pi) {
-                    controller.Angle -= (float)Math.Min(controller.MaxRotationalSpeed, MathHelper.TwoPi - diff);
-                } else {
-                    controller.Angle += (float)Math.Min(controller.MaxRotationalSpeed, diff);
-                }
-                controller.Pos += Vector2.Multiply(delta, Math.Min(controller.MaxSpeed, (destination - controller.Pos).Length()));
-            }
+            controller.PointAt(destination);
+            controller.MoveTo(destination);
         }
 
         public override bool Completed() {

@@ -14,6 +14,14 @@ namespace Fleet_Command.Game.Objects {
     public class Ship : Unit {
         protected new static string sprite_source = "Ships/Basestar";
         protected override string SpriteSource { get { return sprite_source; } }
+
+        protected static float max_fuel = 1000;
+        public virtual float MaxFuel { get { return max_fuel; } }
+        protected static float fuel_rate = .002f;
+        public virtual float FuelRate { get { return fuel_rate; } }
+        protected static float refuel_rate = 50;
+        public virtual float RefuelRate { get { return refuel_rate; } }
+
         protected static int fire_rate = 20;
 
         protected int coolDown;
@@ -23,24 +31,25 @@ namespace Fleet_Command.Game.Objects {
 
         public HealthBar healthBar;
 
+        protected float fuel;
+        public float Fuel { get { return fuel; } }
+
+        public FuelBar fuelBar;
+
         public Ship(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
                 selectionBorder = new CircleBorder(this, "Unit");
                 healthBar = new HealthBar(this);
+                fuelBar = new FuelBar(this);
                 coolDown = 0;
+                fuel = MaxFuel;
         }
 
         public override void LoadContent() {
             base.LoadContent();
             selectionBorder.LoadContent();
             healthBar.LoadContent();
-        }
-
-        public void Collect(Resource resource, bool immediate) {
-            if (immediate) {
-                activeCommands.Clear();
-            }
-            activeCommands.Enqueue(new Collect(this, resource));
+            fuelBar.LoadContent();
         }
 
         public override void Update(GameTime gameTime) {
@@ -50,6 +59,7 @@ namespace Fleet_Command.Game.Objects {
 
             selectionBorder.Update();
             healthBar.Update();
+            fuelBar.Update();
         }
 
         public override void Draw(GameTime gameTime) {
@@ -58,22 +68,36 @@ namespace Fleet_Command.Game.Objects {
             }
             base.Draw(gameTime);
             healthBar.Draw();
+            fuelBar.Draw();
+        }
+
+        public override void PointAt(Vector2 dest) {
+            if (Fuel > 0) {
+                base.PointAt(dest);
+            }
+        }
+
+        public override void MoveTo(Vector2 dest) {
+            if ((dest - Pos).Length() > 0) {
+                float dist = Math.Min((dest - Pos).Length(), Math.Min(MaxSpeed, Fuel / FuelRate));
+                Vector2 amount = dest - Pos;
+                amount.Normalize();
+                amount *= dist;
+                ChangeFuel(-FuelRate * dist);
+                Pos += amount;
+            }
+        }
+
+        public virtual void ChangeFuel(float amount) {
+            fuel = MathHelper.Clamp(fuel + amount, 0, MaxFuel);
         }
 
         public override void Fire(Unit target) {
             if (coolDown == 0 && (Pos - target.Pos).Length() < Range) {
                 Projectile projectile = new Projectile(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
-                projectile.Attack(target, true);
+                projectile.AttackCommand(target, true);
                 playArea.Add(projectile);
                 coolDown = fire_rate;
-            }
-        }
-
-        public void Collect(Resource resource) {
-            if ((Pos - resource.Pos).Length() < Range) {
-                foreach (ResourceCounter rc in controller.Resources.Values) {
-                    rc.Increases = resource.GetRate(rc.Name);
-                }
             }
         }
     }

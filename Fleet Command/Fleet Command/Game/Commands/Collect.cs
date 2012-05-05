@@ -6,6 +6,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 
 using Fleet_Command.Game.Objects;
+using Fleet_Command.Game.Players;
 
 namespace Fleet_Command.Game.Commands {
     public class Collect : ActiveCommand {
@@ -22,23 +23,18 @@ namespace Fleet_Command.Game.Commands {
                 temp.Normalize();
             }
             Vector2 destination = Vector2.Multiply(temp, controller.Range * .9f) + resource.Pos;
-            Vector2 delta = destination - controller.Pos;
-            if (delta.Length() != 0) {
-                delta.Normalize();
-                double diff = (Math.Atan2(destination.Y - controller.Pos.Y, destination.X - controller.Pos.X) - controller.Angle +
-                2 * MathHelper.TwoPi) % MathHelper.TwoPi;
-                if (diff > MathHelper.Pi) {
-                    controller.Angle -= (float)Math.Min(controller.MaxRotationalSpeed, MathHelper.TwoPi - diff);
-                } else {
-                    controller.Angle += (float)Math.Min(controller.MaxRotationalSpeed, diff);
-                }
-                controller.Pos += Vector2.Multiply(delta, Math.Min(controller.MaxSpeed, (destination - controller.Pos).Length()));
-            }
-            ((Ship)controller).Collect(resource);
+            controller.PointAt(destination);
+            controller.MoveTo(destination);
+            ((CapitalShip)controller).Collect(resource);
         }
 
         public override bool Completed() {
-            return false;
+            foreach (ResourceCounter rc in controller.Controller.Resources.Values) {
+                if (rc.Amount < rc.Capacity) {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }

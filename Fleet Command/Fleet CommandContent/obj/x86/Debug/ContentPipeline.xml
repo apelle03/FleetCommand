@@ -280,6 +280,51 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\mono.xnb</Output>
       <Time>2012-05-05T11:22:55.9377241-04:00</Time>
     </Item>
+    <Item>
+      <Source>Ships\raider-heavy.png</Source>
+      <Name>Ships\raider-heavy</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raider-heavy.xnb</Output>
+      <Time>2012-05-05T15:30:32.6681681-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\raider.png</Source>
+      <Name>Ships\raider</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raider.xnb</Output>
+      <Time>2012-05-05T15:35:05.1845263-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\raptor.png</Source>
+      <Name>Ships\raptor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raptor.xnb</Output>
+      <Time>2012-05-05T15:28:11.0349135-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\viper-mkii.png</Source>
+      <Name>Ships\viper-mkii</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\viper-mkii.xnb</Output>
+      <Time>2012-05-05T15:13:22.4044231-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Ships\viper-mkvii.png</Source>
+      <Name>Ships\viper-mkvii</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\viper-mkvii.xnb</Output>
+      <Time>2012-05-05T15:16:06.6913695-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

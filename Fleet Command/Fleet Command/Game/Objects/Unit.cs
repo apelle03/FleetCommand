@@ -69,21 +69,57 @@ namespace Fleet_Command.Game.Objects {
             Center = new Vector2(sprite.Bounds.Center.X, sprite.Bounds.Center.Y);
         }
 
-        public void MoveTo(Vector2 dest, bool immediate) {
+        public void MoveCommand(Vector2 dest, bool immediate) {
             if (immediate) {
                 activeCommands.Clear();
             }
             activeCommands.Enqueue(new Move(this, dest));
         }
 
-        public void Attack(Unit target, bool immediate) {
+        public void AttackCommand(Unit target, bool immediate) {
             if (immediate) {
                 activeCommands.Clear();
             }
             activeCommands.Enqueue(new ActiveAttack(this, target));
         }
 
+        public virtual void Rotate(float angle) {
+            if (angle < 0) {
+                angle = Math.Min(MaxRotationalSpeed, -angle);
+                Angle += -angle + MathHelper.TwoPi;
+            } else {
+                angle = Math.Min(MaxRotationalSpeed, angle);
+                Angle += angle + MathHelper.TwoPi;
+            }
+            Angle %= MathHelper.TwoPi;
+        }
+
+        public virtual void PointAt(Vector2 dest) {
+            Vector2 delta = dest - Pos;
+            if (delta.Length() != 0) {
+                delta.Normalize();
+                double diff = (Math.Atan2(dest.Y - Pos.Y, dest.X - Pos.X) - Angle + 2 * MathHelper.TwoPi) % MathHelper.TwoPi;
+                if (diff > MathHelper.Pi) {
+                    Rotate(-(float)(MathHelper.TwoPi - diff));
+                } else {
+                    Rotate((float)diff);
+                }
+            }
+        }
+
+        public virtual void MoveTo(Vector2 dest) {
+            Vector2 delta = dest - Pos;
+            if (delta.Length() != 0) {
+                delta.Normalize();
+                Pos += Vector2.Multiply(delta, Math.Min(MaxSpeed, (dest - Pos).Length()));
+            }
+        }
+
         public virtual void Fire(Unit target) {
+        }
+
+        public virtual void InflictDamage(float amount) {
+            health = MathHelper.Clamp(health - amount, 0, MaxHealth);
         }
 
         public override void Update(GameTime gameTime) {
@@ -115,10 +151,6 @@ namespace Fleet_Command.Game.Objects {
             base.Draw(gameTime);
             SpriteBatch spriteBatch = FC.SpriteBatch;
             spriteBatch.Draw(sprite, Pos, null, Color.White, Angle, Center, 1, SpriteEffects.None, 1);
-        }
-
-        public virtual void InflictDamage(float amount) {
-            health = MathHelper.Clamp(health - amount, 0, MaxHealth);
         }
     }
 }

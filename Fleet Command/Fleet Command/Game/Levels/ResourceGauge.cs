@@ -63,7 +63,7 @@ namespace Fleet_Command.Game.Levels {
             changeLocation = new Vector2(BoundingBox.Right - changeSize.X * changeScale, BoundingBox.Top);
 
             // usage details
-            Vector2 usageSize = font.MeasureString(controller.Resource(info.Name).Increases.ToString("+#;-#;0") + "|" + controller.Resource(info.Name).Decreases.ToString("+#;-#;0"));
+            Vector2 usageSize = font.MeasureString(controller.Resource(info.Name).Increases.ToString("+#;-#;0") + "|" + (-controller.Resource(info.Name).Decreases).ToString("+#;-#;0"));
             usageScale = Math.Min(BoundingBox.Width * .2f / usageSize.X, BoundingBox.Height * .6f / usageSize.Y);
             usageLocation = new Vector2(BoundingBox.Right - usageSize.X * usageScale, BoundingBox.Top + BoundingBox.Height * .4f);
         }
@@ -87,7 +87,7 @@ namespace Fleet_Command.Game.Levels {
             changeLocation = new Vector2(BoundingBox.Right - changeSize.X * changeScale, BoundingBox.Top);
 
             // usage details
-            Vector2 usageSize = font.MeasureString(controller.Resource(info.Name).Increases.ToString("+#;-#;0") + "|" + controller.Resource(info.Name).Decreases.ToString("+#;-#;0"));
+            Vector2 usageSize = font.MeasureString(controller.Resource(info.Name).Increases.ToString("+#;-#;0") + "|" + (-controller.Resource(info.Name).Decreases).ToString("+#;-#;0"));
             usageScale = Math.Min(BoundingBox.Width * .2f / usageSize.X, BoundingBox.Height * .6f / usageSize.Y);
             usageLocation = new Vector2(BoundingBox.Right - usageSize.X * usageScale, BoundingBox.Top + BoundingBox.Height * .4f);
         }
@@ -108,7 +108,7 @@ namespace Fleet_Command.Game.Levels {
 
             spriteBatch.DrawString(font, controller.Resource(info.Name).Amount + "|" + controller.Resource(info.Name).Capacity, amountLocation, Color.White, 0, Vector2.Zero, amountScale, SpriteEffects.None, 0);
             spriteBatch.DrawString(font, (controller.Resource(info.Name).Increases - controller.Resource(info.Name).Decreases).ToString("+#;-#;0"), changeLocation, Color.White, 0, Vector2.Zero, changeScale, SpriteEffects.None, 0);
-            spriteBatch.DrawString(font, controller.Resource(info.Name).Increases.ToString("+#;-#;0") + "|" + controller.Resource(info.Name).Decreases.ToString("+#;-#;0"), usageLocation, Color.White, 0, Vector2.Zero, usageScale, SpriteEffects.None, 0);
+            spriteBatch.DrawString(font, controller.Resource(info.Name).Increases.ToString("+#;-#;0") + "|" + (-controller.Resource(info.Name).Decreases).ToString("+#;-#;0"), usageLocation, Color.White, 0, Vector2.Zero, usageScale, SpriteEffects.None, 0);
         }
     }
 }

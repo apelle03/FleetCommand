@@ -61,6 +61,7 @@ namespace Fleet_Command.Game.Levels {
                 Components.Add(new Resource(game, this, new Vector2((float)(rand.NextDouble() * 10000), (float)(rand.NextDouble() * 10000)),
                     (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
                 Components.Add(new Galactica(game, this, Vector2.One * 0, -MathHelper.PiOver2, level.Controller));
+                Components.Add(new CombatShip(game, this, Vector2.One * 200, -MathHelper.PiOver2, level.Controller));
                 Components.Add(new Basestar(game, this, Vector2.One * -2000, -MathHelper.PiOver2, level.Players[2]));
         }
 
@@ -128,34 +129,50 @@ namespace Fleet_Command.Game.Levels {
                         if (u.BoundingBox.Intersects(selectionArea) && u.Controller == level.Controller) {
                             ((Ship)u).Selected = true;
                             selection.Add(u);
-                            Console.WriteLine(u);
                         }
                     }
                 }
             }
             selectionBox.Update(gameTime);
 
+            for (int i = 0; i < selection.Count; i++) {
+                if (selection[i] is CombatShip && ((CombatShip)selection[i]).Docked) {
+                    ((Ship)selection[i]).Selected = false;
+                    selection.RemoveAt(i);
+                    i--;
+                }
+            }
+
             Point actLoc = new Point((int)ScreenToWorldX(act.X), (int)ScreenToWorldY(act.Y));
             bool move = true;
             if ((act.Active || queueAct.Active) && !lastAct) {
                 foreach (Unit u in Components) {
-                    if (u.Controller == level.Players[0] && u.BoundingBox.Contains(actLoc)) {
+                    if (u is Resource && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
-                            if (s is Ship && u is Resource) {
-                                ((Ship)s).Collect((Resource)u, !queueAct.Active);
+                            if (s is CapitalShip) {
+                                ((CapitalShip)s).CollectCommand((Resource)u, !queueAct.Active);
+                                move = false;
                             }
                         }
-                        move = false;
                     } else if (u.Controller != level.Controller && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
-                            s.Attack(u, !queueAct.Active);
+                            if (s is Ship) {
+                                s.AttackCommand(u, !queueAct.Active);
+                                move = false;
+                            }
                         }
-                        move = false;
+                    } else if (u is CapitalShip && u.Controller == level.Controller && u.BoundingBox.Contains(actLoc)) {
+                        foreach (Unit s in selection) {
+                            if (s is CombatShip) {
+                                ((CombatShip)s).DockCommand((CapitalShip)u, !queueAct.Active);
+                                move = false;
+                            }
+                        }
                     }
                 }
                 if (move) {
                     foreach (Unit u in selection) {
-                        u.MoveTo(new Vector2((float)ScreenToWorldX(act.X), (float)ScreenToWorldY(act.Y)), !queueAct.Active);
+                        u.MoveCommand(new Vector2((float)ScreenToWorldX(act.X), (float)ScreenToWorldY(act.Y)), !queueAct.Active);
                     }
                 }
             }

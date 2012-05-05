@@ -9,7 +9,7 @@ using Fleet_Command.Game.Levels;
 using Fleet_Command.Game.Players;
 
 namespace Fleet_Command.Game.Objects {
-    public class Basestar : Ship{
+    public class Basestar : CapitalShip {
         protected new static string sprite_source = "Ships/Basestar";
         protected override string SpriteSource { get { return sprite_source; } }
 
