@@ -271,6 +271,15 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Water.xnb</Output>
       <Time>2012-05-03T15:31:21.5825517-04:00</Time>
     </Item>
+    <Item>
+      <Source>mono.spritefont</Source>
+      <Name>mono</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\mono.xnb</Output>
+      <Time>2012-05-05T11:22:55.9377241-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

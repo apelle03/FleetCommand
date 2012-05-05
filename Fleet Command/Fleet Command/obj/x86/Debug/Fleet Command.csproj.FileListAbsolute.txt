@@ -34,3 +34,4 @@ C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Comm
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Fuel.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Rare.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Water.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\mono.xnb
