@@ -32,33 +32,12 @@ namespace Fleet_Command.Game.Objects {
         protected Player controller;
         public Player Controller { get { return controller; } }
 
-        //protected Vector2 pos;
         public Vector2 Pos { get; set; }
-        //protected Vector2 center;
         public Vector2 Center { get; set; }
-        //protected float angle;
         public float Angle { get; set; }
 
         protected float health;
         public float Health { get { return health; } }
-
-        protected Vector2 dest;
-        protected virtual Vector2 Dest {
-            get {
-                if (moving) {
-                    return dest;
-                } else if (attacking && target != null) {
-                    Vector2 temp = Pos - target.Pos;
-                    temp.Normalize();
-                    return Vector2.Multiply(temp, range * .9f) + target.Pos;
-                } else {
-                    return Vector2.Zero;
-                }
-            }
-        }
-        protected Unit target;
-        protected bool moving, attacking;
-        protected virtual bool Acting { get { return moving || attacking; } }
 
         protected Queue<ActiveCommand> activeCommands;
         protected List<PassiveCommand> passiveCommands;
@@ -76,10 +55,6 @@ namespace Fleet_Command.Game.Objects {
 
                 health = MaxHealth;
 
-                target = null;
-                moving = false;
-                attacking = false;
-
                 activeCommands = new Queue<ActiveCommand>();
                 passiveCommands = new List<PassiveCommand>();
         }
@@ -95,44 +70,24 @@ namespace Fleet_Command.Game.Objects {
         }
 
         public void MoveTo(Vector2 dest, bool immediate) {
-            //this.dest = dest;
-            //moving = true;
             if (immediate) {
                 activeCommands.Clear();
             }
             activeCommands.Enqueue(new Move(this, dest));
         }
 
-        public void Attack(Unit target) {
-            this.target = target;
-            moving = false;
-            attacking = true;
+        public void Attack(Unit target, bool immediate) {
+            if (immediate) {
+                activeCommands.Clear();
+            }
+            activeCommands.Enqueue(new ActiveAttack(this, target));
         }
 
-        public virtual void MoveToTarget() {
-            if (Acting) {
-                dest = Dest;
-                Vector2 delta = Dest - Pos;
-                if (delta.LengthSquared() == 0) {
-                    moving = false;
-                } else {
-                    Angle = (Angle + MathHelper.TwoPi) % MathHelper.TwoPi;
-                    double diff = (Math.Atan2(dest.Y - Pos.Y, dest.X - Pos.X) - Angle + 2 * MathHelper.TwoPi) % MathHelper.TwoPi;
-                    if (diff > MathHelper.Pi) {
-                        Angle -= (float)Math.Min(MaxRotationalSpeed, MathHelper.TwoPi - diff);
-                    } else {
-                        Angle += (float)Math.Min(MaxRotationalSpeed, diff);
-                    }
-                    delta.Normalize();
-                    Pos += Vector2.Multiply(delta, Math.Min(MaxSpeed, (dest - Pos).Length()));
-                }
-            }
+        public virtual void Fire(Unit target) {
         }
 
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
-
-            //MoveToTarget();
 
             if (activeCommands.Count > 0) {
                 activeCommands.Peek().Perform();

@@ -141,14 +141,14 @@ namespace Fleet_Command.Game.Levels {
                 foreach (Unit u in Components) {
                     if (u.Controller == level.Players[0] && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
-                            if (s is Ship) {
-                                ((Ship)s).Collect(u);
+                            if (s is Ship && u is Resource) {
+                                ((Ship)s).Collect((Resource)u, !queueAct.Active);
                             }
                         }
                         move = false;
                     } else if (u.Controller != level.Controller && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
-                            s.Attack(u);
+                            s.Attack(u, !queueAct.Active);
                         }
                         move = false;
                     }

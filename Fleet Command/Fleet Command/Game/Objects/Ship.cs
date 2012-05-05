@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 
 using Fleet_Command.Game.Levels;
 using Fleet_Command.Game.Players;
+using Fleet_Command.Game.Commands;
 using Fleet_Command.Decorators;
 
 namespace Fleet_Command.Game.Objects {
@@ -16,22 +17,6 @@ namespace Fleet_Command.Game.Objects {
         protected static int fire_rate = 20;
 
         protected int coolDown;
-
-        protected Resource collectionSource;
-        protected bool collecting;
-
-        protected override bool Acting { get { return base.Acting || collecting; } }
-
-        protected override Vector2 Dest {
-            get {
-                if (collecting) {
-                    return collectionSource.Pos;
-                } else {
-                    return base.Dest;
-                }
-            }
-        }
-
 
         protected CircleBorder selectionBorder;
         public bool Selected { get; set; }
@@ -51,28 +36,17 @@ namespace Fleet_Command.Game.Objects {
             healthBar.LoadContent();
         }
 
-        public void Collect(Unit u) {
-            if (u is Resource) {
-                collectionSource = (Resource)u;
-                collecting = true;
-                moving = false;
+        public void Collect(Resource resource, bool immediate) {
+            if (immediate) {
+                activeCommands.Clear();
             }
+            activeCommands.Enqueue(new Collect(this, resource));
         }
 
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
 
             coolDown = (int)MathHelper.Clamp(--coolDown, 0, fire_rate);
-            if (attacking && target != null && Vector2.Distance(target.Pos, Pos) < range && coolDown == 0) {
-                Fire();
-                if (target.Health == 0) {
-                    attacking = false;
-                }
-            }
-
-            if (collecting && collectionSource != null && Vector2.Distance(collectionSource.Pos, Pos) < collectionSource.BoundingBox.Width + BoundingBox.Width) {
-                Collect();
-            }
 
             selectionBorder.Update();
             healthBar.Update();
@@ -86,16 +60,20 @@ namespace Fleet_Command.Game.Objects {
             healthBar.Draw();
         }
 
-        private void Fire() {
-            Projectile projectile = new Projectile(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
-            projectile.Attack(target);
-            playArea.Add(projectile);
-            coolDown = fire_rate;
+        public override void Fire(Unit target) {
+            if (coolDown == 0 && (Pos - target.Pos).Length() < Range) {
+                Projectile projectile = new Projectile(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
+                projectile.Attack(target, true);
+                playArea.Add(projectile);
+                coolDown = fire_rate;
+            }
         }
 
-        private void Collect() {
-            foreach (ResourceCounter rc in controller.Resources.Values) {
-                rc.Increases = collectionSource.GetRate(rc.Name);
+        public void Collect(Resource resource) {
+            if ((Pos - resource.Pos).Length() < Range) {
+                foreach (ResourceCounter rc in controller.Resources.Values) {
+                    rc.Increases = resource.GetRate(rc.Name);
+                }
             }
         }
     }

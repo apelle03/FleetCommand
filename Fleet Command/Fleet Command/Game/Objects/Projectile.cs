@@ -22,23 +22,12 @@ namespace Fleet_Command.Game.Objects {
         protected new static float damage = 2f;
         public override float Damage { get { return damage; } }
 
-        protected override Vector2 Dest {
-            get {
-                if (target != null) {
-                    return target.Pos;
-                } else {
-                    return dest;
-                }
-            }
-        }
-
         public Projectile(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
         }
 
-        public override void Update(GameTime gameTime) {
-            base.Update(gameTime);
-            if (Vector2.Distance(Pos, target.Pos) < Range) {
+        public override void Fire(Unit target) {
+            if ((Pos - target.Pos).Length() < Range) {
                 target.InflictDamage(Damage);
                 this.InflictDamage(MaxHealth);
             }

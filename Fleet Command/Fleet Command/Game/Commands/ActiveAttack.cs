@@ -8,15 +8,20 @@ using Microsoft.Xna.Framework;
 using Fleet_Command.Game.Objects;
 
 namespace Fleet_Command.Game.Commands {
-    public class Move : ActiveCommand {
-        protected Vector2 destination;
+    public class ActiveAttack : ActiveCommand {
+        protected Unit target;
 
-        public Move(Unit controller, Vector2 dest)
+        public ActiveAttack(Unit controller, Unit target)
             : base(controller) {
-            destination = dest;
+            this.target = target;
         }
 
         public override void Perform() {
+            Vector2 temp = controller.Pos - target.Pos;
+            if (temp.Length() != 0) {
+                temp.Normalize();
+            }
+            Vector2 destination = Vector2.Multiply(temp, controller.Range * .9f) + target.Pos;
             Vector2 delta = destination - controller.Pos;
             if (delta.Length() != 0) {
                 delta.Normalize();
@@ -29,10 +34,11 @@ namespace Fleet_Command.Game.Commands {
                 }
                 controller.Pos += Vector2.Multiply(delta, Math.Min(controller.MaxSpeed, (destination - controller.Pos).Length()));
             }
+            controller.Fire(target);
         }
 
         public override bool Completed() {
-            return (destination - controller.Pos).Length() == 0;
+            return target.Health == 0;           
         }
     }
 }

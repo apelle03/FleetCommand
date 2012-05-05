@@ -116,6 +116,8 @@
     <Compile Include="Decorators\Fill.cs" />
     <Compile Include="Decorators\HealthBar.cs" />
     <Compile Include="Game\Commands\ActiveCommand.cs" />
+    <Compile Include="Game\Commands\ActiveAttack.cs" />
+    <Compile Include="Game\Commands\Collect.cs" />
     <Compile Include="Game\Commands\Move.cs" />
     <Compile Include="Game\Commands\PassiveCommand.cs" />
     <Compile Include="Game\GameInfo\ResourceInfo.cs" />
