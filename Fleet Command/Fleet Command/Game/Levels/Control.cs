@@ -28,7 +28,7 @@ namespace Fleet_Command.Game.Levels {
 
         public override void Initialize() {
             base.Initialize();
-            FC.InputManager.Register(Input.Actions.Click);
+            FC.InputManager.Register(Input.Actions.Select);
             FC.InputManager.Register(Input.Actions.Hover);
             FC.InputManager.Save();
         }
@@ -46,11 +46,11 @@ namespace Fleet_Command.Game.Levels {
             } else {
                 hovering = false;
             }
-            if (pressed && !FC.InputManager.CheckAction(Input.Actions.Click, this).Active) {
+            if (pressed && !FC.InputManager.CheckAction(Input.Actions.Select, this).Active) {
                 clickAction();
                 pressed = false;
             }
-            pressed = FC.InputManager.CheckAction(Input.Actions.Click, this).Active;
+            pressed = FC.InputManager.CheckAction(Input.Actions.Select, this).Active;
         }
 
         public override void BeforeDraw(GameTime gameTime) {

@@ -115,6 +115,9 @@
     <Compile Include="Decorators\CorneredFill.cs" />
     <Compile Include="Decorators\Fill.cs" />
     <Compile Include="Decorators\HealthBar.cs" />
+    <Compile Include="Game\Commands\ActiveCommand.cs" />
+    <Compile Include="Game\Commands\Move.cs" />
+    <Compile Include="Game\Commands\PassiveCommand.cs" />
     <Compile Include="Game\GameInfo\ResourceInfo.cs" />
     <Compile Include="Game\GameInfo\Resources.cs" />
     <Compile Include="Game\Levels\Control.cs" />
@@ -126,6 +129,7 @@
     <Compile Include="Game\Levels\PlayArea.cs" />
     <Compile Include="Game\Levels\ResourceGauge.cs" />
     <Compile Include="Game\Levels\ResourceMonitor.cs" />
+    <Compile Include="Game\Commands\Command.cs" />
     <Compile Include="Game\Objects\Basestar.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
@@ -133,6 +137,7 @@
     <Compile Include="Game\Objects\Resource.cs" />
     <Compile Include="Game\Objects\Ship.cs" />
     <Compile Include="Game\Players\Player.cs" />
+    <Compile Include="Game\Players\ResourceCounter.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />
     <Compile Include="Game\Levels\SelectionBox.cs" />
     <Compile Include="Game\Objects\Unit.cs" />

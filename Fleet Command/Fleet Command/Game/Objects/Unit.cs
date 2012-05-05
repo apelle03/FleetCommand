@@ -8,20 +8,22 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Fleet_Command.Game.Levels;
 using Fleet_Command.Game.Players;
+using Fleet_Command.Game.Commands;
 using Fleet_Command.Decorators;
 
 namespace Fleet_Command.Game.Objects {
     public class Unit : DGC {
         protected static string sprite_source = "Units/Galactica";
         protected virtual string SpriteSource { get { return sprite_source; } }
+
         protected static float max_speed = 5;
-        protected virtual float MaxSpeed { get { return max_speed; } }
+        public virtual float MaxSpeed { get { return max_speed; } }
         protected static float max_rotational_speed = (float)Math.PI/256;
-        protected virtual float MaxRotationalSpeed { get { return max_rotational_speed; } }
+        public virtual float MaxRotationalSpeed { get { return max_rotational_speed; } }
         protected static float range = 2500;
         public virtual float Range { get { return range; } }
         protected static float damage = 0;
-        protected virtual float Damage { get { return damage; } }
+        public virtual float Damage { get { return damage; } }
         protected static float max_health = 100;
         public virtual float MaxHealth { get { return max_health; } }
 
@@ -30,11 +32,12 @@ namespace Fleet_Command.Game.Objects {
         protected Player controller;
         public Player Controller { get { return controller; } }
 
-        protected Vector2 pos;
-        public Vector2 Pos { get { return pos; } }
-        protected Vector2 center;
-        public Vector2 Center { get { return center; } }
-        protected float angle;
+        //protected Vector2 pos;
+        public Vector2 Pos { get; set; }
+        //protected Vector2 center;
+        public Vector2 Center { get; set; }
+        //protected float angle;
+        public float Angle { get; set; }
 
         protected float health;
         public float Health { get { return health; } }
@@ -45,9 +48,9 @@ namespace Fleet_Command.Game.Objects {
                 if (moving) {
                     return dest;
                 } else if (attacking && target != null) {
-                    Vector2 temp = pos - target.pos;
+                    Vector2 temp = Pos - target.Pos;
                     temp.Normalize();
-                    return Vector2.Multiply(temp, range * .9f) + target.pos;
+                    return Vector2.Multiply(temp, range * .9f) + target.Pos;
                 } else {
                     return Vector2.Zero;
                 }
@@ -55,6 +58,10 @@ namespace Fleet_Command.Game.Objects {
         }
         protected Unit target;
         protected bool moving, attacking;
+        protected virtual bool Acting { get { return moving || attacking; } }
+
+        protected Queue<ActiveCommand> activeCommands;
+        protected List<PassiveCommand> passiveCommands;
 
         protected Texture2D sprite;
 
@@ -64,29 +71,36 @@ namespace Fleet_Command.Game.Objects {
                 
                 this.controller = controller;
                 
-                this.pos = pos;
-                this.angle = angle;
+                this.Pos = pos;
+                this.Angle = angle;
 
                 health = MaxHealth;
 
                 target = null;
                 moving = false;
                 attacking = false;
+
+                activeCommands = new Queue<ActiveCommand>();
+                passiveCommands = new List<PassiveCommand>();
         }
 
         public override void LoadContent() {
             base.LoadContent();
             sprite = FC.Content.Load<Texture2D>(SpriteSource);
-            boundingBox.X = (int)pos.X - sprite.Bounds.Center.X;
-            boundingBox.Y = (int)pos.Y - sprite.Bounds.Center.Y;
+            boundingBox.X = (int)Pos.X - sprite.Bounds.Center.X;
+            boundingBox.Y = (int)Pos.Y - sprite.Bounds.Center.Y;
             boundingBox.Width = sprite.Bounds.Width;
             boundingBox.Height = sprite.Bounds.Height;
-            center = new Vector2(sprite.Bounds.Center.X, sprite.Bounds.Center.Y);
+            Center = new Vector2(sprite.Bounds.Center.X, sprite.Bounds.Center.Y);
         }
 
-        public void MoveTo(Vector2 dest) {
-            this.dest = dest;
-            moving = true;
+        public void MoveTo(Vector2 dest, bool immediate) {
+            //this.dest = dest;
+            //moving = true;
+            if (immediate) {
+                activeCommands.Clear();
+            }
+            activeCommands.Enqueue(new Move(this, dest));
         }
 
         public void Attack(Unit target) {
@@ -96,21 +110,21 @@ namespace Fleet_Command.Game.Objects {
         }
 
         public virtual void MoveToTarget() {
-            if (moving || attacking) {
+            if (Acting) {
                 dest = Dest;
-                Vector2 delta = Dest - pos;
+                Vector2 delta = Dest - Pos;
                 if (delta.LengthSquared() == 0) {
                     moving = false;
                 } else {
-                    angle = (angle + MathHelper.TwoPi) % MathHelper.TwoPi;
-                    double diff = (Math.Atan2(dest.Y - pos.Y, dest.X - pos.X) - angle + 2 * MathHelper.TwoPi) % MathHelper.TwoPi;
+                    Angle = (Angle + MathHelper.TwoPi) % MathHelper.TwoPi;
+                    double diff = (Math.Atan2(dest.Y - Pos.Y, dest.X - Pos.X) - Angle + 2 * MathHelper.TwoPi) % MathHelper.TwoPi;
                     if (diff > MathHelper.Pi) {
-                        angle -= (float)Math.Min(MaxRotationalSpeed, MathHelper.TwoPi - diff);
+                        Angle -= (float)Math.Min(MaxRotationalSpeed, MathHelper.TwoPi - diff);
                     } else {
-                        angle += (float)Math.Min(MaxRotationalSpeed, diff);
+                        Angle += (float)Math.Min(MaxRotationalSpeed, diff);
                     }
                     delta.Normalize();
-                    pos += Vector2.Multiply(delta, Math.Min(MaxSpeed, (dest - pos).Length()));
+                    Pos += Vector2.Multiply(delta, Math.Min(MaxSpeed, (dest - Pos).Length()));
                 }
             }
         }
@@ -118,10 +132,26 @@ namespace Fleet_Command.Game.Objects {
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
 
-            MoveToTarget();
+            //MoveToTarget();
 
-            boundingBox.X = (int)pos.X - sprite.Bounds.Center.X;
-            boundingBox.Y = (int)pos.Y - sprite.Bounds.Center.Y;
+            if (activeCommands.Count > 0) {
+                activeCommands.Peek().Perform();
+                if (activeCommands.Peek().Completed()) {
+                    activeCommands.Dequeue();
+                }
+            }
+
+            for (int i = 0; i < passiveCommands.Count; i++) {
+                passiveCommands[i].Perform();
+                if (passiveCommands[i].Completed()) {
+                    passiveCommands.Remove(passiveCommands[i]);
+                    i--;
+                }
+            }
+            
+
+            boundingBox.X = (int)Pos.X - sprite.Bounds.Center.X;
+            boundingBox.Y = (int)Pos.Y - sprite.Bounds.Center.Y;
             boundingBox.Width = sprite.Bounds.Width;
             boundingBox.Height = sprite.Bounds.Height;
         }
@@ -129,7 +159,7 @@ namespace Fleet_Command.Game.Objects {
         public override void Draw(GameTime gameTime) {
             base.Draw(gameTime);
             SpriteBatch spriteBatch = FC.SpriteBatch;
-            spriteBatch.Draw(sprite, pos, null, Color.White, angle, center, 1, SpriteEffects.None, 1);
+            spriteBatch.Draw(sprite, Pos, null, Color.White, Angle, Center, 1, SpriteEffects.None, 1);
         }
 
         public virtual void InflictDamage(float amount) {

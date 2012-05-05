@@ -44,12 +44,14 @@ namespace Fleet_Command.Game.Levels {
                             break;
                     }
                 }
-                ResourceMonitor resourceMonitor = new ResourceMonitor(game, Controller, relativePos, new Vector2(relativeSize.X * .2f, relativeSize.Y * .2f));
+                ResourceMonitor resourceMonitor = new ResourceMonitor(game, Controller, relativePos, new Vector2(relativeSize.X * .15f, relativeSize.Y * .15f));
                 Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
                 PlayArea playArea = new PlayArea(game, this, relativePos, relativeSize, relativePos, new Vector2(relativeSize.X, relativeSize.Y * .8f));
-                playArea.DrawOrder = 0;
-                controls.DrawOrder = 1;
-                resourceMonitor.DrawOrder = 2;
+
+                playArea.UpdateOrder = 0;          playArea.DrawOrder = 0;
+                controls.UpdateOrder = 100;        controls.DrawOrder = 100;
+                resourceMonitor.UpdateOrder = 200; resourceMonitor.DrawOrder = 200;
+                
                 Components.Add(playArea);    
                 Components.Add(controls);
                 Components.Add(resourceMonitor);
@@ -62,6 +64,9 @@ namespace Fleet_Command.Game.Levels {
         }
 
         public override void Update(GameTime gameTime) {
+            foreach (Player p in players) {
+                p.Update();
+            }
             base.Update(gameTime);
             if (FC.InputManager.CheckAction(Input.Actions.PauseMenu, this).Active) {
                 FC.Pause();

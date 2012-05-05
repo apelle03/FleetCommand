@@ -14,13 +14,13 @@ namespace Fleet_Command.Game.Objects {
         protected override string SpriteSource { get { return sprite_source; } }
 
         protected new static float max_speed = 100;
-        protected override float MaxSpeed { get { return max_speed; } }
+        public override float MaxSpeed { get { return max_speed; } }
 
         protected new static float range = 10f;
         public override float Range { get { return range; } }
 
         protected new static float damage = 2f;
-        protected override float Damage { get { return damage; } }
+        public override float Damage { get { return damage; } }
 
         protected override Vector2 Dest {
             get {
@@ -38,7 +38,7 @@ namespace Fleet_Command.Game.Objects {
 
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
-            if (Vector2.Distance(pos, target.Pos) < Range) {
+            if (Vector2.Distance(Pos, target.Pos) < Range) {
                 target.InflictDamage(Damage);
                 this.InflictDamage(MaxHealth);
             }

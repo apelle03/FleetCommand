@@ -17,6 +17,22 @@ namespace Fleet_Command.Game.Objects {
 
         protected int coolDown;
 
+        protected Resource collectionSource;
+        protected bool collecting;
+
+        protected override bool Acting { get { return base.Acting || collecting; } }
+
+        protected override Vector2 Dest {
+            get {
+                if (collecting) {
+                    return collectionSource.Pos;
+                } else {
+                    return base.Dest;
+                }
+            }
+        }
+
+
         protected CircleBorder selectionBorder;
         public bool Selected { get; set; }
 
@@ -35,15 +51,27 @@ namespace Fleet_Command.Game.Objects {
             healthBar.LoadContent();
         }
 
+        public void Collect(Unit u) {
+            if (u is Resource) {
+                collectionSource = (Resource)u;
+                collecting = true;
+                moving = false;
+            }
+        }
+
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
 
             coolDown = (int)MathHelper.Clamp(--coolDown, 0, fire_rate);
-            if (attacking && target != null && Vector2.Distance(target.Pos, pos) < range && coolDown == 0) {
+            if (attacking && target != null && Vector2.Distance(target.Pos, Pos) < range && coolDown == 0) {
                 Fire();
                 if (target.Health == 0) {
                     attacking = false;
                 }
+            }
+
+            if (collecting && collectionSource != null && Vector2.Distance(collectionSource.Pos, Pos) < collectionSource.BoundingBox.Width + BoundingBox.Width) {
+                Collect();
             }
 
             selectionBorder.Update();
@@ -59,10 +87,16 @@ namespace Fleet_Command.Game.Objects {
         }
 
         private void Fire() {
-            Projectile projectile = new Projectile(fc, playArea, pos, (float)Math.Atan2(target.Pos.Y - pos.Y, target.Pos.X - pos.X), controller);
+            Projectile projectile = new Projectile(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
             projectile.Attack(target);
             playArea.Add(projectile);
             coolDown = fire_rate;
+        }
+
+        private void Collect() {
+            foreach (ResourceCounter rc in controller.Resources.Values) {
+                rc.Increases = collectionSource.GetRate(rc.Name);
+            }
         }
     }
 }

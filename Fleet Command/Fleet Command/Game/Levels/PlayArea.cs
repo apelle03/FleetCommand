@@ -23,6 +23,8 @@ namespace Fleet_Command.Game.Levels {
         protected SelectionBox selectionBox;
         protected List<Unit> selection;
 
+        protected bool lastAct;
+
         protected Viewport viewport;
 
         public PlayArea(FC game, Level level)
@@ -51,6 +53,9 @@ namespace Fleet_Command.Game.Levels {
                 selectableSize = selectSize;
                 selectionBox = new SelectionBox(game);
                 selection = new List<Unit>();
+
+                lastAct = false;
+
                 Random rand = new Random();
 
                 Components.Add(new Resource(game, this, new Vector2((float)(rand.NextDouble() * 10000), (float)(rand.NextDouble() * 10000)),
@@ -61,8 +66,9 @@ namespace Fleet_Command.Game.Levels {
 
         public override void Initialize() {
             base.Initialize();
-            FC.InputManager.Register(Input.Actions.Click);
-            FC.InputManager.Register(Input.Actions.RightClick);
+            FC.InputManager.Register(Input.Actions.Select);
+            FC.InputManager.Register(Input.Actions.Act);
+            FC.InputManager.Register(Input.Actions.QueueAct);
             FC.InputManager.Register(Input.Actions.Left);
             FC.InputManager.Register(Input.Actions.Right);
             FC.InputManager.Register(Input.Actions.Up);
@@ -93,21 +99,22 @@ namespace Fleet_Command.Game.Levels {
         }
 
         public override void Update(GameTime gameTime) {
-            ComboInfo click = FC.InputManager.CheckAction(Actions.Click, this);
-            ComboInfo rightClick = FC.InputManager.CheckAction(Actions.RightClick, this);
-            if (click.Active && !selectionBox.Active) {
-                if (selectableArea.Contains((int)click.X, (int)click.Y)) {
-                    selectionBox.SetStart((int)click.X, (int)click.Y);
+            ComboInfo select = FC.InputManager.CheckAction(Actions.Select, this);
+            ComboInfo act = FC.InputManager.CheckAction(Actions.Act, this);
+            ComboInfo queueAct = FC.InputManager.CheckAction(Actions.QueueAct, this);
+            if (select.Active && !selectionBox.Active) {
+                if (selectableArea.Contains((int)select.X, (int)select.Y)) {
+                    selectionBox.SetStart((int)select.X, (int)select.Y);
                 }
-            } else if (click.Active && selectionBox.Active) {
-                int x = (int)click.X;
-                int y = (int)click.Y;
+            } else if (select.Active && selectionBox.Active) {
+                int x = (int)select.X;
+                int y = (int)select.Y;
                 if (x < selectableArea.Left) x = selectableArea.Left;
                 if (x > selectableArea.Right) x = selectableArea.Right;
                 if (y < selectableArea.Top) y = selectableArea.Top;
                 if (y > selectableArea.Bottom) y = selectableArea.Bottom;
                 selectionBox.SetCorner(x, y);
-            } else if (!click.Active && selectionBox.Active) {
+            } else if (!select.Active && selectionBox.Active) {
                 selectionBox.Active = false;
                 selectionBox.Update(gameTime);
                 Rectangle selectionArea = new Rectangle((int)ScreenToWorldX(selectionBox.BoundingBox.X),
@@ -128,16 +135,18 @@ namespace Fleet_Command.Game.Levels {
             }
             selectionBox.Update(gameTime);
 
-            Point rightClickLoc = new Point((int)ScreenToWorldX(rightClick.X), (int)ScreenToWorldY(rightClick.Y));
+            Point actLoc = new Point((int)ScreenToWorldX(act.X), (int)ScreenToWorldY(act.Y));
             bool move = true;
-            if (rightClick.Active) {
+            if ((act.Active || queueAct.Active) && !lastAct) {
                 foreach (Unit u in Components) {
-                    if (u.Controller == level.Players[0] && u.BoundingBox.Contains(rightClickLoc)) {
+                    if (u.Controller == level.Players[0] && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
-                            // s.Gather(u);
+                            if (s is Ship) {
+                                ((Ship)s).Collect(u);
+                            }
                         }
                         move = false;
-                    } else if (u.Controller != level.Controller && u.BoundingBox.Contains(rightClickLoc)) {
+                    } else if (u.Controller != level.Controller && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
                             s.Attack(u);
                         }
@@ -146,10 +155,11 @@ namespace Fleet_Command.Game.Levels {
                 }
                 if (move) {
                     foreach (Unit u in selection) {
-                        u.MoveTo(new Vector2((float)ScreenToWorldX(rightClick.X), (float)ScreenToWorldY(rightClick.Y)));
+                        u.MoveTo(new Vector2((float)ScreenToWorldX(act.X), (float)ScreenToWorldY(act.Y)), !queueAct.Active);
                     }
                 }
             }
+            lastAct = act.Active || queueAct.Active;
 
             Vector2 amount = Vector2.Zero;
             if (FC.InputManager.CheckAction(Actions.Left, this).Active) { amount.X += -1; }
