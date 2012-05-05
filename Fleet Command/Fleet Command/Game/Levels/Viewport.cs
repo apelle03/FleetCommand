@@ -16,7 +16,7 @@ namespace Fleet_Command.Game.Levels {
         public float Zoom { get; set; }
 
         private Vector2 scrollRate;
-        public float ScrollRate { get { return scrollRate.X; } set { scrollRate.X = value; scrollRate.Y = value; } }
+        public float ScrollRate { get { return scrollRate.X / (Zoom * 5); } set { scrollRate.X = value; scrollRate.Y = value; } }
         public float ZoomRate { get;  set; }
 
         private Rectangle viewArea;
@@ -33,7 +33,7 @@ namespace Fleet_Command.Game.Levels {
         }
 
         public void Scroll(Vector2 amount) {
-            Center += amount * scrollRate;
+            Center += amount * ScrollRate;
             viewArea.X = (int)(Center.X - Size.X / 2);
             viewArea.Y = (int)(Center.Y - Size.Y / 2);
         }

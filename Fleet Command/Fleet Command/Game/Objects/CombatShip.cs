@@ -64,9 +64,9 @@ namespace Fleet_Command.Game.Objects {
         }
 
         public override void Draw(GameTime gameTime) {
-            if (!Docked) {
+            //if (!Docked) {
                 base.Draw(gameTime);
-            }
+            //}
         }
     }
 }
