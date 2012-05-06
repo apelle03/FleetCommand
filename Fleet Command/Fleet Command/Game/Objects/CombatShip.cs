@@ -12,7 +12,7 @@ using Fleet_Command.Game.Commands;
 namespace Fleet_Command.Game.Objects {
     public class CombatShip : Ship {
         protected new static string sprite_source = "Ships/viper-mkii";
-        protected override string SpriteSource { get { return sprite_source; } }
+        public override string SpriteSource { get { return sprite_source; } }
 
         protected new static float max_speed = 100;
         public override float MaxSpeed { get { return max_speed; } }
@@ -30,7 +30,8 @@ namespace Fleet_Command.Game.Objects {
 
         protected bool docked;
         public bool Docked { get { return docked; } }
-        protected CapitalShip hanger;
+        protected CapitalShip hangar;
+        public CapitalShip Hangar { get { return hangar; } }
 
         public CombatShip(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
@@ -41,22 +42,30 @@ namespace Fleet_Command.Game.Objects {
             if (immediate) {
                 activeCommands.Clear();
             }
-            activeCommands.Enqueue(new Dock(this, captialShip));
+            activeCommands.Enqueue(new Dock(this, null, captialShip));
         }
 
         public void Dock(CapitalShip hanger) {
-            this.hanger = hanger;
+            this.hangar = hanger;
             docked = true;
+        }
+
+        public void LaunchCommand(CapitalShip captialShip, bool immediate) {
+            if (immediate) {
+                activeCommands.Clear();
+            }
+            activeCommands.Enqueue(new Launch(this, null, captialShip));
         }
 
         public void Launch() {
             docked = false;
+            hangar.Docked.Remove(this);
         }
 
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
             if (Docked) {
-                Pos = hanger.Pos;
+                Pos = hangar.Pos;
                 if (Fuel < MaxFuel) {
                     ChangeFuel(controller.Resource("Fuel").Use(Math.Min(RefuelRate, MaxFuel - Fuel)));
                 }
@@ -64,9 +73,9 @@ namespace Fleet_Command.Game.Objects {
         }
 
         public override void Draw(GameTime gameTime) {
-            //if (!Docked) {
+            if (!Docked) {
                 base.Draw(gameTime);
-            //}
+            }
         }
     }
 }

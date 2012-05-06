@@ -31,11 +31,15 @@ namespace Fleet_Command.Game.Players {
             return resources[name];
         }
 
-        public float Use(string name, int amount) {
+        public float TestUse(string name, float amount) {
+            return resources[name].TestUse(amount);
+        }
+
+        public float Use(string name, float amount) {
             return resources[name].Use(amount);
         }
 
-        public void Supply(string name, int amount) {
+        public void Supply(string name, float amount) {
             resources[name].Supply(amount);
         }
 

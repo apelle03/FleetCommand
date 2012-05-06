@@ -9,8 +9,8 @@ namespace Fleet_Command.Game.Commands {
     public class Dock : ActiveCommand {
         protected CapitalShip target;
 
-        public Dock(Unit controller, CapitalShip target)
-            : base(controller) {
+        public Dock(Unit controller, CommandComplete callback, CapitalShip target)
+            : base(controller, callback) {
                 this.target = target;
         }
 

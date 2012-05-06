@@ -14,7 +14,7 @@ using Fleet_Command.Decorators;
 namespace Fleet_Command.Game.Objects {
     public class Unit : DGC {
         protected static string sprite_source = "Units/Galactica";
-        protected virtual string SpriteSource { get { return sprite_source; } }
+        public virtual string SpriteSource { get { return sprite_source; } }
 
         protected static float max_speed = 5;
         public virtual float MaxSpeed { get { return max_speed; } }
@@ -44,8 +44,13 @@ namespace Fleet_Command.Game.Objects {
 
         protected Texture2D sprite;
 
+        protected UnitInfo unitInfo;
+        public UnitInfo UnitInfo { get { return unitInfo; } }
+
         public Unit(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game) {
+                unitInfo = new UnitInfo(game, this);
+
                 this.playArea = playArea;
                 
                 this.controller = controller;
@@ -61,6 +66,7 @@ namespace Fleet_Command.Game.Objects {
 
         public override void LoadContent() {
             base.LoadContent();
+            unitInfo.LoadContent();
             sprite = FC.Content.Load<Texture2D>(SpriteSource);
             boundingBox.X = (int)Pos.X - sprite.Bounds.Center.X;
             boundingBox.Y = (int)Pos.Y - sprite.Bounds.Center.Y;
@@ -73,14 +79,14 @@ namespace Fleet_Command.Game.Objects {
             if (immediate) {
                 activeCommands.Clear();
             }
-            activeCommands.Enqueue(new Move(this, dest));
+            activeCommands.Enqueue(new Move(this, null, dest));
         }
 
         public void AttackCommand(Unit target, bool immediate) {
             if (immediate) {
                 activeCommands.Clear();
             }
-            activeCommands.Enqueue(new ActiveAttack(this, target));
+            activeCommands.Enqueue(new ActiveAttack(this, null, target));
         }
 
         public virtual void Rotate(float angle) {
@@ -128,14 +134,20 @@ namespace Fleet_Command.Game.Objects {
             if (activeCommands.Count > 0) {
                 activeCommands.Peek().Perform();
                 if (activeCommands.Peek().Completed()) {
-                    activeCommands.Dequeue();
+                    Command c = activeCommands.Dequeue();
+                    if (c.CallBack != null) {
+                        c.CallBack(c);
+                    }
                 }
             }
 
             for (int i = 0; i < passiveCommands.Count; i++) {
                 passiveCommands[i].Perform();
                 if (passiveCommands[i].Completed()) {
-                    passiveCommands.Remove(passiveCommands[i]);
+                    if (passiveCommands[i].CallBack != null) {
+                        passiveCommands[i].CallBack(passiveCommands[i]);
+                    }
+                    passiveCommands.RemoveAt(i);
                     i--;
                 }
             }

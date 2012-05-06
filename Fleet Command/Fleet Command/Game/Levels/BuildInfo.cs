@@ -5,19 +5,21 @@ using System.Text;
 
 using Microsoft.Xna.Framework;
 
+using Fleet_Command.Decorators;
+using Fleet_Command.Game.GameInfo;
+using Fleet_Command.Game.Objects;
+
 namespace Fleet_Command.Game.Levels {
     public class BuildInfo : ControlInfo {
-        protected int count;
-        public int Count { get { return count; } set { count = (int)MathHelper.Clamp(value, 0, 200); } }
+        protected ConstructableInfo info;
+        public ConstructableInfo Info { get { return info; } }
 
+        public CapitalShip CapitalShip { get; set; }
 
-        public BuildInfo(FC game, string iconSource)
-            : base(game, iconSource) {
-            count = 0;
-        }
-
-        public override void LoadContent() {
-            
+        public BuildInfo(FC game, ConstructableInfo ci, CapitalShip cs)
+            : base(game, ci.Icon) {
+                info = ci;
+                CapitalShip = cs;
         }
     }
 }

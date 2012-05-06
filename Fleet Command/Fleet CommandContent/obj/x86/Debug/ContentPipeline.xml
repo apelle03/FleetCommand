@@ -386,7 +386,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\down.xnb</Output>
-      <Time>2012-05-05T21:45:06.5461186-04:00</Time>
+      <Time>2012-05-06T14:27:01.7006677-04:00</Time>
     </Item>
     <Item>
       <Source>Menu\up.png</Source>
@@ -395,7 +395,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\up.xnb</Output>
-      <Time>2012-05-05T21:45:24.5101757-04:00</Time>
+      <Time>2012-05-06T14:27:18.8846507-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

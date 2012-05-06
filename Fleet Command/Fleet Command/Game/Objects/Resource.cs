@@ -12,7 +12,7 @@ using Fleet_Command.Game.GameInfo;
 namespace Fleet_Command.Game.Objects {
     public class Resource : Unit {
         protected new static string sprite_source = "Resources/Earth";
-        protected override string SpriteSource { get { return sprite_source; } }
+        public override string SpriteSource { get { return sprite_source; } }
 
         protected Dictionary<string, int> collectionRates;
 
@@ -20,7 +20,7 @@ namespace Fleet_Command.Game.Objects {
             : base(game, playArea, pos, angle, controller) {
                 collectionRates = new Dictionary<string, int>();
                 foreach (ResourceInfo ri in Resources.ResourceList) {
-                    collectionRates.Add(ri.Name, 1);
+                    collectionRates.Add(ri.Name, 100);
                 }
         }
 

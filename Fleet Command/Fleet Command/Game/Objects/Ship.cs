@@ -13,7 +13,7 @@ using Fleet_Command.Decorators;
 namespace Fleet_Command.Game.Objects {
     public class Ship : Unit {
         protected new static string sprite_source = "Ships/Basestar";
-        protected override string SpriteSource { get { return sprite_source; } }
+        public override string SpriteSource { get { return sprite_source; } }
 
         protected static float max_fuel = 1000;
         public virtual float MaxFuel { get { return max_fuel; } }
@@ -38,6 +38,7 @@ namespace Fleet_Command.Game.Objects {
 
         public Ship(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
+                unitInfo = new ShipInfo(game, this);
                 selectionBorder = new CircleBorder(this, "Unit");
                 healthBar = new HealthBar(this);
                 fuelBar = new FuelBar(this);

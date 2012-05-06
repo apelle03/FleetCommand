@@ -11,7 +11,7 @@ using Fleet_Command.Game.Players;
 namespace Fleet_Command.Game.Objects {
     public class Projectile : Unit {
         protected new static string sprite_source = "Projectiles/missile";
-        protected override string SpriteSource { get { return sprite_source; } }
+        public override string SpriteSource { get { return sprite_source; } }
 
         protected new static float max_speed = 100;
         public override float MaxSpeed { get { return max_speed; } }

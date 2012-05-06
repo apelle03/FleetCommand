@@ -110,16 +110,22 @@
   <ItemGroup>
     <Compile Include="Decorators\Border.cs" />
     <Compile Include="Decorators\CircleBorder.cs" />
+    <Compile Include="Decorators\ControlProgressBar.cs" />
     <Compile Include="Decorators\CorneredBorder.cs" />
     <Compile Include="Decorators\Decorator.cs" />
     <Compile Include="Decorators\CorneredFill.cs" />
     <Compile Include="Decorators\Fill.cs" />
     <Compile Include="Decorators\FuelBar.cs" />
     <Compile Include="Decorators\HealthBar.cs" />
+    <Compile Include="Decorators\ControlDecorator.cs" />
+    <Compile Include="Decorators\ControlFuelBar.cs" />
+    <Compile Include="Decorators\ControlHealthBar.cs" />
     <Compile Include="Game\Commands\ActiveCommand.cs" />
     <Compile Include="Game\Commands\ActiveAttack.cs" />
+    <Compile Include="Game\Commands\Build.cs" />
     <Compile Include="Game\Commands\Collect.cs" />
     <Compile Include="Game\Commands\Dock.cs" />
+    <Compile Include="Game\Commands\Launch.cs" />
     <Compile Include="Game\Commands\Move.cs" />
     <Compile Include="Game\Commands\PassiveCommand.cs" />
     <Compile Include="Game\GameInfo\ConstructableInfo.cs" />
@@ -127,6 +133,7 @@
     <Compile Include="Game\GameInfo\ResourceInfo.cs" />
     <Compile Include="Game\GameInfo\Resources.cs" />
     <Compile Include="Game\Levels\BuildInfo.cs" />
+    <Compile Include="Game\Levels\BuildQueueInfo.cs" />
     <Compile Include="Game\Levels\Control.cs" />
     <Compile Include="Game\Levels\Controls.cs" />
     <Compile Include="Game\DGC.cs" />
@@ -138,6 +145,8 @@
     <Compile Include="Game\Levels\ResourceGauge.cs" />
     <Compile Include="Game\Levels\ResourceMonitor.cs" />
     <Compile Include="Game\Commands\Command.cs" />
+    <Compile Include="Game\Levels\ShipInfo.cs" />
+    <Compile Include="Game\Levels\UnitInfo.cs" />
     <Compile Include="Game\Objects\Basestar.cs" />
     <Compile Include="Game\Objects\CapitalShip.cs" />
     <Compile Include="Game\Objects\CombatShip.cs" />

@@ -11,8 +11,8 @@ namespace Fleet_Command.Game.Commands {
     public class Move : ActiveCommand {
         protected Vector2 destination;
 
-        public Move(Unit controller, Vector2 dest)
-            : base(controller) {
+        public Move(Unit controller, CommandComplete callback, Vector2 dest)
+            : base(controller, callback) {
             destination = dest;
         }
 

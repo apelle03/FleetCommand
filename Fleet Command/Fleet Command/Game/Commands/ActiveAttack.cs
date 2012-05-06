@@ -11,8 +11,8 @@ namespace Fleet_Command.Game.Commands {
     public class ActiveAttack : ActiveCommand {
         protected Unit target;
 
-        public ActiveAttack(Unit controller, Unit target)
-            : base(controller) {
+        public ActiveAttack(Unit controller, CommandComplete callback, Unit target)
+            : base(controller, callback) {
             this.target = target;
         }
 

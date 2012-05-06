@@ -12,8 +12,8 @@ namespace Fleet_Command.Game.Commands {
     public class Collect : ActiveCommand {
         protected Resource resource;
 
-        public Collect(Unit controller, Resource resource)
-            : base(controller) {
+        public Collect(Unit controller, CommandComplete callback, Resource resource)
+            : base(controller, callback) {
             this.resource = resource;
         }
 

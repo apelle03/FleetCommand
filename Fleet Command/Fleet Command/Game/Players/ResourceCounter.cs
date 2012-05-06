@@ -41,5 +41,9 @@ namespace Fleet_Command.Game.Players {
             Decreases = amt;
             return amt;
         }
+
+        public float TestUse(float amount) {
+            return Math.Min(amount, Amount);
+        }
     }
 }
