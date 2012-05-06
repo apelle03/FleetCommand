@@ -40,3 +40,11 @@ C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Comm
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raptor.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\viper-mkii.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\viper-mkvii.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\GalacticaSquare\outline_corner.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\GalacticaSquare\outline_side.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\GalacticaSquare\outline_top.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\build.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\launch.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\select.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\down.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\up.xnb

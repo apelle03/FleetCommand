@@ -34,3 +34,11 @@ Content\Ships\raider.xnb
 Content\Ships\raptor.xnb
 Content\Ships\viper-mkii.xnb
 Content\Ships\viper-mkvii.xnb
+Content\Decorations\Borders\GalacticaSquare\outline_corner.xnb
+Content\Decorations\Borders\GalacticaSquare\outline_side.xnb
+Content\Decorations\Borders\GalacticaSquare\outline_top.xnb
+Content\Menu\build.xnb
+Content\Menu\launch.xnb
+Content\Menu\select.xnb
+Content\Menu\down.xnb
+Content\Menu\up.xnb

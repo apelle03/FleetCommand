@@ -44,9 +44,9 @@ namespace Fleet_Command.Game.Levels {
                             break;
                     }
                 }
-                ResourceMonitor resourceMonitor = new ResourceMonitor(game, Controller, relativePos, new Vector2(relativeSize.X * .15f, relativeSize.Y * .2f));
-                Controls controls = new Controls(game, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
                 PlayArea playArea = new PlayArea(game, this, relativePos, relativeSize, relativePos, new Vector2(relativeSize.X, relativeSize.Y * .8f));
+                ResourceMonitor resourceMonitor = new ResourceMonitor(game, Controller, relativePos, new Vector2(relativeSize.X * .15f, relativeSize.Y * .2f));
+                Controls controls = new Controls(game, this, playArea, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
 
                 playArea.UpdateOrder = 0;          playArea.DrawOrder = 0;
                 controls.UpdateOrder = 100;        controls.DrawOrder = 100;

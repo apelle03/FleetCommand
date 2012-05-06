@@ -9,9 +9,9 @@ using Fleet_Command.Game.GameInfo;
 
 namespace Fleet_Command.Game.Players {
     public class Player {
-        protected string Name { get; set; }
-        protected int Number { get; set; }
-        protected Color Color { get; set;}
+        public string Name { get; set; }
+        public int Number { get; set; }
+        public Color Color { get; set;}
 
         protected Dictionary<string, ResourceCounter> resources;
         public Dictionary<string, ResourceCounter> Resources { get { return resources; } }

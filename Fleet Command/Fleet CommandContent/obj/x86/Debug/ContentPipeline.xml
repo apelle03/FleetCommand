@@ -325,6 +325,78 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\viper-mkvii.xnb</Output>
       <Time>2012-05-05T15:16:06.6913695-04:00</Time>
     </Item>
+    <Item>
+      <Source>Decorations\Borders\GalacticaSquare\outline_corner.png</Source>
+      <Name>Decorations\Borders\GalacticaSquare\outline_corner</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\GalacticaSquare\outline_corner.xnb</Output>
+      <Time>2012-05-05T19:54:13.4963195-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\GalacticaSquare\outline_side.png</Source>
+      <Name>Decorations\Borders\GalacticaSquare\outline_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\GalacticaSquare\outline_side.xnb</Output>
+      <Time>2012-02-26T20:57:08.8865457-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\GalacticaSquare\outline_top.png</Source>
+      <Name>Decorations\Borders\GalacticaSquare\outline_top</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\GalacticaSquare\outline_top.xnb</Output>
+      <Time>2012-02-26T20:56:57.2228786-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\build.png</Source>
+      <Name>Menu\build</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\build.xnb</Output>
+      <Time>2012-05-05T21:41:31.4165173-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\launch.png</Source>
+      <Name>Menu\launch</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\launch.xnb</Output>
+      <Time>2012-05-05T21:43:34.453879-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\select.png</Source>
+      <Name>Menu\select</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\select.xnb</Output>
+      <Time>2012-05-05T21:42:43.0215932-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\down.png</Source>
+      <Name>Menu\down</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\down.xnb</Output>
+      <Time>2012-05-05T21:45:06.5461186-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\up.png</Source>
+      <Name>Menu\up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\up.xnb</Output>
+      <Time>2012-05-05T21:45:24.5101757-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

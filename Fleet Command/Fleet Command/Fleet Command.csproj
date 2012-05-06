@@ -122,12 +122,16 @@
     <Compile Include="Game\Commands\Dock.cs" />
     <Compile Include="Game\Commands\Move.cs" />
     <Compile Include="Game\Commands\PassiveCommand.cs" />
+    <Compile Include="Game\GameInfo\ConstructableInfo.cs" />
+    <Compile Include="Game\GameInfo\Constructables.cs" />
     <Compile Include="Game\GameInfo\ResourceInfo.cs" />
     <Compile Include="Game\GameInfo\Resources.cs" />
+    <Compile Include="Game\Levels\BuildInfo.cs" />
     <Compile Include="Game\Levels\Control.cs" />
     <Compile Include="Game\Levels\Controls.cs" />
     <Compile Include="Game\DGC.cs" />
     <Compile Include="Game\DGCDelegator.cs" />
+    <Compile Include="Game\Levels\ControlInfo.cs" />
     <Compile Include="Game\Levels\Level.cs" />
     <Compile Include="Game\Levels\LevelComponent.cs" />
     <Compile Include="Game\Levels\PlayArea.cs" />
