@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -34,14 +36,32 @@ namespace Fleet_Command {
         protected Level level;
 
         public FC() {
-            settingsDir = ".\\";
+            settingsDir = "./";
 
             graphics = new GraphicsDeviceManager(this);
+
+            StreamReader reader = new StreamReader(settingsDir + "resolution.ini");
+            int width = Int32.Parse(reader.ReadLine());
+            int height = Int32.Parse(reader.ReadLine());
+            reader.Close();
+
+            DisplayModeCollection dmc = GraphicsAdapter.DefaultAdapter.SupportedDisplayModes;
+            bool good = false;
+            foreach (DisplayMode dm in dmc) {
+                if (dm.Width == width && dm.Height == height) {
+                    graphics.PreferredBackBufferWidth = width;
+                    graphics.PreferredBackBufferHeight = height;
+                    good = true;
+                    break;
+                }
+            }
             
+            if (!good) {
+                graphics.PreferredBackBufferWidth = 1280;
+                graphics.PreferredBackBufferHeight = 800;
+            }
             graphics.PreferMultiSampling = true;
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 800;
-            //graphics.IsFullScreen = true;
+            graphics.IsFullScreen = true;
             
             this.IsMouseVisible = true;
 

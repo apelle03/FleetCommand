@@ -40,7 +40,12 @@ namespace Fleet_Command.Game.Objects {
             // build units
             if (BuildQueue.Count <= 1) {
                 List<ConstructableInfo> constructables = Constructables.ConstructableList;
-                BuildQueueInfo bi = new BuildQueueInfo(FC, constructables[1], this);
+                BuildQueueInfo bi;
+                if (rand.NextDouble() < .8f) {
+                    bi = new BuildQueueInfo(FC, constructables[1], this);
+                } else {
+                    bi = new BuildQueueInfo(FC, constructables[4], this);
+                }
                 bi.LoadContent();
                 BuildQueue.Add(bi);                
             }
