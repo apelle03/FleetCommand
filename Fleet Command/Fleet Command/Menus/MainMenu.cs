@@ -26,6 +26,11 @@ namespace Fleet_Command.Menus {
 
         public MainMenu(FC game, Vector2 relPos, Vector2 relSize, string bckgrnd, Color color)
             : base(game, relPos, relSize, bckgrnd, color) {
+                MenuComponent title = new MenuComponent(game,
+                    new Vector2(relPos.X + relSize.X * .1f, relPos.Y),
+                    new Vector2(relSize.X * .8f, relSize.Y * .5f), "Fleet Command");
+                title.ScaleText = true;
+                Components.Add(title);
                 Components.Add(new Button(game,
                     new Vector2(relPos.X + relSize.X * .25f, relPos.Y + relSize.Y * .5f),
                     new Vector2(relSize.X * .5f, relSize.Y * .1f), "Start Game", StartGame));

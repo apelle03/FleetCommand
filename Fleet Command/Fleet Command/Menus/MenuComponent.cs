@@ -13,9 +13,11 @@ namespace Fleet_Command.Menus {
 
         protected string text;
         protected SpriteFont font;
+        protected float textScale;
         protected Vector2 textLocation;
         protected Color textColor;
 
+        public bool ScaleText { get; set; }
         public string Text { get; set; }
 
         public MenuComponent(FC game, Vector2 relPos, Vector2 relSize, string text)
@@ -32,20 +34,24 @@ namespace Fleet_Command.Menus {
             base.LoadContent();
             font = FC.Content.Load<SpriteFont>("battlestar");
             Vector2 textSize = font.MeasureString(text);
-            textLocation = new Vector2(BoundingBox.X + BoundingBox.Width / 2 - textSize.X / 2,
-                BoundingBox.Y + BoundingBox.Height / 2 - textSize.Y / 2 * 0.8f);
+            if (ScaleText) {
+                textScale = Math.Min(BoundingBox.Width / textSize.X, BoundingBox.Height / textSize.Y);
+            } else {
+                textScale = 1;
+            }
+            textLocation = new Vector2(BoundingBox.X + BoundingBox.Width / 2 - textSize.X * textScale / 2,
+                BoundingBox.Y + BoundingBox.Height / 2 - textSize.Y  * textScale / 2 * 0.8f);
         }
 
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
-
         }
 
         public override void BeforeDraw(GameTime gameTime) {
             base.BeforeDraw(gameTime);
             SpriteBatch spriteBatch = FC.SpriteBatch;
-            spriteBatch.DrawString(font, text, textLocation, textColor);
-            spriteBatch.DrawString(font, text, textLocation + Vector2.One, Color.BurlyWood);
+            spriteBatch.DrawString(font, text, textLocation, textColor, 0, Vector2.Zero, textScale, SpriteEffects.None, 0);
+            spriteBatch.DrawString(font, text, textLocation + Vector2.One, Color.BurlyWood, 0, Vector2.Zero, textScale, SpriteEffects.None, 0);
         }
     }
 }

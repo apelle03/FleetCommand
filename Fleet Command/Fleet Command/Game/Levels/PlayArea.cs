@@ -60,13 +60,15 @@ namespace Fleet_Command.Game.Levels {
 
                 Random rand = new Random();
 
-                Components.Add(new Resource(game, this, Vector2.One * 1500, (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
+                float size = 20000;
+
+                Components.Add(new Earth(game, this, new Vector2((float)(size * .5f * rand.NextDouble()), (float)(size * .5f * rand.NextDouble())), (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
+                Components.Add(new Mars(game, this, new Vector2((float)(size - size * .5f * rand.NextDouble()), (float)(size - size * .5f * rand.NextDouble())), (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
+                for (int i = 0; i < 5; i++) {
+                    Components.Add(new Asteroid(game, this, new Vector2((float)(size * rand.NextDouble()), (float)(size * rand.NextDouble())), (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
+                }
                 Components.Add(new Galactica(game, this, Vector2.One * 0, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new CombatShip(game, this, Vector2.One * 200, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new CombatShip(game, this, Vector2.One * 300, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new CombatShip(game, this, Vector2.One * 400, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new CombatShip(game, this, Vector2.One * 500, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new Basestar(game, this, Vector2.One * -2000, -MathHelper.PiOver2, level.Players[2]));
+                Components.Add(new Basestar(game, this, Vector2.One * size, -MathHelper.PiOver2, level.Players[2]));
         }
 
         public override void Initialize() {

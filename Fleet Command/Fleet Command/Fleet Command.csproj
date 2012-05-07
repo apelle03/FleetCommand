@@ -148,13 +148,16 @@
     <Compile Include="Game\Commands\Command.cs" />
     <Compile Include="Game\Levels\ShipInfo.cs" />
     <Compile Include="Game\Levels\UnitInfo.cs" />
+    <Compile Include="Game\Objects\Asteroid.cs" />
     <Compile Include="Game\Objects\Basestar.cs" />
     <Compile Include="Game\Objects\Bullet.cs" />
     <Compile Include="Game\Objects\CapitalShip.cs" />
     <Compile Include="Game\Objects\CombatShip.cs" />
+    <Compile Include="Game\Objects\Earth.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
     <Compile Include="Game\Objects\HeavyRaider.cs" />
     <Compile Include="Game\Objects\LightMissile.cs" />
+    <Compile Include="Game\Objects\Mars.cs" />
     <Compile Include="Game\Objects\Missile.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
     <Compile Include="Game\Levels\Viewport.cs" />

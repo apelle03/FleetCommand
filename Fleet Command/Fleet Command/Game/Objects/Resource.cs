@@ -24,7 +24,7 @@ namespace Fleet_Command.Game.Objects {
                 }
         }
 
-        public int GetRate(string name) {
+        public virtual int GetRate(string name) {
             int rate = 0;
             collectionRates.TryGetValue(name, out rate);
             return rate;

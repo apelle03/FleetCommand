@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 using Fleet_Command.Game;
+using Fleet_Command.Game.GameInfo;
 using Fleet_Command.Game.Levels;
 using Fleet_Command.Game.Players;
 using Fleet_Command.Menus;
@@ -106,6 +107,10 @@ namespace Fleet_Command {
             players.Add(new Player(0, "Neutral", Color.Gray));
             players.Add(new Player(1, "Human", Color.Blue));
             players.Add(new Player(2, "Cylon", Color.Red));
+            foreach (ResourceInfo ri in Resources.ResourceList) {
+                players[1].Supply(ri.Name, 500);
+                players[2].Supply(ri.Name, 500);
+            }
             level = new Level(this, players, players[1]);
             level.DrawOrder = 1;
             level.Initialize();
