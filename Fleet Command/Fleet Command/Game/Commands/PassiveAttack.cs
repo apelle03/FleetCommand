@@ -18,7 +18,7 @@ namespace Fleet_Command.Game.Commands {
         public override void Perform() {
             Unit closest = null;
             foreach (Unit u in targets) {
-                if (u is Ship && u.Controller != controller.Controller && u.Controller != controller.PlayArea.Level.Players[0]) {
+                if (u is Ship && u.CanBeAttacked && u.Controller != controller.Controller && u.Controller != controller.PlayArea.Level.Players[0]) {
                     if (closest == null || (u.Pos - controller.Pos).Length() < (closest.Pos - controller.Pos).Length()) {
                         closest = u;
                     }

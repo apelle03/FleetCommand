@@ -17,9 +17,9 @@ namespace Fleet_Command.Game.Objects {
         public Mars(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
             collectionRates = new Dictionary<string, int>();
-            collectionRates.Add("Fuel", 1);
-            collectionRates.Add("Common Materials", 1);
-            collectionRates.Add("Rare Materials", 1);
+            collectionRates.Add("Fuel", 100);
+            collectionRates.Add("Common Materials", 100);
+            collectionRates.Add("Rare Materials", 100);
         }
 
         public override int GetRate(string name) {

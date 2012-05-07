@@ -40,8 +40,11 @@ namespace Fleet_Command.Game.Objects {
         protected float health;
         public float Health { get { return health; } }
 
-        protected Queue<ActiveCommand> activeCommands;
-        protected List<PassiveCommand> passiveCommands;
+        public bool CanBeAttacked { get; protected set; }
+
+        // should be lower visibility
+        public Queue<ActiveCommand> activeCommands { get; private set; }
+        public List<PassiveCommand> passiveCommands { get; private set; }
 
         protected Texture2D sprite;
 
@@ -60,6 +63,8 @@ namespace Fleet_Command.Game.Objects {
                 this.Angle = angle;
 
                 health = MaxHealth;
+
+                CanBeAttacked = true;
 
                 activeCommands = new Queue<ActiveCommand>();
                 passiveCommands = new List<PassiveCommand>();

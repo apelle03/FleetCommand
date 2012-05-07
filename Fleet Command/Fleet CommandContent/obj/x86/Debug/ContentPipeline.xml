@@ -287,7 +287,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raider-heavy.xnb</Output>
-      <Time>2012-05-05T15:30:32.6681681-04:00</Time>
+      <Time>2012-05-07T00:25:19.7333839-04:00</Time>
     </Item>
     <Item>
       <Source>Ships\raider.png</Source>
@@ -296,7 +296,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raider.xnb</Output>
-      <Time>2012-05-05T15:35:05.1845263-04:00</Time>
+      <Time>2012-05-07T00:25:17.5262934-04:00</Time>
     </Item>
     <Item>
       <Source>Ships\raptor.png</Source>
@@ -305,7 +305,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\raptor.xnb</Output>
-      <Time>2012-05-05T15:28:11.0349135-04:00</Time>
+      <Time>2012-05-07T00:25:05.2888546-04:00</Time>
     </Item>
     <Item>
       <Source>Ships\viper-mkii.png</Source>
@@ -323,7 +323,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Ships\viper-mkvii.xnb</Output>
-      <Time>2012-05-05T15:16:06.6913695-04:00</Time>
+      <Time>2012-05-07T00:24:58.7547309-04:00</Time>
     </Item>
     <Item>
       <Source>Decorations\Borders\GalacticaSquare\outline_corner.png</Source>

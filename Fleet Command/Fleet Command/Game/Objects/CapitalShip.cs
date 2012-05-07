@@ -30,6 +30,7 @@ namespace Fleet_Command.Game.Objects {
 
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
+
             if (Fuel < MaxFuel) {
                 ChangeFuel(controller.Resource("Fuel").Use(Math.Min(RefuelRate, MaxFuel - Fuel)));
             }

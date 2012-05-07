@@ -153,6 +153,7 @@
     <Compile Include="Game\Objects\Bullet.cs" />
     <Compile Include="Game\Objects\CapitalShip.cs" />
     <Compile Include="Game\Objects\CombatShip.cs" />
+    <Compile Include="Game\Objects\ComputerBasestar.cs" />
     <Compile Include="Game\Objects\Earth.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
     <Compile Include="Game\Objects\HeavyRaider.cs" />

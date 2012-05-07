@@ -17,9 +17,9 @@ namespace Fleet_Command.Game.Objects {
         public Asteroid(FC game, PlayArea playArea, Vector2 pos, float angle, Player controller)
             : base(game, playArea, pos, angle, controller) {
             collectionRates = new Dictionary<string, int>();
-            collectionRates.Add("Fuel", 10);
-            collectionRates.Add("Common Materials", 10);
-            collectionRates.Add("Rare Materials", 10);
+            collectionRates.Add("Fuel", 1000);
+            collectionRates.Add("Common Materials", 1000);
+            collectionRates.Add("Rare Materials", 1000);
         }
 
         public override int GetRate(string name) {

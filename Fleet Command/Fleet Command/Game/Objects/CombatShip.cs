@@ -54,6 +54,7 @@ namespace Fleet_Command.Game.Objects {
         public void Dock(CapitalShip hanger) {
             this.hangar = hanger;
             docked = true;
+            CanBeAttacked = false;
         }
 
         public void LaunchCommand(CapitalShip captialShip, bool immediate) {
@@ -66,6 +67,7 @@ namespace Fleet_Command.Game.Objects {
         public void Launch() {
             docked = false;
             hangar.Docked.Remove(this);
+            CanBeAttacked = true;
         }
 
         public override void Update(GameTime gameTime) {

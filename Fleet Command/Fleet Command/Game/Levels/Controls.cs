@@ -25,7 +25,6 @@ namespace Fleet_Command.Game.Levels {
         protected List<Control> topButtons, bottomButtons;
 
         protected List<BuildInfo> buildList;
-        //protected List<ControlInfo> buildQueue;
         protected List<ControlInfo> launchList;
         protected List<ControlInfo> selectList;
 
@@ -52,7 +51,6 @@ namespace Fleet_Command.Game.Levels {
                         buildList.Add(new BuildInfo(game, ci, null));
                     }
                 }
-                //buildQueue = new List<ControlInfo>();
                 launchList = new List<ControlInfo>();
                 selectList = new List<ControlInfo>();
 

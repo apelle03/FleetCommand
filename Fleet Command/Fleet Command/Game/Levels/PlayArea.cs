@@ -68,7 +68,7 @@ namespace Fleet_Command.Game.Levels {
                     Components.Add(new Asteroid(game, this, new Vector2((float)(size * rand.NextDouble()), (float)(size * rand.NextDouble())), (float)(rand.NextDouble() * MathHelper.TwoPi), level.Players[0]));
                 }
                 Components.Add(new Galactica(game, this, Vector2.One * 0, -MathHelper.PiOver2, level.Controller));
-                Components.Add(new Basestar(game, this, Vector2.One * size, -MathHelper.PiOver2, level.Players[2]));
+                Components.Add(new ComputerBasestar(game, this, Vector2.One * size, -MathHelper.PiOver2, level.Players[2]));
         }
 
         public override void Initialize() {
@@ -162,7 +162,7 @@ namespace Fleet_Command.Game.Levels {
                         }
                     } else if (u.Controller != level.Controller && u.BoundingBox.Contains(actLoc)) {
                         foreach (Unit s in selection) {
-                            if (s is Ship) {
+                            if (s is Ship && s.CanBeAttacked) {
                                 s.AttackCommand(u, !queueAct.Active);
                                 move = false;
                             }
@@ -199,6 +199,13 @@ namespace Fleet_Command.Game.Levels {
             base.Update(gameTime);
 
             // Remove dead units
+            foreach (Unit u in Components) {
+                if (u is CapitalShip && u.Health == 0) {
+                    foreach (CombatShip cs in ((CapitalShip)u).Docked) {
+                        cs.InflictDamage(cs.MaxHealth);
+                    }
+                }
+            }
             components.RemoveWhere(IsDead);
 
             // Add new units
@@ -214,7 +221,7 @@ namespace Fleet_Command.Game.Levels {
                 if (u.Controller == level.Controller) {
                     loss = false;
                 }
-                if (u.Controller != level.Controller) {
+                if (u.Controller != level.Controller && u.Controller != level.Players[0]) {
                     win = false;
                 }
                 if (!loss && !win) {
