@@ -29,6 +29,8 @@ namespace Fleet_Command {
 
         protected MainMenu mainMenu;
         protected PauseMenu pauseMenu;
+        protected WinMenu winMenu;
+        protected LoseMenu loseMenu;
         protected Level level;
 
         public FC() {
@@ -52,8 +54,18 @@ namespace Fleet_Command {
             pauseMenu.Enabled = false;
             pauseMenu.Visible = false;
             pauseMenu.DrawOrder = 10;
+            winMenu = new WinMenu(this, Vector2.Zero, Vector2.One, Color.Black);
+            winMenu.Enabled = false;
+            winMenu.Visible = false;
+            winMenu.DrawOrder = 10;
+            loseMenu = new LoseMenu(this, Vector2.Zero, Vector2.One, Color.Black);
+            loseMenu.Enabled = false;
+            loseMenu.Visible = false;
+            loseMenu.DrawOrder = 10;
             Components.Add(mainMenu);
             Components.Add(pauseMenu);
+            Components.Add(winMenu);
+            Components.Add(loseMenu);
         }
 
         protected override void Initialize() {
@@ -131,12 +143,36 @@ namespace Fleet_Command {
             pauseMenu.Enabled = false;
             level.Enabled = true;
         }
+
+        public void WinMenu() {
+            if (level != null) {
+                Components.Remove(level);
+                level = null;
+            }
+            winMenu.Enabled = true;
+            winMenu.Visible = true;
+        }
+
+        public void LoseMenu() {
+            if (level != null) {
+                Components.Remove(level);
+                level = null;
+            }
+            loseMenu.Enabled = true;
+            loseMenu.Visible = true;
+        }
         
         public void MainMenu() {
-            Components.Remove(level);
-            level = null;
+            if (level != null) {
+                Components.Remove(level);
+                level = null;
+            }
             pauseMenu.Visible = false;
             pauseMenu.Enabled = false;
+            winMenu.Visible = false;
+            winMenu.Enabled = false;
+            loseMenu.Visible = false;
+            loseMenu.Visible = false;
             mainMenu.Enabled = true;
             mainMenu.Visible = true;
         }

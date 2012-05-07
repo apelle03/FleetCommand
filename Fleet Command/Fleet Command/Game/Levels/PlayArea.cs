@@ -230,11 +230,11 @@ namespace Fleet_Command.Game.Levels {
             }
             if (loss) {
                 // Show loss screen here
-                FC.MainMenu();
+                FC.LoseMenu();
             }
             if (win) {
                 // Show win screen here
-                FC.MainMenu();
+                FC.WinMenu();
             }
         }
 
