@@ -406,6 +406,15 @@
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\bullet.xnb</Output>
       <Time>2012-05-06T20:40:04.9469548-04:00</Time>
     </Item>
+    <Item>
+      <Source>Projectiles\missile-light.png</Source>
+      <Name>Projectiles\missile-light</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\missile-light.xnb</Output>
+      <Time>2012-05-06T22:47:00.2410114-04:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>

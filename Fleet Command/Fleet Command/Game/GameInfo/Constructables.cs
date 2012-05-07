@@ -11,14 +11,19 @@ namespace Fleet_Command.Game.GameInfo {
 
         static Constructables() {
             Dictionary<string, float> resourceRequirements = new Dictionary<string, float>();
-            foreach (ResourceInfo ri in Resources.ResourceList) {
-                resourceRequirements.Add(ri.Name, 500);
-            }
-            ConstructableList.Add(new ConstructableInfo("Viper Mark II", "Ships/viper-mkii", "Human", typeof(CombatShip), resourceRequirements, .01f));
-            ConstructableList.Add(new ConstructableInfo("Viper Mark VII", "Ships/viper-mkvii", "Human", typeof(CombatShip), resourceRequirements, .01f));
-            ConstructableList.Add(new ConstructableInfo("Raptor", "Ships/raptor", "Human", typeof(CombatShip), resourceRequirements, .01f));
-            ConstructableList.Add(new ConstructableInfo("Raider", "Ships/raider", "Cylon", typeof(CombatShip), resourceRequirements, .01f));
-            ConstructableList.Add(new ConstructableInfo("Heavy Raider", "Ships/raider-heavy", "Cylon", typeof(CombatShip), resourceRequirements, .01f));
+            resourceRequirements.Add("Common Materials", 500);
+            resourceRequirements.Add("Rare Materials", 100);
+            ConstructableList.Add(new ConstructableInfo("Viper Mark II", "Ships/viper-mkii", "Human", typeof(ViperMKII), resourceRequirements, .01f));
+            ConstructableList.Add(new ConstructableInfo("Raider", "Ships/raider", "Cylon", typeof(Raider), resourceRequirements, .01f));
+            resourceRequirements = new Dictionary<string, float>();
+            resourceRequirements.Add("Common Materials", 700);
+            resourceRequirements.Add("Rare Materials", 150);
+            ConstructableList.Add(new ConstructableInfo("Viper Mark VII", "Ships/viper-mkvii", "Human", typeof(ViperMKVII), resourceRequirements, .01f));
+            resourceRequirements = new Dictionary<string, float>();
+            resourceRequirements.Add("Common Materials", 1000);
+            resourceRequirements.Add("Rare Materials", 400);
+            ConstructableList.Add(new ConstructableInfo("Raptor", "Ships/raptor", "Human", typeof(Raptor), resourceRequirements, .01f));
+            ConstructableList.Add(new ConstructableInfo("Heavy Raider", "Ships/raider-heavy", "Cylon", typeof(HeavyRaider), resourceRequirements, .01f));
         }
     }
 }

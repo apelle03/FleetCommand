@@ -28,8 +28,17 @@ namespace Fleet_Command.Game.GameInfo {
         }
 
         public Unit CreateNew(FC fc, PlayArea playArea, Vector2 pos, float angle, Player controller) {
-            //if (Type == typeof(CombatShip)) {
-            //}
+            if (Type == typeof(ViperMKII)) {
+                return new ViperMKII(fc, playArea, pos, angle, controller);
+            } else if (Type == typeof(ViperMKVII)) {
+                return new ViperMKVII(fc, playArea, pos, angle, controller);
+            } else if (Type == typeof(Raptor)) {
+                return new Raptor(fc, playArea, pos, angle, controller);
+            } else if (Type == typeof(Raider)) {
+                return new Raider(fc, playArea, pos, angle, controller);
+            } else if (Type == typeof(HeavyRaider)) {
+                return new HeavyRaider(fc, playArea, pos, angle, controller);
+            }
             return new CombatShip(fc, playArea, pos, angle, controller);
         }
     }

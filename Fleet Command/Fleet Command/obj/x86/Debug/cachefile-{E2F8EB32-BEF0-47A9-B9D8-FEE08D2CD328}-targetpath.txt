@@ -43,3 +43,4 @@ Content\Menu\select.xnb
 Content\Menu\down.xnb
 Content\Menu\up.xnb
 Content\Projectiles\bullet.xnb
+Content\Projectiles\missile-light.xnb

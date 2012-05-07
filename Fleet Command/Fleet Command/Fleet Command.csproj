@@ -153,11 +153,17 @@
     <Compile Include="Game\Objects\CapitalShip.cs" />
     <Compile Include="Game\Objects\CombatShip.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
+    <Compile Include="Game\Objects\HeavyRaider.cs" />
+    <Compile Include="Game\Objects\LightMissile.cs" />
     <Compile Include="Game\Objects\Missile.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
     <Compile Include="Game\Levels\Viewport.cs" />
+    <Compile Include="Game\Objects\Raider.cs" />
+    <Compile Include="Game\Objects\Raptor.cs" />
     <Compile Include="Game\Objects\Resource.cs" />
     <Compile Include="Game\Objects\Ship.cs" />
+    <Compile Include="Game\Objects\ViperMKII.cs" />
+    <Compile Include="Game\Objects\ViperMKVII.cs" />
     <Compile Include="Game\Players\Player.cs" />
     <Compile Include="Game\Players\ResourceCounter.cs" />
     <Compile Include="Game\RelativeSizeComponent.cs" />
