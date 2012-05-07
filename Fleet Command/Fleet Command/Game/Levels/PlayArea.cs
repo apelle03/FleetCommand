@@ -16,6 +16,7 @@ namespace Fleet_Command.Game.Levels {
         }
 
         protected Level level;
+        public Level Level { get { return level; } }
         protected List<Unit> toAdd, toRemove;
 
         protected Vector2 selectablePos, selectableSize;

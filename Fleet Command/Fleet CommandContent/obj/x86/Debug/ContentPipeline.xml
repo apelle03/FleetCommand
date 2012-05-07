@@ -188,7 +188,7 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\missile.xnb</Output>
-      <Time>2012-04-29T23:45:58.9622746-04:00</Time>
+      <Time>2012-05-06T20:36:52.768236-04:00</Time>
     </Item>
     <Item>
       <Source>Ships\Basestar.png</Source>
@@ -396,6 +396,15 @@
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\up.xnb</Output>
       <Time>2012-05-06T14:27:18.8846507-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Projectiles\bullet.png</Source>
+      <Name>Projectiles\bullet</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\bullet.xnb</Output>
+      <Time>2012-05-06T20:40:04.9469548-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

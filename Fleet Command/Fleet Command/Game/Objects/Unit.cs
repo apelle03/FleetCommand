@@ -28,6 +28,7 @@ namespace Fleet_Command.Game.Objects {
         public virtual float MaxHealth { get { return max_health; } }
 
         protected PlayArea playArea;
+        public PlayArea PlayArea { get { return playArea; } }
 
         protected Player controller;
         public Player Controller { get { return controller; } }

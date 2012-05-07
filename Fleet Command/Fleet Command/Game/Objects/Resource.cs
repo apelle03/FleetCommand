@@ -20,7 +20,7 @@ namespace Fleet_Command.Game.Objects {
             : base(game, playArea, pos, angle, controller) {
                 collectionRates = new Dictionary<string, int>();
                 foreach (ResourceInfo ri in Resources.ResourceList) {
-                    collectionRates.Add(ri.Name, 100);
+                    collectionRates.Add(ri.Name, 10);
                 }
         }
 

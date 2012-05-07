@@ -23,6 +23,7 @@ namespace Fleet_Command.Game.Objects {
         public virtual float RefuelRate { get { return refuel_rate; } }
 
         protected static int fire_rate = 20;
+        public virtual int FireRate { get { return fire_rate; } }
 
         protected int coolDown;
 
@@ -44,6 +45,7 @@ namespace Fleet_Command.Game.Objects {
                 fuelBar = new FuelBar(this);
                 coolDown = 0;
                 fuel = MaxFuel;
+                passiveCommands.Add(new PassiveAttack(this, null, PlayArea.Components));
         }
 
         public override void LoadContent() {
@@ -56,7 +58,7 @@ namespace Fleet_Command.Game.Objects {
         public override void Update(GameTime gameTime) {
             base.Update(gameTime);
 
-            coolDown = (int)MathHelper.Clamp(--coolDown, 0, fire_rate);
+            coolDown = (int)MathHelper.Clamp(--coolDown, 0, FireRate);
 
             selectionBorder.Update();
             healthBar.Update();
@@ -98,7 +100,7 @@ namespace Fleet_Command.Game.Objects {
                 Projectile projectile = new Projectile(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
                 projectile.AttackCommand(target, true);
                 playArea.Add(projectile);
-                coolDown = fire_rate;
+                coolDown = FireRate;
             }
         }
     }

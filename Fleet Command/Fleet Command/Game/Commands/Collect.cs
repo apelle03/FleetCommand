@@ -29,12 +29,13 @@ namespace Fleet_Command.Game.Commands {
         }
 
         public override bool Completed() {
-            foreach (ResourceCounter rc in controller.Controller.Resources.Values) {
+            return false; // collect forever needs work later
+            /*foreach (ResourceCounter rc in controller.Controller.Resources.Values) {
                 if (rc.Amount < rc.Capacity) {
                     return false;
                 }
             }
-            return true;
+            return true;*/
         }
     }
 }

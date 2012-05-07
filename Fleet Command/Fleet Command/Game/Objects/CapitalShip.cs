@@ -88,5 +88,14 @@ namespace Fleet_Command.Game.Objects {
                 buildCommand = null;
             }
         }
+
+        public override void Fire(Unit target) {
+            if (coolDown == 0 && (Pos - target.Pos).Length() < Range) {
+                Missile missile = new Missile(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
+                missile.AttackCommand(target, true);
+                playArea.Add(missile);
+                coolDown = FireRate;
+            }
+        }
     }
 }

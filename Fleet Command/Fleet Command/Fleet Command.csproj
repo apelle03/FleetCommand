@@ -127,6 +127,7 @@
     <Compile Include="Game\Commands\Dock.cs" />
     <Compile Include="Game\Commands\Launch.cs" />
     <Compile Include="Game\Commands\Move.cs" />
+    <Compile Include="Game\Commands\PassiveAttack.cs" />
     <Compile Include="Game\Commands\PassiveCommand.cs" />
     <Compile Include="Game\GameInfo\ConstructableInfo.cs" />
     <Compile Include="Game\GameInfo\Constructables.cs" />
@@ -148,9 +149,11 @@
     <Compile Include="Game\Levels\ShipInfo.cs" />
     <Compile Include="Game\Levels\UnitInfo.cs" />
     <Compile Include="Game\Objects\Basestar.cs" />
+    <Compile Include="Game\Objects\Bullet.cs" />
     <Compile Include="Game\Objects\CapitalShip.cs" />
     <Compile Include="Game\Objects\CombatShip.cs" />
     <Compile Include="Game\Objects\Galactica.cs" />
+    <Compile Include="Game\Objects\Missile.cs" />
     <Compile Include="Game\Objects\Projectile.cs" />
     <Compile Include="Game\Levels\Viewport.cs" />
     <Compile Include="Game\Objects\Resource.cs" />

@@ -21,12 +21,18 @@ namespace Fleet_Command.Game.Objects {
         protected new static float range = 200;
         public override float Range { get { return range; } }
 
+        protected new static float max_health = 1;
+        public override float MaxHealth { get { return max_health; } }
+
         protected new static float max_fuel = 10;
         public override float MaxFuel { get { return max_fuel; } }
         protected new static float fuel_rate = .0001f;
         public override float FuelRate { get { return fuel_rate; } }
         protected new static float refuel_rate = .01f;
         public override float RefuelRate { get { return refuel_rate; } }
+
+        protected new static int fire_rate = 5;
+        public override int FireRate { get { return fire_rate; } }
 
         protected bool docked;
         public bool Docked { get { return docked; } }
@@ -75,6 +81,15 @@ namespace Fleet_Command.Game.Objects {
         public override void Draw(GameTime gameTime) {
             if (!Docked) {
                 base.Draw(gameTime);
+            }
+        }
+
+        public override void Fire(Unit target) {
+            if (coolDown == 0 && (Pos - target.Pos).Length() < Range) {
+                Bullet bullet = new Bullet(fc, playArea, Pos, (float)Math.Atan2(target.Pos.Y - Pos.Y, target.Pos.X - Pos.X), controller);
+                bullet.AttackCommand(target, true);
+                playArea.Add(bullet);
+                coolDown = fire_rate;
             }
         }
     }
