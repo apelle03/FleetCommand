@@ -11,67 +11,13 @@
       <Time>2012-02-25T21:03:59.1588876-05:00</Time>
     </Item>
     <Item>
-      <Source>Background\star_10.png</Source>
-      <Name>Background\star_10</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+      <Source>mono.spritefont</Source>
+      <Name>mono</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_10.xnb</Output>
-      <Time>2012-03-04T23:12:32.8980372-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Background\star_15.png</Source>
-      <Name>Background\star_15</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_15.xnb</Output>
-      <Time>2012-03-04T23:12:32.8990373-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Background\star_2.png</Source>
-      <Name>Background\star_2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_2.xnb</Output>
-      <Time>2012-03-04T23:12:32.8970372-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Background\star_5.png</Source>
-      <Name>Background\star_5</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_5.xnb</Output>
-      <Time>2012-03-04T23:12:32.8980372-05:00</Time>
-    </Item>
-    <Item>
-      <Source>Decorations\Borders\Selection\outline_top.png</Source>
-      <Name>Decorations\Borders\Selection\outline_top</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Selection\outline_top.xnb</Output>
-      <Time>2012-03-11T20:46:07.3977433-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Decorations\Fills\Selection\fill.png</Source>
-      <Name>Decorations\Fills\Selection\fill</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Selection\fill.xnb</Output>
-      <Time>2012-03-11T20:46:54.2764246-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Decorations\Borders\Selection\outline_side.png</Source>
-      <Name>Decorations\Borders\Selection\outline_side</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Selection\outline_side.xnb</Output>
-      <Time>2012-03-11T20:46:07.3977433-04:00</Time>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\mono.xnb</Output>
+      <Time>2012-05-05T11:22:55.9377241-04:00</Time>
     </Item>
     <Item>
       <Source>Decorations\Fills\Galactica\fill.png</Source>
@@ -137,6 +83,42 @@
       <Time>2012-02-27T17:42:03.9508303-05:00</Time>
     </Item>
     <Item>
+      <Source>Background\star_10.png</Source>
+      <Name>Background\star_10</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_10.xnb</Output>
+      <Time>2012-03-04T23:12:32.8980372-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_15.png</Source>
+      <Name>Background\star_15</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_15.xnb</Output>
+      <Time>2012-03-04T23:12:32.8990373-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_2.png</Source>
+      <Name>Background\star_2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_2.xnb</Output>
+      <Time>2012-03-04T23:12:32.8970372-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Background\star_5.png</Source>
+      <Name>Background\star_5</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Background\star_5.xnb</Output>
+      <Time>2012-03-04T23:12:32.8980372-05:00</Time>
+    </Item>
+    <Item>
       <Source>Decorations\Fills\Galactica_White\fill.png</Source>
       <Name>Decorations\Fills\Galactica_White\fill</Name>
       <Importer>TextureImporter</Importer>
@@ -173,24 +155,6 @@
       <Time>2012-03-11T15:13:44.2481923-04:00</Time>
     </Item>
     <Item>
-      <Source>Decorations\Borders\Unit\outline.png</Source>
-      <Name>Decorations\Borders\Unit\outline</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Unit\outline.xnb</Output>
-      <Time>2012-03-11T22:58:58.7813649-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Projectiles\missile.png</Source>
-      <Name>Projectiles\missile</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\missile.xnb</Output>
-      <Time>2012-05-06T20:36:52.768236-04:00</Time>
-    </Item>
-    <Item>
       <Source>Ships\Basestar.png</Source>
       <Name>Ships\Basestar</Name>
       <Importer>TextureImporter</Importer>
@@ -209,13 +173,49 @@
       <Time>2012-04-29T12:39:03.5733694-04:00</Time>
     </Item>
     <Item>
-      <Source>Resources\Earth.png</Source>
-      <Name>Resources\Earth</Name>
+      <Source>Decorations\Borders\Selection\outline_top.png</Source>
+      <Name>Decorations\Borders\Selection\outline_top</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Earth.xnb</Output>
-      <Time>2012-05-03T14:31:26.5079108-04:00</Time>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Selection\outline_top.xnb</Output>
+      <Time>2012-03-11T20:46:07.3977433-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Fills\Selection\fill.png</Source>
+      <Name>Decorations\Fills\Selection\fill</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Fills\Selection\fill.xnb</Output>
+      <Time>2012-03-11T20:46:54.2764246-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Selection\outline_side.png</Source>
+      <Name>Decorations\Borders\Selection\outline_side</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Selection\outline_side.xnb</Output>
+      <Time>2012-03-11T20:46:07.3977433-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Decorations\Borders\Unit\outline.png</Source>
+      <Name>Decorations\Borders\Unit\outline</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Decorations\Borders\Unit\outline.xnb</Output>
+      <Time>2012-03-11T22:58:58.7813649-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Projectiles\missile.png</Source>
+      <Name>Projectiles\missile</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Projectiles\missile.xnb</Output>
+      <Time>2012-05-06T20:36:52.768236-04:00</Time>
     </Item>
     <Item>
       <Source>Resources\Icons\Air.png</Source>
@@ -225,6 +225,15 @@
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Air.xnb</Output>
       <Time>2012-05-03T15:28:31.9754705-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Resources\Earth.png</Source>
+      <Name>Resources\Earth</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Earth.xnb</Output>
+      <Time>2012-05-03T14:31:26.5079108-04:00</Time>
     </Item>
     <Item>
       <Source>Resources\Icons\Common.png</Source>
@@ -270,15 +279,6 @@
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Resources\Icons\Water.xnb</Output>
       <Time>2012-05-03T15:31:21.5825517-04:00</Time>
-    </Item>
-    <Item>
-      <Source>mono.spritefont</Source>
-      <Name>mono</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\mono.xnb</Output>
-      <Time>2012-05-05T11:22:55.9377241-04:00</Time>
     </Item>
     <Item>
       <Source>Ships\raider-heavy.png</Source>
@@ -353,6 +353,24 @@
       <Time>2012-02-26T20:56:57.2228786-05:00</Time>
     </Item>
     <Item>
+      <Source>Menu\down.png</Source>
+      <Name>Menu\down</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\down.xnb</Output>
+      <Time>2012-05-06T14:27:01.7006677-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Menu\up.png</Source>
+      <Name>Menu\up</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\up.xnb</Output>
+      <Time>2012-05-06T14:27:18.8846507-04:00</Time>
+    </Item>
+    <Item>
       <Source>Menu\build.png</Source>
       <Name>Menu\build</Name>
       <Importer>TextureImporter</Importer>
@@ -378,24 +396,6 @@
       <Options>None</Options>
       <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\select.xnb</Output>
       <Time>2012-05-05T21:42:43.0215932-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\down.png</Source>
-      <Name>Menu\down</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\down.xnb</Output>
-      <Time>2012-05-06T14:27:01.7006677-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Menu\up.png</Source>
-      <Name>Menu\up</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Debug\Content\Menu\up.xnb</Output>
-      <Time>2012-05-06T14:27:18.8846507-04:00</Time>
     </Item>
     <Item>
       <Source>Projectiles\bullet.png</Source>

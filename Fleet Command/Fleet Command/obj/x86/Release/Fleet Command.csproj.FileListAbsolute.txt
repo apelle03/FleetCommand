@@ -14,8 +14,6 @@ C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Comm
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill_corner.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill_side.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Galactica_White\fill_top.xnb
-C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Units\Basestar.xnb
-C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Units\Galactica.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Selection\outline_top.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Fills\Selection\fill.xnb
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\Selection\outline_side.xnb
@@ -27,3 +25,34 @@ C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Comm
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\obj\x86\Release\Fleet Command.exe
 C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\obj\x86\Release\Fleet Command.pdb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\mono.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\Basestar.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\Galactica.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Icons\Air.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Earth.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Icons\Common.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Icons\Food.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Icons\Fuel.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Icons\Rare.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Icons\Water.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\raider-heavy.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\raider.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\raptor.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\viper-mkii.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Ships\viper-mkvii.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\GalacticaSquare\outline_corner.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\GalacticaSquare\outline_side.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Decorations\Borders\GalacticaSquare\outline_top.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Menu\down.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Menu\up.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Menu\build.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Menu\launch.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Menu\select.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Projectiles\bullet.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Projectiles\missile-light.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Asteroid.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Content\Resources\Mars.xnb
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Fleet Command.exe.manifest
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\bin\x86\Release\Fleet Command.application
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\obj\x86\Release\Fleet Command.exe.manifest
+C:\Users\Andrew\Programming\Visual Studio 2010\Projects\Fleet Command\Fleet Command\Fleet Command\obj\x86\Release\Fleet Command.application

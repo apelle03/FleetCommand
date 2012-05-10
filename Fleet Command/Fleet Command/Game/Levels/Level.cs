@@ -47,7 +47,7 @@ namespace Fleet_Command.Game.Levels {
                 PlayArea playArea = new PlayArea(game, this, relativePos, relativeSize, relativePos, new Vector2(relativeSize.X, relativeSize.Y * .8f));
                 ResourceMonitor resourceMonitor = new ResourceMonitor(game, Controller, relativePos, new Vector2(relativeSize.X * .15f, relativeSize.Y * .2f));
                 // debug
-                ResourceMonitor resourceMonitor2 = new ResourceMonitor(game, Players[2], relativePos + new Vector2(relativeSize.X * .15f, 0), new Vector2(relativeSize.X * .15f, relativeSize.Y * .2f));
+                //ResourceMonitor resourceMonitor2 = new ResourceMonitor(game, Players[2], relativePos + new Vector2(relativeSize.X * .15f, 0), new Vector2(relativeSize.X * .15f, relativeSize.Y * .2f));
                 Controls controls = new Controls(game, this, playArea, new Vector2(relativePos.X, relativePos.Y + relativeSize.Y * .8f), new Vector2(relativeSize.X, relativeSize.Y * .2f), Color.Black * .75f);
 
                 playArea.UpdateOrder = 0;          playArea.DrawOrder = 0;
@@ -55,14 +55,14 @@ namespace Fleet_Command.Game.Levels {
                 resourceMonitor.UpdateOrder = 200; resourceMonitor.DrawOrder = 200;
 
                 //debug
-                resourceMonitor2.UpdateOrder = 200; resourceMonitor2.DrawOrder = 200;
+                //resourceMonitor2.UpdateOrder = 200; resourceMonitor2.DrawOrder = 200;
                 
                 Components.Add(playArea);    
                 Components.Add(controls);
                 Components.Add(resourceMonitor);
 
                 // debug
-                Components.Add(resourceMonitor2);
+                //Components.Add(resourceMonitor2);
         }
 
         public override void Initialize() {
