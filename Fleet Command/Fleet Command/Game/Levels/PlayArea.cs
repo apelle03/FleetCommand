@@ -193,8 +193,12 @@ namespace Fleet_Command.Game.Levels {
 
             ComboInfo scroll = FC.InputManager.CheckAction(Actions.Scroll, this);
             if (scroll.Active) {
-                viewport.ChangeZoom(scroll.WheelDelta);
+                ComboInfo hover = FC.InputManager.CheckAction(Actions.Hover, this);
+                Vector2 zoomAnchor = new Vector2((float)ScreenToWorldX(hover.X), (float)ScreenToWorldY(hover.Y));
+                viewport.ZoomTo(scroll.WheelDelta, zoomAnchor);
             }
+
+            viewport.Update(gameTime);
 
             base.Update(gameTime);
 

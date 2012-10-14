@@ -8,7 +8,12 @@ using Microsoft.Xna.Framework;
 namespace Fleet_Command.Game.Levels {
     public class Viewport {
         private static float SCROLL_RATE = 50;
-        private static float ZOOM_RATE = .0001f;
+        private static float ZOOM_RATE = .005f;
+
+        private Vector2 deltaScroll;
+        private float zoomDest;
+        private Vector2 zoomAnchor;
+        private Vector2 zoomAnchorRel;
 
         public Vector2 Center { get; set; }
         private Vector2 size;
@@ -25,7 +30,14 @@ namespace Fleet_Command.Game.Levels {
         public Viewport(Vector2 center, Vector2 size, float zoom) {
             Center = center;
             Size = size;
+            
             Zoom = zoom;
+            zoomDest = Zoom;
+            zoomAnchor = Center;
+            zoomAnchorRel = Vector2.Zero;
+
+            deltaScroll = Vector2.Zero;
+
             scrollRate = Vector2.One;
             ScrollRate = SCROLL_RATE;
             ZoomRate = ZOOM_RATE;
@@ -33,23 +45,51 @@ namespace Fleet_Command.Game.Levels {
         }
 
         public void Scroll(Vector2 amount) {
-            Center += amount * ScrollRate;
-            viewArea.X = (int)(Center.X - Size.X / 2);
-            viewArea.Y = (int)(Center.Y - Size.Y / 2);
+            deltaScroll += amount * ScrollRate;
         }
 
         public void ChangeZoom(float amount) {
-            Zoom += amount * ZoomRate;
-            Zoom = Math.Max(Zoom, .01f);
-            viewArea.X = (int)(Center.X - Size.X / 2);
-            viewArea.Y = (int)(Center.Y - Size.Y / 2);
-            viewArea.Width = (int)(Size.X);
-            viewArea .Height = (int)(Size.Y);
+            zoomDest *= (float)Math.Pow(1 + Math.Abs(amount * ZoomRate), Math.Sign(amount));
+            zoomDest = Math.Max(zoomDest, .01f);
+            zoomDest = Math.Min(zoomDest, 10f);
+        }
+
+        public void ZoomTo(float amount, Vector2 anchor) {
+            zoomAnchor = anchor;
+            zoomAnchorRel = (anchor - Center) / Size;
+            ChangeZoom(amount);
+        }
+
+        public void ChangeView(float zoom, Vector2 scroll) {
+            Scroll(scroll);
+            ChangeZoom(zoom);
         }
 
         public Matrix Transformation() {
             return Matrix.CreateTranslation(new Vector3(-Center.X, -Center.Y, 0)) *
                 Matrix.CreateScale(new Vector3(Zoom, Zoom, 1));
+        }
+
+        public void Update(GameTime gameTime) {
+            float newZoom = Zoom + (zoomDest - Zoom) / 10;
+            if (Math.Abs(newZoom - Zoom) < 0.00001f) {
+                newZoom = zoomDest;
+            }
+            Zoom = newZoom;
+            Zoom = Math.Max(Zoom, .01f);
+            Zoom = Math.Min(Zoom, 10f);
+
+            zoomAnchor += deltaScroll / 10;
+            deltaScroll *= .9f;
+            Vector2 newRelativeAnchor = (zoomAnchor - Center) / Size;
+            Vector2 scroll = (newRelativeAnchor - zoomAnchorRel) * Size;
+
+            Center += scroll;
+
+            viewArea.X = (int)(Center.X - Size.X / 2);
+            viewArea.Y = (int)(Center.Y - Size.Y / 2);
+            viewArea.Width = (int)(Size.X);
+            viewArea.Height = (int)(Size.Y);
         }
     }
 }

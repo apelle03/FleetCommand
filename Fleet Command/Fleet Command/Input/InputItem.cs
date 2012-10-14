@@ -51,7 +51,8 @@ namespace Fleet_Command.Input {
                         }
                         break;
                     case MouseButtons.Wheel:
-                        if (mouseState.ScrollWheelValue /*- comboInfo.Wheel*/ == 0) {
+                        if (comboInfo.WheelDelta == 0) {
+                        //if (mouseState.ScrollWheelValue /*- comboInfo.Wheel*/ == 0) {
                             comboInfo.Active = false;
                         }
                         break;
