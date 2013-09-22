@@ -123,7 +123,6 @@ namespace Fleet_Command.Game.Levels {
                 selectionBox.SetCorner(x, y);
             } else if (!select.Active && selectionBox.Active) {
                 selectionBox.Active = false;
-                selectionBox.Update(gameTime);
                 Rectangle selectionArea = new Rectangle((int)ScreenToWorldX(selectionBox.BoundingBox.X),
                                                         (int)ScreenToWorldY(selectionBox.BoundingBox.Y),
                                                         (int)(ScreenToWorldX(selectionBox.BoundingBox.Right) - ScreenToWorldX(selectionBox.BoundingBox.Left)),
@@ -133,21 +132,15 @@ namespace Fleet_Command.Game.Levels {
                     if (u is Ship) {
                         ((Ship)u).Selected = false;
                         if (u.BoundingBox.Intersects(selectionArea) && u.Controller == level.Controller) {
-                            ((Ship)u).Selected = true;
-                            selection.Add(u);
+                            if (!(u is CombatShip) || !((CombatShip)u).Docked) {
+                                ((Ship)u).Selected = true;
+                                selection.Add(u);
+                            }
                         }
                     }
                 }
             }
             selectionBox.Update(gameTime);
-
-            for (int i = 0; i < selection.Count; i++) {
-                if (selection[i] is CombatShip && ((CombatShip)selection[i]).Docked) {
-                    ((Ship)selection[i]).Selected = false;
-                    selection.RemoveAt(i);
-                    i--;
-                }
-            }
 
             Point actLoc = new Point((int)ScreenToWorldX(act.X), (int)ScreenToWorldY(act.Y));
             bool move = true;
